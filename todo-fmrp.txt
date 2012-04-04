@@ -1,0 +1,57 @@
+================================ Traduções ===================================
+
+-- Todo --
+OK - corrigir os dois typos do po
+- atualizar functions.php no server para carregar os .mo novos do tema
+- tornar os outros templates traduziveis
+
+-- Bugs --
+OK - Imagens da sidebar quebram quando muda a lingua
+
+-- Dúvidas --
+* Existe versão em Espanhol do vídeo?
+
+-- Links --
+* .po generator: http://www.icanlocalize.com/tools/create_po_from_php
+* programa de traduzir: http://www.poedit.net/
+
+
+
+
+
+=========================== NOVOS BUGS =======================================
+
+• Erro ao clicar em Disciplinas > Clique aqui para a lista de disciplinas oferecidas no semestre
+• CSS mudou? Os títulos de seção aparecem de duas formas (Lista de Disciplinas diferente do resto) e tudo meio fora de centro (na altura).
+• aparece um | antes do english (no header)
+• dentro de Infra-Estrutura, no corpo do post, tem uma galeria que não aparece. Isso está correto?
+• paginação da busca está com 1 artigo/página. Imagino que era para desenvolvimento/debug, só precisa ajustar para um número maior, tipo 10.
+
+
+
+
+
+
+
+=========================== ANTIGOS ======================================
+- OK - 34 Alunos (mestrado e doutorado) - achar o link para curriculo lattes de cada um deles, 4 nao encontrados
+            Nenhum resultado foi encontrado para: Thaysa Brinck Fernandes da Silva
+            Nenhum resultado foi encontrado para: Clarissa Maria Ferreira Trzesniak
+            Nenhum resultado foi encontrado para: Danielle Chaves Gomes de Oliveira
+            Nenhum resultado foi encontrado para: Izilda Carolina de Meneses Gaya
+
+- Dissertações e Teses - não inseridos - a da Rita Romaro vvou checar o que aconteceu!!!
+- busca tese dissertacao: pagina de busca not found
+- aumentar o limite de tamanho da tese
+- ?prof Maristela
+- ?Endereço - mapa - do que lembro Kátia havia pedido para colocar aquela caixinha onde pessoa coloca o endereço de ond eestá saindo para ter o trajeto todo!!!
+
+- cadastrar dissertações e teses
+- consertar a busca por dissertações
+- ex-orientadores sem descricoes:
+  - PROF. DR. GERSON ANTÔNIO VANSAN
+  - PROF. DR. ISAIAS PESSOTTI
+  - PROF. DR. JOSÉ HÉRCULES GOLFETO
+- pubmed link para todos os credenciados
+- egresso precisa confirmar tese:
+  - Rita Aparecida Romaro

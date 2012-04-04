@@ -1,0 +1,10 @@
+#orientador_condicao label,
+#orientador_titulo label{
+  display:block;
+  width:100%;
+  margin:5px;
+}
+
+.url-field{
+  width:500px;
+}

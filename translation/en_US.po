@@ -1,0 +1,272 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Mauricio Campos Zuardi <mauricio.zuardi@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+
+#. Text in function
+#: functions.php:320
+msgid "Adicionar Nova Disciplina"
+msgstr "Add New Discipline"
+
+#. Text in function
+#: functions.php:320
+msgid "Adicionar Novo Aluno"
+msgstr "Add New Student"
+
+#. Text in function
+#: functions.php:320
+msgid "Adicionar Novo Orientador"
+msgstr "Add New Mentor"
+
+#. Text in function
+#: pgsm_alunos_doutorado.php:1
+#: pgsm_alunos_egressos.php:1
+#: pgsm_alunos_mestrado.php:1
+msgid "Alunos"
+msgstr "Students"
+
+#. Text in echo
+#: functions.php:254
+msgid "Credenciado"
+msgstr "Accredited Professor"
+
+#. Text in function
+#: pgsm_orientadores_credenciados.php:1
+msgid "Credenciados"
+msgstr "Accredited Professors"
+
+#. Text in function
+#: pgsm_people_list.php:109
+msgid "Currículo Lattes"
+msgstr "Curriculum Lattes"
+
+#. Text in function
+#: pgsm_alunos_doutorado.php:1
+msgid "Doutorado"
+msgstr "Doctoral Degree"
+
+# Tem um U a mais.
+# DouUtorando
+#. Text in echo
+#: functions.php:235
+msgid "Douutorando"
+msgstr "Doctoral Degree Student"
+
+#. Text in function
+#: functions.php:320
+msgid "Editar Aluno"
+msgstr "Edit Student"
+
+#. Text in function
+#: functions.php:320
+msgid "Editar Disciplina"
+msgstr "Edit Discipline"
+
+#. Text in function
+#: functions.php:320
+msgid "Editar Orientador"
+msgstr "Edit Mentor"
+
+#. Text in echo
+#: functions.php:240
+msgid "Egresso"
+msgstr "Former Student"
+
+#. Text in function
+#: pgsm_alunos_egressos.php:1
+msgid "Egressos"
+msgstr "Former Students"
+
+#. Text in function
+#: pgsm_ex_orientadores.php:1
+msgid "Ex-Orientadores"
+msgstr "Former Mentors"
+
+#. Text in echo
+#: functions.php:259
+msgid "Ex-orientador"
+msgstr "Former Mentor"
+
+#. Text in function
+#: functions.php:623
+msgid "First Header Widget Area"
+msgstr "First Header Widget Area"
+
+#. Text in echo
+#: functions.php:620
+msgid "Ler todas as notícias"
+msgstr "Read all News"
+
+#. Text in echo
+#: pgsm_people_list.php:76
+msgid "Ler todos os posts"
+msgstr "Read all posts"
+
+#. Text in echo
+#: pgsm_people_list.php:97
+msgid "Links Relacionados"
+msgstr "Related links"
+
+#. Text in function
+#: pgsm_alunos_mestrado.php:1
+msgid "Mestrado"
+msgstr "Master Degree"
+
+#. Text in echo
+#: functions.php:230
+msgid "Mestrando"
+msgstr "Master Degree Student"
+
+#. Text in function
+#: functions.php:320
+msgid "Nenhum aluno encontrado"
+msgstr "No student found"
+
+#. Text in function
+#: functions.php:320
+msgid "Nenhum orientador encontrado"
+msgstr "No mentor found"
+
+# DiscipliNa
+#. Text in function
+#: functions.php:320
+msgid "Nenhuma disciplica encontrada"
+msgstr "No discipline found"
+
+#. Text in function
+#: functions.php:320
+msgid "Nova Disciplina"
+msgstr "New Discipline"
+
+#. Text in function
+#: functions.php:320
+msgid "Novo Aluno"
+msgstr "New Student"
+
+#. Text in function
+#: functions.php:320
+msgid "Novo Orientador"
+msgstr "New Mentor"
+
+#. Text in function
+#: functions.php:320
+msgid "Não há alunos na lixeira"
+msgstr "There are no students in the Recycle Bin"
+
+#. Text in function
+#: functions.php:320
+msgid "Não há disciplinas na lixeira"
+msgstr "There are no disciplines in the Recycle Bin"
+
+#. Text in function
+#: functions.php:320
+msgid "Não há orientadores na lixeira"
+msgstr "There are no mentors in the Recycle Bin"
+
+#. Text in function
+#: pgsm_ex_orientadores.php:1
+#: pgsm_orientadores_credenciados.php:1
+msgid "Orientadores"
+msgstr "Mentors"
+
+#. Text in function
+#: functions.php:166
+msgid "PGSM"
+msgstr "MHGP Mental Health Graduate Program"
+
+#. Text in function
+#: functions.php:320
+msgid "Pesquisar Alunos"
+msgstr "Search Students"
+
+#. Text in function
+#: functions.php:320
+msgid "Pesquisar Disciplinas"
+msgstr "Search Disciplines"
+
+#. Text in function
+#: functions.php:320
+msgid "Pesquisar Orientadores"
+msgstr "Search Mentors"
+
+#. Text in function
+#: functions.php:623
+msgid "Primary Widget Area"
+msgstr "Primary Widget Area"
+
+#. Text in echo
+#: functions.php:284
+msgid "Prof."
+msgstr "Prof."
+
+#. Text in echo
+#: functions.php:274
+msgid "Prof. Dr."
+msgstr "Prof. Dr."
+
+#. Text in echo
+#: functions.php:289
+msgid "Profa."
+msgstr "Profa."
+
+#. Text in echo
+#: functions.php:279
+msgid "Profa. Dra."
+msgstr "Profa. Dra."
+
+#. Text in echo
+#: index.php:43
+msgid "Publicado por"
+msgstr "Published by"
+
+#. Text in function
+#: pgsm_people_list.php:109
+msgid "Pubmed"
+msgstr "Pubmed"
+
+#. Text in function
+#: functions.php:623
+msgid "The first header widget area"
+msgstr "The first header widget area"
+
+#. Text in function
+#: functions.php:623
+msgid "The primary widget area"
+msgstr "The primary widget area"
+
+#. Text in function
+#: pgsm_people_list.php:109
+msgid "Twitter"
+msgstr "Twitter"
+
+#. Text in function
+#: functions.php:320
+msgid "Visualizar Aluno"
+msgstr "View Student"
+
+#. Text in function
+#: functions.php:320
+msgid "Visualizar Disciplina"
+msgstr "View Discipline"
+
+#. Text in function
+#: functions.php:320
+msgid "Visualizar Orientador"
+msgstr "View Mentor"
+
+#. Text in function
+#: sidebar.php:25
+msgid "Últimas Notícias"
+msgstr "Latest News"
+
+#. Text in echo
+#: pgsm_people_list.php:61
+msgid "Últimos Posts"
+msgstr "Latest Posts"
+

@@ -1,0 +1,269 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Fabricio <fabricio@fabricio.org>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+
+#. Text in function
+#: functions.php:320
+msgid "Adicionar Nova Disciplina"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Adicionar Novo Aluno"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Adicionar Novo Orientador"
+msgstr ""
+
+#. Text in function
+#: pgsm_alunos_doutorado.php:1
+#: pgsm_alunos_egressos.php:1
+#: pgsm_alunos_mestrado.php:1
+msgid "Alunos"
+msgstr ""
+
+#. Text in echo
+#: functions.php:254
+msgid "Credenciado"
+msgstr ""
+
+#. Text in function
+#: pgsm_orientadores_credenciados.php:1
+msgid "Credenciados"
+msgstr ""
+
+#. Text in function
+#: pgsm_people_list.php:109
+msgid "Currículo Lattes"
+msgstr ""
+
+#. Text in function
+#: pgsm_alunos_doutorado.php:1
+msgid "Doutorado"
+msgstr ""
+
+#. Text in echo
+#: functions.php:235
+msgid "Douutorando"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Editar Aluno"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Editar Disciplina"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Editar Orientador"
+msgstr ""
+
+#. Text in echo
+#: functions.php:240
+msgid "Egresso"
+msgstr ""
+
+#. Text in function
+#: pgsm_alunos_egressos.php:1
+msgid "Egressos"
+msgstr ""
+
+#. Text in function
+#: pgsm_ex_orientadores.php:1
+msgid "Ex-Orientadores"
+msgstr ""
+
+#. Text in echo
+#: functions.php:259
+msgid "Ex-orientador"
+msgstr ""
+
+#. Text in function
+#: functions.php:623
+msgid "First Header Widget Area"
+msgstr ""
+
+#. Text in echo
+#: functions.php:620
+msgid "Ler todas as notícias"
+msgstr ""
+
+#. Text in echo
+#: pgsm_people_list.php:76
+msgid "Ler todos os posts"
+msgstr ""
+
+#. Text in echo
+#: pgsm_people_list.php:97
+msgid "Links Relacionados"
+msgstr ""
+
+#. Text in function
+#: pgsm_alunos_mestrado.php:1
+msgid "Mestrado"
+msgstr ""
+
+#. Text in echo
+#: functions.php:230
+msgid "Mestrando"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Nenhum aluno encontrado"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Nenhum orientador encontrado"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Nenhuma disciplica encontrada"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Nova Disciplina"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Novo Aluno"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Novo Orientador"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Não há alunos na lixeira"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Não há disciplinas na lixeira"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Não há orientadores na lixeira"
+msgstr ""
+
+#. Text in function
+#: pgsm_ex_orientadores.php:1
+#: pgsm_orientadores_credenciados.php:1
+msgid "Orientadores"
+msgstr ""
+
+#. Text in function
+#: functions.php:166
+msgid "PGSM"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Pesquisar Alunos"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Pesquisar Disciplinas"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Pesquisar Orientadores"
+msgstr ""
+
+#. Text in function
+#: functions.php:623
+msgid "Primary Widget Area"
+msgstr ""
+
+#. Text in echo
+#: functions.php:284
+msgid "Prof."
+msgstr ""
+
+#. Text in echo
+#: functions.php:274
+msgid "Prof. Dr."
+msgstr ""
+
+#. Text in echo
+#: functions.php:289
+msgid "Profa."
+msgstr ""
+
+#. Text in echo
+#: functions.php:279
+msgid "Profa. Dra."
+msgstr ""
+
+#. Text in echo
+#: index.php:43
+msgid "Publicado por"
+msgstr ""
+
+#. Text in function
+#: pgsm_people_list.php:109
+msgid "Pubmed"
+msgstr ""
+
+#. Text in function
+#: functions.php:623
+msgid "The first header widget area"
+msgstr ""
+
+#. Text in function
+#: functions.php:623
+msgid "The primary widget area"
+msgstr ""
+
+#. Text in function
+#: pgsm_people_list.php:109
+msgid "Twitter"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Visualizar Aluno"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Visualizar Disciplina"
+msgstr ""
+
+#. Text in function
+#: functions.php:320
+msgid "Visualizar Orientador"
+msgstr ""
+
+#. Text in function
+#: sidebar.php:25
+msgid "Últimas Notícias"
+msgstr ""
+
+#. Text in echo
+#: pgsm_people_list.php:61
+msgid "Últimos Posts"
+msgstr ""
+

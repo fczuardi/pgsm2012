@@ -1,0 +1,22 @@
+# VIDEO Mime Types
+AddType video/ogg .ogv
+AddType video/mp4 .mp4
+AddType video/webm .webm
+
+# Raise upload file size limit to 200MB
+# php_value upload_max_filesize 200M
+# php_value post_max_size 200M
+# php_value max_execution_time 2000
+# php_value max_input_time 2000
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress

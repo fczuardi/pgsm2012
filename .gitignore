@@ -1,0 +1,9 @@
+www/wp-config.php
+www/wp-content/uploads/2011/*
+www/wp-content/uploads/2012/*
+www/wp-content/uploads/2013/*
+www/wp-content/uploads/userphoto/*
+www/wp-content/themes/pgsm-boilerplate-child/theme-options.php
+www/wp-content/themes/pgsm-boilerplate-child/pages_content/.DS_Store
+
+.DS_Store

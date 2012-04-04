@@ -1,0 +1,37 @@
+/******************************************************************
+IMAGE GALLERY
+******************************************************************/
+.gallery-item{
+  float:left;
+  padding-right: 5px;
+}
+.gallery-endcol{
+  padding-right: 0px;
+}
+#cboxOverlay{
+  background-color:#05212a;
+}
+#cboxContent{
+  margin-top:40px;
+}
+#cboxTitle,#cboxCurrent{
+  font-family: "Myriad Pro","FrancophilSans",Arial,"Helvetica Neue",Helvetica,sans-serif;
+}
+#cboxTitle{
+  font-size: 16px;
+  letter-spacing: 5px;
+  line-height: 40px;
+  text-transform: uppercase;
+  top:-40px;
+}
+#cboxCurrent{
+  margin-top: -6px;
+}
+.clear{
+  clear:both;
+}
+.slug-infra_estrutura .gallery{
+  margin-left: 38px;
+  padding-top: 28px;
+  padding-bottom: 45px;
+}
