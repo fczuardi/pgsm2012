@@ -3,8 +3,8 @@
 Template Name: Listagem de Disciplinas
 */
 get_header(); ?>
-<h1 class="entry-title com-subtitulo">Disciplinas</h1>
-<h2>Lista Completa</h2>
+<h1 class="entry-title com-subtitulo"><?php _e('Disciplinas', 'pgsm-boilerplate-child');?></h1>
+<h2><?php _e('Lista Completa', 'pgsm-boilerplate-child');?></h2>
 <form action="<?php echo home_url( "/" ); ?>" id="searchform" method="get" role="search">
 		<div>
 		<input type="search" id="s" name="s" value="" placeholder="Pesquisar por...">
@@ -12,7 +12,7 @@ get_header(); ?>
     <input type="hidden" name="post_type" value="pgsm_disciplina" />
 		</div>
 </form>
-<p><a href="https://janus.usp.br/janus/componente/disciplinasOferecidasInicial.jsf?action=2&codcpg=17&codare=17148">Clique aqui para lista de disciplinas oferecidas no semestre.</a></p>
+<p><a href="https://janus.usp.br/janus/componente/disciplinasOferecidasInicial.jsf?action=2&codcpg=17&codare=17148"><?php _e('Clique aqui para lista de disciplinas oferecidas no semestre', 'pgsm-boilerplate-child');?>.</a></p>
 <div class="layer-shadow"><hr /></div>
 
 <?php
@@ -45,8 +45,8 @@ $args=array(
         <div class="line-button"><?php next_posts_link("Mais Disciplinas") ?></div>
       </div>
     <?php else : ?>
-  		<h2 class="center">Not Found</h2>
-  		<p class="center">Sorry, but you are looking for something that isn't here.</p>
+  		<h2 class="center"><?php _e('Não Encontrado', 'pgsm-boilerplate-child');?></h2>
+  		<p class="center"><?php _e('Desculpe-nos, mas o que você procura não se encontra aqui', 'pgsm-boilerplate-child');?>.</p>
   		<?php get_search_form(); ?>
   	<?php endif; 
     $wp_query = $temp;  //reset back to original query

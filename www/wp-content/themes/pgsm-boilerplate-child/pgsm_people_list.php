@@ -120,8 +120,8 @@ $args=array(
         <div class="line-button"><?php next_posts_link($next_page_label) ?></div>
       </div>
     <?php else : ?>
-  		<h2 class="center">Not Found</h2>
-  		<p class="center">Sorry, but you are looking for something that isn't here.</p>
+  		<h2 class="center"><?php _e('Não Encontrado', 'pgsm-boilerplate-child');?></h2>
+  		<p class="center"><?php _e('Desculpe-nos, mas o que você procura não se encontra aqui', 'pgsm-boilerplate-child');?>.</p>
   		<?php get_search_form(); ?>
   	<?php endif; 
     $wp_query = $temp;  //reset back to original query

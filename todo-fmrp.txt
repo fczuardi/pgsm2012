@@ -2,8 +2,9 @@
 
 -- Todo --
 OK - corrigir os dois typos do po
+OK - tornar os outros templates traduziveis
 - atualizar functions.php no server para carregar os .mo novos do tema
-- tornar os outros templates traduziveis
+- apagar submenus do regulamento para linguas estrangeiras
 
 -- Bugs --
 OK - Imagens da sidebar quebram quando muda a lingua
