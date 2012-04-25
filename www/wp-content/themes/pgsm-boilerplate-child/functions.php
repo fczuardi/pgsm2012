@@ -20,7 +20,6 @@ function my_child_theme_setup() {
   add_action('init', 'create_type_disciplina');
   add_action('init', 'create_type_orientador');
   add_action('init', 'create_type_aluno');
-  add_action('init', 'load_text_domain');
   //customizacoes para os custom types
   add_filter('request', 'filter_request_for_custom_types');
   add_filter('request', 'filter_pagination_for_custom_types');
@@ -39,15 +38,15 @@ function my_child_theme_setup() {
   //custom fields for upload attachment form
   add_filter("attachment_fields_to_edit", "extra_attachment_fields_to_edit", null, 2);
   add_filter("attachment_fields_to_save", "extra_attachment_fields_to_save", null , 2);
-  load_theme_textdomain('pgsm-boilerplate-child', get_template_directory() . '/../pgsm-boilerplate-child/languages');
+  load_theme_textdomain('pgsm-boilerplate-child', get_stylesheet_directory() . '/languages');
+  //css de acordo com a lngua
+  add_filter('body_class', 'append_language_class');
 }
 add_action( 'after_setup_theme', 'my_child_theme_setup' );
 
-function my_theme_localized($locale) {
-	if (isset($_GET['lang'])) {
-		return $_GET['lang'];
-	}
-	return $locale;
+function append_language_class($classes){
+  $classes[] = get_bloginfo( 'language' );  //or however you want to name your class based on the language code
+  return $classes;
 }
 
 /* For adding custom field to gallery popup */

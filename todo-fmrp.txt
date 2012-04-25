@@ -3,11 +3,16 @@
 -- Todo --
 OK - corrigir os dois typos do po
 OK - tornar os outros templates traduziveis
-- atualizar functions.php no server para carregar os .mo novos do tema
+OK - atualizar functions.php no server para carregar os .mo novos do tema
 - apagar submenus do regulamento para linguas estrangeiras
+- Documentos em Espanhol
+
 
 -- Bugs --
 OK - Imagens da sidebar quebram quando muda a lingua
+- Orientadores: se vc clica em "credenciados" pela pagina, ele linka para a versao em portugues
+- Mesmo problema do link sem lingua na pagina inicial de INGRESSO
+- (vai sumir quando o todo for completado) Regulamento está com links quebrados nas outras linguas
 
 -- Dúvidas --
 * Existe versão em Espanhol do vídeo?
