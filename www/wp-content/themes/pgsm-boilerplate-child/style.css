@@ -174,10 +174,26 @@ NAVIGATION LEFT SIDEBAR
 #access .menu li.current_page_item{
   background-color:#3c7a8f;
 }
-#access .menu li a:hover{
+/* @TODO tirar este id hardcoded */
+body.es-ES #access .menu .page_item.page-item-151.parent.opened .children,
+body.en-US #access .menu .page_item.page-item-151.parent.opened .children{
+  display:none;
+}
+body.es-ES #access .menu li.page-item-151.parent.opened,
+body.en-US #access .menu li.page-item-151.parent.opened{
+  background-color:rgb(60, 122, 143);
+  margin-top:0px;
+  padding-top:0px;
+  color:#fff;
+}
+#access .menu li a:hover,
+body.es-ES #access .menu .page-item-151.parent.opened a:hover,
+body.en-US #access .menu .page-item-151.parent.opened a:hover{
   background-color:#418095;
 }
-#access .menu a{
+#access .menu a,
+body.es-ES #access .menu .page-item-151.parent.opened a,
+body.en-US #access .menu .page-item-151.parent.opened a{
   line-height:29px;
   padding-left:23px;
   padding-top:1px;
@@ -608,6 +624,7 @@ body.slug-dissertacoes_e_teses .doc-name{
   padding-top:0px;
 }
 /*INGRESSO E REGULAMENTO*/
+
 section.collapsible .entry{
   padding-top:22px;
 }

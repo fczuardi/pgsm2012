@@ -5,6 +5,8 @@ OK - corrigir os dois typos do po
 OK - tornar os outros templates traduziveis
 OK - atualizar functions.php no server para carregar os .mo novos do tema
 - apagar submenus do regulamento para linguas estrangeiras
+  OK - english and spanish do CSS
+  - mudar o conteudo da pagina de regulamento sem filhos do espanhol e ingles
 - Documentos em Espanhol
 
 
