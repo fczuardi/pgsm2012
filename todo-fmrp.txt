@@ -4,14 +4,15 @@
 OK - corrigir os dois typos do po
 OK - tornar os outros templates traduziveis
 OK - atualizar functions.php no server para carregar os .mo novos do tema
-- apagar submenus do regulamento para linguas estrangeiras
+OK - apagar submenus do regulamento para linguas estrangeiras
   OK - english and spanish do CSS
-  - mudar o conteudo da pagina de regulamento sem filhos do espanhol e ingles
+  OK - mudar o conteudo da pagina de regulamento sem filhos do espanhol e ingles
 - Documentos em Espanhol
 
 
 -- Bugs --
 OK - Imagens da sidebar quebram quando muda a lingua
+- Links para documentos em ingles estao quebrados
 - Orientadores: se vc clica em "credenciados" pela pagina, ele linka para a versao em portugues
 - Mesmo problema do link sem lingua na pagina inicial de INGRESSO
 - (vai sumir quando o todo for completado) Regulamento está com links quebrados nas outras linguas
