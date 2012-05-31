@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: Fabricio <fabricio@fabricio.org>\n"
+"Last-Translator: Mauricio Campos Zuardi <mauricio.zuardi@gmail.com>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -13,201 +13,201 @@ msgstr ""
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "<span class=\"%1$s\">Posted on</span> %2$s <span class=\"meta-sep\">by</span> %3$s"
-msgstr ""
+msgstr "<span class=\"%1$s\">Postado en</span> %2$s <span class=\"meta-sep\">by</span> %3$s"
 
 #. Text in function
 #: pgsm-boilerplate-child/inicial.php:17
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #. Text in function
 #: pgsm-boilerplate-child/page.php:24
 #: pgsm-boilerplate-child/inicial.php:16
 msgid "Pages:"
-msgstr ""
+msgstr "Páginas"
 
 #. Text in echo
 #: pgsm-boilerplate-child/header.php:55
 msgid "Skip to content"
-msgstr ""
+msgstr "Ir al contenido"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "View all posts by %s"
-msgstr ""
+msgstr "Ver posts por %s"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:173
 msgid "Ano de publicação"
-msgstr ""
+msgstr "Año de publicación"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:173
 msgid "Autor"
-msgstr ""
+msgstr "Autor"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:173
 msgid "Coorientadores"
-msgstr ""
+msgstr "Co-orientadores"
 
 #. Text in function
 #: pgsm-boilerplate-child/pgsm_alunos_doutorado.php:1
 #: pgsm-boilerplate-child/pgsm_alunos_mestrado.php:1
 #: pgsm-boilerplate-child/pgsm_alunos_egressos.php:1
 msgid "Mais Alunos"
-msgstr ""
+msgstr "Mas Alumnos"
 
 #. Text in function
 #: pgsm-boilerplate-child/pgsm_ex_orientadores.php:1
 msgid "Mais Ex-Orientadores"
-msgstr ""
+msgstr "Mas Ex-Orientadores"
 
 #. Text in function
 #: pgsm-boilerplate-child/pgsm_orientadores_credenciados.php:1
 msgid "Mais Orientadores"
-msgstr ""
+msgstr "Mas Orientadores"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:173
 #: pgsm-boilerplate-child/pgsm_ex_orientadores.php:1
 #: pgsm-boilerplate-child/pgsm_orientadores_credenciados.php:1
 msgid "Orientadores"
-msgstr ""
+msgstr "Orientadores"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Recent Posts With Time"
-msgstr ""
+msgstr "Posts recientes con fecha y hora"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "The most recent posts on your site, with timestamp"
-msgstr ""
+msgstr "Los posts mas recientes de su site con fecha y hora"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:173
 msgid "Tipo de publicação"
-msgstr ""
+msgstr "Tipo de publicación"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Adicionar Nova Disciplina"
-msgstr ""
+msgstr "Agregar Nueva Materia"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Adicionar Novo Aluno"
-msgstr ""
+msgstr "Agregar Nuevo Alumno"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Adicionar Novo Orientador"
-msgstr ""
+msgstr "Agregar Nuevo Orientador"
 
 #. Text in function
 #: pgsm-boilerplate-child/pgsm_alunos_doutorado.php:1
 #: pgsm-boilerplate-child/pgsm_alunos_mestrado.php:1
 #: pgsm-boilerplate-child/pgsm_alunos_egressos.php:1
 msgid "Alunos"
-msgstr ""
+msgstr "Alumnos"
 
 #. Text in echo
 #: pgsm-boilerplate-child/footer.php:33
 msgid "CEP"
-msgstr ""
+msgstr "CEP"
 
 #. Text in echo
 #: pgsm-boilerplate-child/pgsm_disciplina_index.php:15
 msgid "Clique aqui para lista de disciplinas oferecidas no semestre"
-msgstr ""
+msgstr "Haga click aquí para ver la lista materias ofrecidas en el semestre"
 
 #. Text in echo
 #: pgsm-boilerplate-child/functions.php:261
 msgid "Credenciado"
-msgstr ""
+msgstr "Acreditado"
 
 #. Text in function
 #: pgsm-boilerplate-child/pgsm_orientadores_credenciados.php:1
 msgid "Credenciados"
-msgstr ""
+msgstr "Acreditados"
 
 #. Text in function
 #: pgsm-boilerplate-child/pgsm_people_list.php:109
 msgid "Currículo Lattes"
-msgstr ""
+msgstr "Currículum Lattes"
 
 #. Text in echo
 #: pgsm-boilerplate-child/footer.php:29
 msgid "Depto. de Neurociências e Ciências do Comportamento da Faculdade de Medicina de Ribeirão Preto"
-msgstr ""
+msgstr "Departamento de Neurociencias y ciencias del comportamiento de la Facultad de Medicina de Ribeirão Preto"
 
 #. Text in echo
 #: pgsm-boilerplate-child/pgsm_people_list.php:124
 #: pgsm-boilerplate-child/index.php:56
 #: pgsm-boilerplate-child/pgsm_disciplina_index.php:49
 msgid "Desculpe-nos, mas o que você procura não se encontra aqui"
-msgstr ""
+msgstr "Disculpenos pero lo que usted busca no se encuentra aquí"
 
 #. Text in echo
 #: pgsm-boilerplate-child/pgsm_disciplina_index.php:6
 msgid "Disciplinas"
-msgstr ""
+msgstr "Materias"
 
 #. Text in function
 #: pgsm-boilerplate-child/pgsm_alunos_doutorado.php:1
 msgid "Doutorado"
-msgstr ""
+msgstr "Doctorado"
 
 #. Text in echo
 #: pgsm-boilerplate-child/functions.php:242
 msgid "Doutorando"
-msgstr ""
+msgstr "Estudiante de Doctorado"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Editar Aluno"
-msgstr ""
+msgstr "Editar Alumno"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Editar Disciplina"
-msgstr ""
+msgstr "Editar Materia"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Editar Orientador"
-msgstr ""
+msgstr "Editar Orientador"
 
 #. Text in echo
 #: pgsm-boilerplate-child/functions.php:247
 msgid "Egresso"
-msgstr ""
+msgstr "Egresado"
 
 #. Text in function
 #: pgsm-boilerplate-child/pgsm_alunos_egressos.php:1
 msgid "Egressos"
-msgstr ""
+msgstr "Egresados"
 
 #. Text in echo
 #: pgsm-boilerplate-child/sidebar.php:36
 msgid "Entidades<br />Relacionadas"
-msgstr ""
+msgstr "Entidades<br />Relacionadas"
 
 #. Text in function
 #: pgsm-boilerplate-child/pgsm_ex_orientadores.php:1
 msgid "Ex-Orientadores"
-msgstr ""
+msgstr "Ex-Orientadores"
 
 #. Text in echo
 #: pgsm-boilerplate-child/functions.php:266
 msgid "Ex-orientador"
-msgstr ""
+msgstr "Ex-orientador"
 
 #. Text in echo
 #: pgsm-boilerplate-child/footer.php:35
 msgid "Fax"
-msgstr ""
+msgstr "Fax"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:630
@@ -222,99 +222,99 @@ msgstr "Leer todas las noticias"
 #. Text in echo
 #: pgsm-boilerplate-child/pgsm_people_list.php:76
 msgid "Ler todos os posts"
-msgstr ""
+msgstr "Leer todos los posts"
 
 #. Text in echo
 #: pgsm-boilerplate-child/pgsm_people_list.php:97
 msgid "Links Relacionados"
-msgstr ""
+msgstr "Links Relacionados"
 
 #. Text in echo
 #: pgsm-boilerplate-child/pgsm_disciplina_index.php:7
 msgid "Lista Completa"
-msgstr ""
+msgstr "Lista Completa"
 
 #. Text in function
 #: pgsm-boilerplate-child/pgsm_alunos_mestrado.php:1
 msgid "Mestrado"
-msgstr ""
+msgstr "Maestría"
 
 #. Text in echo
 #: pgsm-boilerplate-child/functions.php:237
 msgid "Mestrando"
-msgstr ""
+msgstr "Estudiante de Maestría"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Nenhum aluno encontrado"
-msgstr ""
+msgstr "Ningun alumno encontrado"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Nenhum orientador encontrado"
-msgstr ""
+msgstr "Ningun orientador encontrado"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Nenhuma disciplina encontrada"
-msgstr ""
+msgstr "Ninguna materia encontrada"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Nova Disciplina"
-msgstr ""
+msgstr "Nueva Materia "
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Novo Aluno"
-msgstr ""
+msgstr "Nuevo Alumno"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Novo Orientador"
-msgstr ""
+msgstr "Nuevo Orientador"
 
 #. Text in echo
 #: pgsm-boilerplate-child/pgsm_people_list.php:123
 #: pgsm-boilerplate-child/index.php:55
 #: pgsm-boilerplate-child/pgsm_disciplina_index.php:48
 msgid "Não Encontrado"
-msgstr ""
+msgstr "No Encontrado"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Não há alunos na lixeira"
-msgstr ""
+msgstr "No hay alumnos en el basurero"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Não há disciplinas na lixeira"
-msgstr ""
+msgstr "No hay materias en el basurero"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Não há orientadores na lixeira"
-msgstr ""
+msgstr "No hay orientadores en el basurero"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:173
 msgid "PGSM"
-msgstr ""
+msgstr "PGSM"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Pesquisar Alunos"
-msgstr ""
+msgstr "Buscar Alumnos"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Pesquisar Disciplinas"
-msgstr ""
+msgstr "Buscar Materias"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Pesquisar Orientadores"
-msgstr ""
+msgstr "Buscar Orientadores"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:630
@@ -324,27 +324,27 @@ msgstr ""
 #. Text in echo
 #: pgsm-boilerplate-child/functions.php:291
 msgid "Prof."
-msgstr ""
+msgstr "Prof."
 
 #. Text in echo
 #: pgsm-boilerplate-child/functions.php:281
 msgid "Prof. Dr."
-msgstr ""
+msgstr "Prof. Dr."
 
 #. Text in echo
 #: pgsm-boilerplate-child/functions.php:296
 msgid "Profa."
-msgstr ""
+msgstr "Profa."
 
 #. Text in echo
 #: pgsm-boilerplate-child/functions.php:286
 msgid "Profa. Dra."
-msgstr ""
+msgstr "Profa. Dra."
 
 #. Text in echo
 #: pgsm-boilerplate-child/index.php:43
 msgid "Publicado por"
-msgstr ""
+msgstr "Publicado por"
 
 #. Text in function
 #: pgsm-boilerplate-child/pgsm_people_list.php:109
@@ -354,12 +354,12 @@ msgstr ""
 #. Text in echo
 #: pgsm-boilerplate-child/footer.php:28
 msgid "Pós-graduação em Saúde Mental"
-msgstr ""
+msgstr "Postgrado en Salud Mental"
 
 #. Text in echo
 #: pgsm-boilerplate-child/footer.php:34
 msgid "Tel"
-msgstr ""
+msgstr "Tel."
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:630
@@ -379,17 +379,17 @@ msgstr ""
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Visualizar Aluno"
-msgstr ""
+msgstr "Ver Alumno"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Visualizar Disciplina"
-msgstr ""
+msgstr "Ver Materia"
 
 #. Text in function
 #: pgsm-boilerplate-child/functions.php:327
 msgid "Visualizar Orientador"
-msgstr ""
+msgstr "Ver Orientador"
 
 #. Text in function
 #: pgsm-boilerplate-child/sidebar.php:25
@@ -400,5 +400,5 @@ msgstr "Últimas Noticias"
 #. Text in echo
 #: pgsm-boilerplate-child/pgsm_people_list.php:61
 msgid "Últimos Posts"
-msgstr ""
+msgstr "Últimos Posts"
 
