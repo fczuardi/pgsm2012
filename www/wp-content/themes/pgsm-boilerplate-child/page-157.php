@@ -22,22 +22,15 @@ get_header(); ?>
               <input type="text" name="query" value="<?php echo $_POST["query"];?>" />
               <input type="submit" value="<?php _e('Buscar', 'pgsm-boilerplate-child');?>" />
               <h2><?php _e('Procurar em', 'pgsm-boilerplate-child');?></h2>
-              <div id="filtros-busca">
-                
-                <?php
-                
-                
-                ?>
-                
-                
+              <div id="filtros-busca">  
                 <div class="col1">
-                  <label><input <?php if (isset($_POST["sb_mestrado"])) {echo 'checked';}?> type="checkbox" name="sb_mestrado" /> <?php _e('mestrado', 'pgsm-boilerplate-child');?></label>
-                  <label><input <?php if (isset($_POST["sb_doutorado"])) {echo 'checked';}?> type="checkbox" name="sb_doutorado" /> <?php _e('doutorado', 'pgsm-boilerplate-child');?></label>
+                  <label><input checked type="checkbox" name="sb_mestrado" /> <?php _e('mestrado', 'pgsm-boilerplate-child');?></label>
+                  <label><input checked type="checkbox" name="sb_doutorado" /> <?php _e('doutorado', 'pgsm-boilerplate-child');?></label>
                 </div>
                 <div class="col2">
-                  <label><input <?php if (isset($_POST["sb_autor"])) {echo 'checked';}?> type="checkbox" name="sb_autor" /> <?php _e('autor', 'pgsm-boilerplate-child');?></label>
-                  <label><input <?php if (isset($_POST["sb_titulo"])) {echo 'checked';}?> type="checkbox" name="sb_titulo" /> <?php _e('título', 'pgsm-boilerplate-child');?></label>
-                  <label><input <?php if (isset($_POST["sb_orientador"])) {echo 'checked';}?> type="checkbox" name="sb_orientador" /> <?php _e('orientador', 'pgsm-boilerplate-child');?></label>
+                  <label><input checked type="checkbox" name="sb_autor" /> <?php _e('autor', 'pgsm-boilerplate-child');?></label>
+                  <label><input checked type="checkbox" name="sb_titulo" /> <?php _e('título', 'pgsm-boilerplate-child');?></label>
+                  <label><input checked type="checkbox" name="sb_orientador" /> <?php _e('orientador', 'pgsm-boilerplate-child');?></label>
                 </div>
                 <div class="col3">
                   <h2><label><?php _e('Entre os Anos de', 'pgsm-boilerplate-child');?></label></h2>
@@ -69,28 +62,23 @@ get_header(); ?>
               
               global $wpdb; // Necessario para fazer query com SQL
               
-              // Variaveis do formulario para fazer a query
-              if (isset($_POST["sb_autor"])) {
-                $query_autor = $_POST["query"];
-              }
-              if (isset($_POST["sb_titulo"])) {
-                $query_titulo = $_POST["query"];
-              }
+              // Variavel do formulario para fazer a query
+              $query_string = $_POST["query"];
               
-              $attachments = $wpdb->get_results( 
-               "
-               SELECT      t2.*
-               FROM        $wpdb->postmeta t1
-               INNER JOIN  $wpdb->posts t2
-                           ON t2.ID = t1.post_id
-               WHERE (t2.post_type = 'attachment' AND t2.post_parent = ".get_the_ID()." )  
-               AND (t1.meta_key = '_ano_de_publicacao' AND t1.meta_value BETWEEN ".$ano_first." AND ".$ano_last.")  
-               AND (t2.post_title LIKE '%%".$query_titulo."%%')
-               AND (t1.meta_key = '_autor' AND t1.meta_value LIKE '%%".$query_autor."%%') 
-               
-               "
-               );
+              
+              $custom_meta_query = array('relation' => 'OR');
+              if (isset($_POST["sb_autor"])) {
+                array_push($custom_meta_query, array('key' => '_autor', 'value' => $query_string, 'compare' => 'LiKE'));
+              }
+              if (isset($_POST["sb_orientador"])) {
+                array_push($custom_meta_query, array('key' => '_orientadores', 'value' => $query_string, 'compare' => 'LIKE'));
+              }
+              $args = array('post_type' => 'attachment','posts_per_pages' => -1, 'post_parent' => $post->ID, 'meta_query' => $custom_meta_query); 
+              
               $gallery_ids = array();
+              
+              $attachments = get_posts($args);
+              
               if ($attachments){
                 foreach ($attachments as $attachment) {
                   echo $attachment->ID.' ';
