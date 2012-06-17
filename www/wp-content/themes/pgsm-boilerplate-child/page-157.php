@@ -9,6 +9,7 @@
 
 get_header(); ?>
 
+
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php if ( is_front_page() ) { ?>
@@ -28,9 +29,9 @@ get_header(); ?>
                   <label><input checked type="checkbox" name="sb_doutorado" /> <?php _e('doutorado', 'pgsm-boilerplate-child');?></label>
                 </div>
                 <div class="col2">
-                  <label><input checked type="checkbox" name="sb_autor" /> <?php _e('autor', 'pgsm-boilerplate-child');?></label>
-                  <label><input checked type="checkbox" name="sb_titulo" /> <?php _e('título', 'pgsm-boilerplate-child');?></label>
-                  <label><input checked type="checkbox" name="sb_orientador" /> <?php _e('orientador', 'pgsm-boilerplate-child');?></label>
+                  <label><input type="radio" name="sb_campo" value="autor" /> <?php _e('autor', 'pgsm-boilerplate-child');?></label>
+                  <label><input checked type="radio" name="sb_campo" value="titulo" /> <?php _e('título', 'pgsm-boilerplate-child');?></label>
+                  <label><input type="radio" name="sb_campo" value="orientador" /> <?php _e('orientador', 'pgsm-boilerplate-child');?></label>
                 </div>
                 <div class="col3">
                   <h2><label><?php _e('Entre os Anos de', 'pgsm-boilerplate-child');?></label></h2>
@@ -54,34 +55,79 @@ get_header(); ?>
             
             <?php 
               
-            if (isset($_POST["query"])) {
+            if ($_POST["query"] != '' ) {
               // Se existir query para buscar:
               // - muda titulo,
               // - pega todos resultados para o gallery shortcut paginar
               echo "<h2>"; _e('Publicações encontradas', 'pgsm-boilerplate-child'); echo "</h2>";
               
-              global $wpdb; // Necessario para fazer query com SQL
-              
-              // Variavel do formulario para fazer a query
-              $query_string = $_POST["query"];
               
               
-              $custom_meta_query = array('relation' => 'OR');
-              if (isset($_POST["sb_autor"])) {
-                array_push($custom_meta_query, array('key' => '_autor', 'value' => $query_string, 'compare' => 'LiKE'));
+              $custom_meta_query = array('relation' => 'AND');
+              $meta_query_curso = array();
+              if (isset($_POST["sb_mestrado"])) {
+                array_push($meta_query_curso, 'mestrado');
               }
-              if (isset($_POST["sb_orientador"])) {
-                array_push($custom_meta_query, array('key' => '_orientadores', 'value' => $query_string, 'compare' => 'LIKE'));
+              if (isset($_POST["sb_doutorado"])) {
+                array_push($meta_query_curso, 'doutorado');
               }
-              $args = array('post_type' => 'attachment','posts_per_pages' => -1, 'post_parent' => $post->ID, 'meta_query' => $custom_meta_query); 
               
-              $gallery_ids = array();
+              
+              
+              if ($_POST["sb_campo"] == 'orientador') {
+                $meta_query_field = '_orientadores';
+              }
+              
+              if ($_POST["sb_campo"] == 'autor') {
+                $meta_query_field = '_autor';
+              }
+              
+              array_push($custom_meta_query, array( 
+                'key' => $meta_query_field, 
+                'value' => $_POST["query"], 
+                'compare' => 'LIKE'
+              ));
+              $args = array(
+                'post_type' => 'attachment', 
+                'posts_per_pages' => -1, 
+                'post_parent' => $post->ID,
+                'meta_query' => $custom_meta_query
+              );
+              
+              
+              if ($_POST["sb_campo"] == 'titulo') {
+                echo $_POST["sb_campo"];
+                $args = array(
+                  's' => $_POST["query"],
+                  'post_type' => 'attachment', 
+                  'posts_per_pages' => -1, 
+                  'post_parent' => $post->ID,
+                  'meta_query' => array(
+                    'relation' => 'AND',
+                    array( 
+                    'key' => '_ano_de_publicacao', 
+                    'value' => array($ano_first, $ano_last), 
+                    'type' => 'numeric',
+                    'compare' => 'BETWEEN'
+                    ),
+                    array( 
+                    'key' => '_curso', 
+                    'value' => $meta_query_curso, 
+                    'type' => 'string',
+                    'compare' => 'IN'
+                    )
+                  )
+                );
+              }
+    
+
               
               $attachments = get_posts($args);
+              $gallery_ids = array();
               
               if ($attachments){
                 foreach ($attachments as $attachment) {
-                  echo $attachment->ID.' ';
+                  // echo $attachment->ID.' ';
                   array_push($gallery_ids, $attachment->ID);
                 } 
                 $gallery_include = implode(',', $gallery_ids);
