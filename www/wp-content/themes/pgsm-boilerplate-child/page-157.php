@@ -8,8 +8,24 @@
  */
 
 get_header(); ?>
+<?php 
+  function estado_cb($campo) {
+    if (count($_POST)>0) {
+      if (isset($_POST[$campo])) {echo 'checked';}
+    }
+    else {
+      echo 'checked';
+    }
+  }
+  
+  function estado_radio($campo) {
+    if (count($_POST)>0) {
+      if ($_POST['sb_campo']==$campo) {echo 'checked';}
+    }
+    elseif ($campo=='titulo') {echo 'checked';}
+  }
 
-
+?>
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php if ( is_front_page() ) { ?>
@@ -25,13 +41,13 @@ get_header(); ?>
               <h2><?php _e('Procurar em', 'pgsm-boilerplate-child');?></h2>
               <div id="filtros-busca">  
                 <div class="col1">
-                  <label><input checked type="checkbox" name="sb_mestrado" /> <?php _e('mestrado', 'pgsm-boilerplate-child');?></label>
-                  <label><input checked type="checkbox" name="sb_doutorado" /> <?php _e('doutorado', 'pgsm-boilerplate-child');?></label>
+                  <label><input <?php estado_cb('sb_mestrado'); ?> type="checkbox" name="sb_mestrado" /> <?php _e('mestrado', 'pgsm-boilerplate-child');?></label>
+                  <label><input <?php estado_cb('sb_doutorado'); ?> type="checkbox" name="sb_doutorado" /> <?php _e('doutorado', 'pgsm-boilerplate-child');?></label>
                 </div>
                 <div class="col2">
-                  <label><input type="radio" name="sb_campo" value="autor" /> <?php _e('autor', 'pgsm-boilerplate-child');?></label>
-                  <label><input checked type="radio" name="sb_campo" value="titulo" /> <?php _e('título', 'pgsm-boilerplate-child');?></label>
-                  <label><input type="radio" name="sb_campo" value="orientador" /> <?php _e('orientador', 'pgsm-boilerplate-child');?></label>
+                  <label><input <?php estado_radio('autor'); ?> type="radio" name="sb_campo" value="autor" /> <?php _e('autor', 'pgsm-boilerplate-child');?></label>
+                  <label><input <?php estado_radio('titulo'); ?> type="radio" name="sb_campo" value="titulo" /> <?php _e('título', 'pgsm-boilerplate-child');?></label>
+                  <label><input <?php estado_radio('orientador'); ?> type="radio" name="sb_campo" value="orientador" /> <?php _e('orientador', 'pgsm-boilerplate-child');?></label>
                 </div>
                 <div class="col3">
                   <h2><label><?php _e('Entre os Anos de', 'pgsm-boilerplate-child');?></label></h2>
