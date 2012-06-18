@@ -96,7 +96,6 @@ get_header(); ?>
               
               
               if ($_POST["sb_campo"] == 'titulo') {
-                echo $_POST["sb_campo"];
                 $args = array(
                   's' => $_POST["query"],
                   'post_type' => 'attachment', 
