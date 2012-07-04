@@ -41,7 +41,7 @@
       <a href="<?php echo bloginfo( 'url' ); ?>"><img id="site-logo" src="<?php header_image();?>" /></a>
       <div id="inner-header">
   			<h1><a href="<?php echo bloginfo( 'url' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-  			<h2><?php _e('Depto. de Neurociências e Ciências do Comportamento da Faculdade de Medicina de Ribeirão Preto', 'pgsm-boilerplate-child');?> &nbsp;-&nbsp; USP</h2>
+        <h2><?php bloginfo( 'description' ); ?></h2>
   			<?php
         // An area in the header currently used for the translations widget
         if ( is_active_sidebar( 'first-header-widget-area' ) ) :
