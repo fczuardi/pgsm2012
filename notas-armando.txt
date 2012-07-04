@@ -1,0 +1,11 @@
+= ORIENTADORES
+- ingles 
+- espanhol
+
+= DISCIPLINAS
+- ingles
+- espanhol
+
+= ALUNOS
+- espanhol
+?alunos nao tem em ingles
