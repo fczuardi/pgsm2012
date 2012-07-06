@@ -60,13 +60,3 @@
 		<?php echo '<span class="doc-size">' . round($size, 0).$units[$i] . '</span>'; ?>
 	</dd>
 </dl>
-<?php
-if ($has_more_pages){?>
-  <div class="navigation">
-    <div class="line-button">
-      <a href="<?php echo $next_page_link ?>">Mais Documentos</a>
-    </div>
-  </div>
-<?php
-}
-?>
