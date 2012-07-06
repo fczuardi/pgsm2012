@@ -40,7 +40,9 @@
 		<header role="banner">
       <a href="<?php echo bloginfo( 'url' ); ?>"><img id="site-logo" src="<?php header_image();?>" /></a>
       <div id="inner-header">
-  			<h1><a href="<?php echo bloginfo( 'url' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+<h1><a href="<?php echo bloginfo( 'url' ); ?>" 
+title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" 
+rel="home"><?php bloginfo( 'name' ); ?></a></h1>
         <h2><?php bloginfo( 'description' ); ?></h2>
   			<?php
         // An area in the header currently used for the translations widget
