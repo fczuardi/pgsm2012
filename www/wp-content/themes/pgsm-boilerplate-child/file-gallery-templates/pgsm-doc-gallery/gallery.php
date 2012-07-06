@@ -55,6 +55,7 @@
           ($autor_publicacao ? ' por ' . $autor_publicacao : '') .
           ($orientadores_publicacao ? ' orientada por ' . $orientadores_publicacao : '') .
           ($coorientadores_publicacao ? ' e coorientada por ' . $coorientadores_publicacao : '') .
+          ($ano_publicacao ? ', ' . $ano_publicacao : '') . 
           '</span>';
     ?>
 		<?php echo '<span class="doc-size">' . round($size, 0).$units[$i] . '</span>'; ?>

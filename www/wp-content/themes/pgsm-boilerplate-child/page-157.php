@@ -107,7 +107,9 @@ get_header(); ?>
                 'post_type' => 'attachment', 
                 'posts_per_pages' => -1, 
                 'post_parent' => $post->ID,
-                'meta_query' => $custom_meta_query
+                'meta_query' => $custom_meta_query,
+                'meta_key' => '_ano_de_publicacao',
+                'orderby'=> 'meta_value_num'
               );
               
               
@@ -131,12 +133,12 @@ get_header(); ?>
                     'type' => 'string',
                     'compare' => 'IN'
                     )
-                  )
+                  ),
+                  'meta_key' => '_ano_de_publicacao',
+                  'orderby'=> 'meta_value_num'
                 );
               }
-    
 
-              
               $attachments = get_posts($args);
               $gallery_ids = array();
               
