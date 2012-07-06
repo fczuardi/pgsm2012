@@ -79,7 +79,6 @@ get_header(); ?>
               
               
               
-              $custom_meta_query = array('relation' => 'AND');
               $meta_query_curso = array();
               if (isset($_POST["sb_mestrado"])) {
                 array_push($meta_query_curso, 'mestrado');
@@ -90,19 +89,35 @@ get_header(); ?>
               
               
               
-              if ($_POST["sb_campo"] == 'orientador') {
-                $meta_query_field = '_orientadores';
-              }
-              
-              if ($_POST["sb_campo"] == 'autor') {
-                $meta_query_field = '_autor';
+              $custom_meta_query = array('relation' => 'AND');
+
+              if (($_POST["sb_campo"] == 'orientador') || ($_POST["sb_campo"] == 'autor')){
+                if ($_POST["sb_campo"] == 'orientador') {
+                  $meta_query_field = '_orientadores';
+                }
+                if ($_POST["sb_campo"] == 'autor') {
+                  $meta_query_field = '_autor';
+                }
+                array_push($custom_meta_query, array( 
+                  'key' => $meta_query_field, 
+                  'value' => $_POST["query"], 
+                  'compare' => 'LIKE'
+                ));
               }
               
               array_push($custom_meta_query, array( 
-                'key' => $meta_query_field, 
-                'value' => $_POST["query"], 
-                'compare' => 'LIKE'
+                'key' => '_ano_de_publicacao', 
+                'value' => array($ano_first, $ano_last), 
+                'type' => 'numeric',
+                'compare' => 'BETWEEN'
               ));
+              array_push($custom_meta_query, array( 
+                'key' => '_curso', 
+                'value' => $meta_query_curso, 
+                'type' => 'string',
+                'compare' => 'IN'
+              ));
+              
               $args = array(
                 'post_type' => 'attachment', 
                 'posts_per_pages' => -1, 
@@ -119,21 +134,7 @@ get_header(); ?>
                   'post_type' => 'attachment', 
                   'posts_per_pages' => -1, 
                   'post_parent' => $post->ID,
-                  'meta_query' => array(
-                    'relation' => 'AND',
-                    array( 
-                    'key' => '_ano_de_publicacao', 
-                    'value' => array($ano_first, $ano_last), 
-                    'type' => 'numeric',
-                    'compare' => 'BETWEEN'
-                    ),
-                    array( 
-                    'key' => '_curso', 
-                    'value' => $meta_query_curso, 
-                    'type' => 'string',
-                    'compare' => 'IN'
-                    )
-                  ),
+                  'meta_query' => $custom_meta_query,
                   'meta_key' => '_ano_de_publicacao',
                   'orderby'=> 'meta_value_num'
                 );
