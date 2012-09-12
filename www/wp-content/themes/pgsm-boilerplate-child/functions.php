@@ -67,7 +67,7 @@ function extra_attachment_fields_to_edit($form_fields, $post) {
     $form_fields["tipo_publicacao"]["html"] .= "<option value=\"$tipo\"". (($tipo == $selected_tipo) ? " selected=\"selected\"" : '') . ">$tipo</option>";
   }
   $form_fields["tipo_publicacao"]["html"] .= '<option value=""' . ($selected_tipo ? '' : ' selected="selected"') . '>Escolha um</option></select>';
-  
+
   $form_fields["curso"]["input"] = "html";
   $form_fields["curso"]["html"] = "<select name='attachments[{$post->ID}][curso]' id='attachments[{$post->ID}][curso]'> ";
   foreach ($cursos as $curso){
@@ -75,7 +75,7 @@ function extra_attachment_fields_to_edit($form_fields, $post) {
   }
   $form_fields["curso"]["html"] .= '<option value=""' . ($selected_curso ? '' : ' selected="selected"') . '>Escolha um</option></select>';
 
-  $form_fields["ano_de_publicacao"]["label"] = __("Ano de publicação");  
+  $form_fields["ano_de_publicacao"]["label"] = __("Ano de publicação");
   $form_fields["ano_de_publicacao"]["input"] = "html";
   $form_fields["ano_de_publicacao"]["html"] = "<select name='attachments[{$post->ID}][ano_de_publicacao]' id='attachments[{$post->ID}][ano_de_publicacao]'> ";
   for ($ano = $oldest_year; $ano <= $current_year; $ano++){
@@ -86,19 +86,19 @@ function extra_attachment_fields_to_edit($form_fields, $post) {
     $form_fields["ano_de_publicacao"]["html"] .= ">$ano</option>\n";
   }
   $form_fields["ano_de_publicacao"]["html"] .= '<option value=""' . ($selected_year ? '' : ' selected="selected"') . '>Escolha um</option></select>';
-  
-  $form_fields["autor"]["label"] = __("Autor");  
+
+  $form_fields["autor"]["label"] = __("Autor");
   $form_fields["autor"]["input"] = "text";
   $form_fields["autor"]["value"] = get_post_meta($post->ID, "_autor", true);
-  
-  $form_fields["orientadores"]["label"] = __("Orientadores");  
+
+  $form_fields["orientadores"]["label"] = __("Orientadores");
   $form_fields["orientadores"]["input"] = "text";
   $form_fields["orientadores"]["value"] = get_post_meta($post->ID, "_orientadores", true);
-  
-  $form_fields["coorientadores"]["label"] = __("Coorientadores");  
+
+  $form_fields["coorientadores"]["label"] = __("Coorientadores");
   $form_fields["coorientadores"]["input"] = "text";
   $form_fields["coorientadores"]["value"] = get_post_meta($post->ID, "_coorientadores", true);
-  
+
   return $form_fields;
 }
 function extra_attachment_fields_to_save($post, $attachment) {
@@ -145,7 +145,7 @@ function extra_profile_fields( $user ) {?>
 		</tr>
 	</table>
 <h4>Outros Links Relacionados</h4>
-<p><?php 
+<p><?php
 $other_links_value = get_the_author_meta( 'other_links', $user->ID );
 if ($other_links_value){
   $other_links = json_decode($other_links_value, true);
@@ -194,35 +194,35 @@ function save_extra_profile_fields( $user_id ) {
 }
 
 function add_people_custom_boxes() {
-  add_meta_box( 
+  add_meta_box(
     'orientador_condicao',
     __( 'Condição', 'tipo de orientador', 'pgsm-boilerplate-child' ),
     'orientador_meta_box_condicao',
-    'pgsm_orientador', 'side', 'high' 
+    'pgsm_orientador', 'side', 'high'
   );
-  add_meta_box( 
+  add_meta_box(
     'orientador_titulo',
     __( 'Prefixo', 'titulo acadêmico', 'pgsm-boilerplate-child' ),
     'orientador_meta_box_prefixo',
-    'pgsm_orientador', 'side', 'high' 
+    'pgsm_orientador', 'side', 'high'
   );
-  add_meta_box( 
+  add_meta_box(
     'orientador_username',
     __( 'Conta do usuário', 'wordpress user account', 'pgsm-boilerplate-child' ),
     'people_meta_box_username',
-    'pgsm_orientador', 'side', 'high' 
+    'pgsm_orientador', 'side', 'high'
   );
-  add_meta_box( 
+  add_meta_box(
     'aluno_condicao',
     __( 'Condição', 'tipo de orientador', 'pgsm-boilerplate-child' ),
     'aluno_meta_box_condicao',
-    'pgsm_aluno', 'side', 'high' 
+    'pgsm_aluno', 'side', 'high'
   );
-  add_meta_box( 
+  add_meta_box(
     'aluno_username',
     __( 'Conta do usuário', 'wordpress user account', 'pgsm-boilerplate-child' ),
     'people_meta_box_username',
-    'pgsm_aluno', 'side', 'high' 
+    'pgsm_aluno', 'side', 'high'
   );
 }
 function aluno_meta_box_condicao( $post ) {
@@ -230,7 +230,7 @@ function aluno_meta_box_condicao( $post ) {
   $condicao = get_post_meta( $post->ID, '_condicao', TRUE);
   if (!$condicao) $condicao = 'mestrando';
   ?>
-  
+
   <label class="radio-label" for="condicao_mestrando">
   <input type="radio" id="condicao_mestrando" name="_condicao" value="mestrando" <?php if ($condicao == 'mestrando') echo "checked=1";?> />
   <?php _e("Mestrando", 'pgsm-boilerplate-child' ); ?>
@@ -254,7 +254,7 @@ function orientador_meta_box_condicao( $post ) {
   $condicao = get_post_meta( $post->ID, '_condicao', TRUE);
   if (!$condicao) $condicao = 'credenciado';
   ?>
-  
+
   <label class="radio-label" for="condicao_credenciado">
   <input type="radio" id="condicao_credenciado" name="_condicao" value="credenciado" <?php if ($condicao == 'credenciado') echo "checked=1";?> />
   <?php _e("Credenciado", 'pgsm-boilerplate-child' ); ?>
@@ -274,7 +274,7 @@ function orientador_meta_box_prefixo( $post ) {
   $prefixo = get_post_meta( $post->ID, '_prefixo', TRUE);
   if (!$prefixo) $prefixo = 'Prof. Dr.';
   ?>
-  
+
   <label class="radio-label" for="graduacao_academica_dr">
   <input type="radio" id="graduacao_academica_dr" name="_prefixo" value="Prof. Dr." <?php if ($prefixo == 'Prof. Dr.') echo "checked=1";?> />
   <?php _e("Prof. Dr.", 'pgsm-boilerplate-child' ); ?>
@@ -300,7 +300,7 @@ function orientador_meta_box_prefixo( $post ) {
 function people_meta_box_username( $post ){
   wp_nonce_field( plugin_basename( __FILE__ ), 'pgsm-boilerplate-child-nonce' );
   $user_id = get_post_meta( $post->ID, '_user_id', TRUE);
-  if (!$user_id) $user_id = '-1'; 
+  if (!$user_id) $user_id = '-1';
   $args = array(
       'show_option_all'         => null, // string
       'show_option_none'        => 'Nenhum', // string
@@ -316,7 +316,7 @@ function people_meta_box_username( $post ){
       'include_selected'        => true,
       'name'                    => '_user_id', // string
       'id'                      => null, // integer
-      'class'                   => null, // string 
+      'class'                   => null, // string
       'blog_id'                 => $GLOBALS['blog_id'],
       'who'                     => null // string
   );
@@ -329,9 +329,9 @@ function people_meta_box_username( $post ){
 
 /* When the post is saved, saves our custom data */
 function people_save_postdata( $post_id ) {
-  // verify if this is an auto save routine. 
+  // verify if this is an auto save routine.
   // If it is our form has not been submitted, so we dont want to do anything
-  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
       return;
 
   // verify this came from the our screen and with proper authorization,
@@ -340,7 +340,7 @@ function people_save_postdata( $post_id ) {
   if ( !wp_verify_nonce( $_POST['pgsm-boilerplate-child-nonce'], plugin_basename( __FILE__ ) ) )
       return;
 
-  
+
   // Check permissions
   if (( 'pgsm_orientador' == $_POST['post_type'] ) || ( 'pgsm_aluno' == $_POST['post_type'] ) )
   {
@@ -375,16 +375,16 @@ function create_type_orientador() {
       'view_item' => __('Visualizar Orientador', 'pgsm-boilerplate-child'),
       'search_items' => __('Pesquisar Orientadores', 'pgsm-boilerplate-child'),
       'not_found' =>  __('Nenhum orientador encontrado', 'pgsm-boilerplate-child'),
-      'not_found_in_trash' => __('Não há orientadores na lixeira', 'pgsm-boilerplate-child'), 
+      'not_found_in_trash' => __('Não há orientadores na lixeira', 'pgsm-boilerplate-child'),
       'parent_item_colon' => '',
       'menu_name' => 'Orientadores'
-    );  
+    );
   $args = array(
       'labels' => $labels,
       'public' => true,
       'publicly_queryable' => true,
-      'show_ui' => true, 
-      'show_in_menu' => true, 
+      'show_ui' => true,
+      'show_in_menu' => true,
       'query_var' => true,
       'rewrite' => array('slug' => 'orientadores'),
       'capability_type' => $capability_type_names,
@@ -420,16 +420,16 @@ function create_type_aluno() {
       'view_item' => __('Visualizar Aluno', 'pgsm-boilerplate-child'),
       'search_items' => __('Pesquisar Alunos', 'pgsm-boilerplate-child'),
       'not_found' =>  __('Nenhum aluno encontrado', 'pgsm-boilerplate-child'),
-      'not_found_in_trash' => __('Não há alunos na lixeira', 'pgsm-boilerplate-child'), 
+      'not_found_in_trash' => __('Não há alunos na lixeira', 'pgsm-boilerplate-child'),
       'parent_item_colon' => '',
       'menu_name' => 'Alunos'
-    );  
+    );
   $args = array(
       'labels' => $labels,
       'public' => true,
       'publicly_queryable' => true,
-      'show_ui' => true, 
-      'show_in_menu' => true, 
+      'show_ui' => true,
+      'show_in_menu' => true,
       'query_var' => true,
       'rewrite' => array('slug' => 'alunos'),
       'capability_type' => $capability_type_names,
@@ -463,16 +463,16 @@ function create_type_disciplina() {
       'view_item' => __('Visualizar Disciplina', 'pgsm-boilerplate-child'),
       'search_items' => __('Pesquisar Disciplinas', 'pgsm-boilerplate-child'),
       'not_found' =>  __('Nenhuma disciplina encontrada', 'pgsm-boilerplate-child'),
-      'not_found_in_trash' => __('Não há disciplinas na lixeira', 'pgsm-boilerplate-child'), 
+      'not_found_in_trash' => __('Não há disciplinas na lixeira', 'pgsm-boilerplate-child'),
       'parent_item_colon' => '',
       'menu_name' => 'Disciplinas'
-    );  
+    );
   $args = array(
       'labels' => $labels,
       'public' => true,
       'publicly_queryable' => true,
-      'show_ui' => true, 
-      'show_in_menu' => true, 
+      'show_ui' => true,
+      'show_in_menu' => true,
       'query_var' => true,
       'rewrite' => array('slug' => 'disciplinas'),
       'capability_type' => $capability_type_names,
@@ -584,7 +584,7 @@ function boilerplate_posted_on() {
 
 class Recent_Posts_With_Time extends WP_Widget_Recent_Posts {
   function Recent_Posts_With_Time() {
-    $widget_ops = array('classname' => 'widget_recent_posts_with_time', 
+    $widget_ops = array('classname' => 'widget_recent_posts_with_time',
                         'description' => __( "The most recent posts on your site, with timestamp") );
     $this->WP_Widget('recent-posts-with-time', __('Recent Posts With Time'), $widget_ops);
     $this->alt_option_name = 'widget_recent_entries';
@@ -637,13 +637,13 @@ class Recent_Posts_With_Time extends WP_Widget_Recent_Posts {
     $cache[$args['widget_id']] = ob_get_flush();
     wp_cache_set('widget_recent_posts', $cache, 'widget');
   }
-  
+
 }
 
 function pgsm_widgets_init() {
   //Register the default widgets for this theme
   register_widget('Recent_Posts_With_Time');
-  
+
   // Area 1, located in the header. Empty by default.
   register_sidebar( array(
     'name' => __( 'First Header Widget Area', 'pgsm-boilerplate-child' ),
@@ -665,15 +665,15 @@ function pgsm_widgets_init() {
     'after_title' => '</h3>',
   ) );
 
-  
+
   // check to see if the primary widget area has the same six default widgets
   // (http://wordpress.org/support/topic/setting-default-widgets-in-twenty-ten-child-theme?replies=8#post-2167119)
   // of a fresh wordpress installation, if so, set the pgsm default primary widget area
-  $default_wp_primary_widgets = array ( 0 => 'search-2', 
-                                        1 => 'recent-posts-2', 
-                                        2 => 'recent-comments-2', 
-                                        3 => 'archives-2', 
-                                        4 => 'categories-2', 
+  $default_wp_primary_widgets = array ( 0 => 'search-2',
+                                        1 => 'recent-posts-2',
+                                        2 => 'recent-comments-2',
+                                        3 => 'archives-2',
+                                        4 => 'categories-2',
                                         5 => 'meta-2');
   $current_widgets = get_option('sidebars_widgets');
   if (count(array_diff($default_wp_primary_widgets, $current_widgets['primary-widget-area'])) == 0){
