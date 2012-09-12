@@ -3,10 +3,7 @@ jQuery(document).ready(function($) {
   $('#access .menu li:has(.children)').addClass('parent')
   $('.current_page_parent').addClass('opened')
   $('.current_page_item.parent').addClass('opened')
-  
-  $('#recent-posts-with-time-2 ul a').bind('click', function(event){
-    event.preventDefault();
-  });
+
   //apply collapsible behavior for colapsible post list elements
   $('.collapsible').bind('click', function(event){
     if (! $(event.target).hasClass('colapse-toggle')){ return; }
@@ -25,4 +22,10 @@ jQuery(document).ready(function($) {
       });
     }
   });
+
+  //open a colapsible element if it's id is on the url hash
+  var anchor_element = $(window.location.hash);
+  if (anchor_element.length > 0){
+    anchor_element.removeClass('closed')
+  }
 });

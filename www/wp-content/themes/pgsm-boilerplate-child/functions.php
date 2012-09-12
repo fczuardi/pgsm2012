@@ -612,6 +612,7 @@ class Recent_Posts_With_Time extends WP_Widget_Recent_Posts {
       $number = 4;
 
     $r = new WP_Query(array('posts_per_page' => $number, 'nopaging' => 0, 'post_status' => 'publish', 'ignore_sticky_posts' => true));
+    $page_for_posts = get_permalink(get_option('page_for_posts'));
     if ($r->have_posts()) :
     ?>
     <?php echo $before_widget; ?>
@@ -619,11 +620,12 @@ class Recent_Posts_With_Time extends WP_Widget_Recent_Posts {
     <a href="<?php bloginfo('rss2_url'); ?>" class="feed-icon">RSS</a>
     <ul>
     <?php  while ($r->have_posts()) : $r->the_post(); ?>
-    <li><time pubdate datetime="<?php the_date('c');?>"><?php the_time('D j M Y : h\hi'); ?></time><a href="<?php the_permalink() ?>" title="<?php echo esc_attr(get_the_title() ? get_the_title() : get_the_ID()); ?>"><?php if ( get_the_title() ) the_title(); else the_ID(); ?></a></li>
+    <li><time pubdate datetime="<?php the_date('c');?>"><?php the_time('D j M Y : h\hi'); ?></time>
+      <a href="<?php echo $page_for_posts . "#post-" . get_the_ID() ?>" title="<?php echo esc_attr(get_the_title() ? get_the_title() : get_the_ID()); ?>"><?php if ( get_the_title() ) the_title(); else the_ID(); ?></a></li>
     <?php endwhile; ?>
     </ul>
     <p>
-      <a href="<?php echo get_permalink(get_option('page_for_posts'));?>"><?php _e('Ler todas as notícias', 'pgsm-boilerplate-child');?></a>
+      <a href="<?php echo $page_for_posts;?>"><?php _e('Ler todas as notícias', 'pgsm-boilerplate-child');?></a>
     </p>
     <?php echo $after_widget; ?>
     <?php
