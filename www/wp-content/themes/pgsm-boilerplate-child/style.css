@@ -121,6 +121,7 @@ header[role=banner] {
   padding-right: 16px;
   background-position: right top;
   background-size: 12px;
+  background-repeat: no-repeat;
 }
 #inner-header .qtrans_flag_and_text.qtrans_flag_en{
   background-image: url(images/us.png);
