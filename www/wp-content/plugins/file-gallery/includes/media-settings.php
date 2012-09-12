@@ -85,7 +85,7 @@ function file_gallery_save_media_settings( $options )
 	global $file_gallery;
 
 	$defaults = $file_gallery->false_defaults;
-	$defaults = file_gallery_parse_args( $options, $defaults); // $defaults = shortcode_atts( $defaults, $options );
+	$defaults = file_gallery_parse_args( $options, $defaults ); // $defaults = shortcode_atts( $defaults, $options );
 	$defaults['folder']  = file_gallery_https( FILE_GALLERY_URL );
 	$defaults['abspath'] = FILE_GALLERY_ABSPATH;
 	
@@ -261,22 +261,21 @@ function file_gallery_add_settings()
 	$options = get_option('file_gallery');
 	
 	foreach( $settings as $key => $val )
-	{
+	{		
 		if( false !== $val['display'] )
 		{
-			$name = $key;
-			$type = $val['type'];
-			$current = isset($options[$key]) ? "'" . $options[$key] . "'" : 0;
-			$values = isset($val['values'])  ? "'" . $val['values'] . "'" : 0;
-			$disabled = ('disabled' === $val['display']) ? '1' : '0';
+			$type = preg_replace("#[^a-z]#", '', $val['type']);
+			$current = ! empty($options[$key]) ? str_replace("'", "\'", $options[$key]) : '';
+			$values  = ! empty($val['values']) ? str_replace("'", "\'", $val['values']) : '';
+			$disabled = ('disabled' === $val['display']) ? 1 : 0;
 
 			$anon = "echo file_gallery_options_fields(
 						array(
-							'name' => '" . $name . "',
-							'type' => '" . $type . "',
-							'current' => " . $current . ",
-							'values' => " . $values . ",
-							'disabled' => " . $disabled . "
+							'name'     => '" . $key . "',
+							'type'     => '" . $type . "',
+							'current'  => '" . $current . "',
+							'values'   => '" . $values . "',
+							'disabled' => '" . $disabled . "'
 						));";
 
 			add_settings_field(
@@ -362,10 +361,11 @@ function file_gallery_options_fields( $args )
 			return '<select class="file_gallery_select ' . $args['name'] . '" ' . $name_id . $ro . '>' . $args['values'] . '</select>';
 			break;
 		case 'textarea' :
-			return '<textarea cols="51" rows="5" class="file_gallery_textarea ' . $args['name'] . '" ' . $name_id . $ro . '>' . $args['current'] . '</textarea>';
+			return '<textarea cols="51" rows="5" class="file_gallery_textarea ' . $args['name'] . '" ' . $name_id . $ro . '>' . esc_textarea($args['current']) . '</textarea>';
 			break;
 		case 'text' :
-			return '<input size="63" class="file_gallery_text ' . $args['name'] . '" type="text" ' . $name_id . ' value="' . $args['current'] . '"' . $ro . ' />';
+		case 'number' :
+			return '<input size="63" class="file_gallery_text ' . $args['name'] . '" type="text" ' . $name_id . ' value="' . esc_attr($args['current']) . '"' . $ro . ' />';
 			break;
 	}
 }

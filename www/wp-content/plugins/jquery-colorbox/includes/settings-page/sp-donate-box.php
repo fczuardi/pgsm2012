@@ -11,11 +11,11 @@
 ?>
 <div id="poststuff">
   <div id="jquery-colorbox-donate" class="postbox">
-    <h3 id="donate"><?php _e('Donate', JQUERYCOLORBOX_TEXTDOMAIN) ?></h3>
+    <h3 id="donate"><?php _e('Donate', JQUERYCOLORBOX_TEXTDOMAIN); ?></h3>
 
     <div class="inside">
       <p>
-        <?php _e('If you would like to make a small (or large) contribution towards future development please consider making a donation.', JQUERYCOLORBOX_TEXTDOMAIN) ?>
+        <?php _e('If you would like to make a small (or large) contribution towards future development please consider making a donation.', JQUERYCOLORBOX_TEXTDOMAIN); ?>
       </p>
       <!--                <h5 id="donatePaypal">--><?php __('Donate using Paypal', JQUERYCOLORBOX_TEXTDOMAIN) ?><!--</h5>-->
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -39,13 +39,13 @@
           <option value="40">40</option>
           <option value="50">50</option>
           <option value="100">100</option>
-        </select><span><?php _e('USD', JQUERYCOLORBOX_TEXTDOMAIN) ?></span>
+        </select><span><?php _e('USD', JQUERYCOLORBOX_TEXTDOMAIN); ?></span>
         <br/><br/><?php _e('Or', JQUERYCOLORBOX_TEXTDOMAIN); ?><br/><br/>
         <label for="custom-amounts"><?php _e('Enter Custom Amount', JQUERYCOLORBOX_TEXTDOMAIN); echo ": "; ?></label>
         <input type="text" name="amount" size="4" id="custom-amounts"/>
-        <span><?php _e('USD', JQUERYCOLORBOX_TEXTDOMAIN) ?></span>
+        <span><?php _e('USD', JQUERYCOLORBOX_TEXTDOMAIN); ?></span>
         <br/><br/>
-        <input type="submit" value="<?php _e('Submit', JQUERYCOLORBOX_TEXTDOMAIN) ?>" class="button-secondary"/>
+        <input type="submit" value="<?php _e('Submit', JQUERYCOLORBOX_TEXTDOMAIN); ?>" class="button-secondary"/>
       </form>
     </div>
   </div>

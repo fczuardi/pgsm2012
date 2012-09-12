@@ -40,7 +40,7 @@ class JQueryColorboxDonationLoader {
     add_action( 'wp_ajax_load-JQueryColorboxLatestDonations', array($this, 'getJQueryColorboxLatestDonations') );
   }
 
-  // DonationLoader()
+  // JQueryColorboxDonationLoader()
 
   /**
    * XML RPC Test, not used
@@ -72,7 +72,7 @@ class JQueryColorboxDonationLoader {
     $this->getAndReturnDonations('manageDonations.getTopDonations','top');
   }
 
-  // getTopDonations()
+  // getJQueryColorboxTopDonations()
 
   /**
    * Get latest donations
@@ -88,7 +88,7 @@ class JQueryColorboxDonationLoader {
     $this->getAndReturnDonations('manageDonations.getLatestDonations','latest');
   }
 
-  // getLatestDonations()
+  // getJQueryColorboxLatestDonations()
 
   /**
    * Build JavaScript array for loading donations.
@@ -123,8 +123,8 @@ class JQueryColorboxDonationLoader {
    * @access private
    * @author Arne Franken
    *
-   * @param String $remoteProcedureCall RPC method name
-   * @param String $identifier cache-identifier for the request
+   * @param string $remoteProcedureCall RPC method name
+   * @param string $identifier cache-identifier for the request
    * 
    * @return void
    */
@@ -161,7 +161,7 @@ class JQueryColorboxDonationLoader {
     exit;
   }
 
-  // getDonations()
+  // getAndReturnDonations()
 }
 
 // DonationLoader()

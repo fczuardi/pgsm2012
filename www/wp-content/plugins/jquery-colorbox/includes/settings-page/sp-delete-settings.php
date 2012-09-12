@@ -11,7 +11,7 @@
 ?>
 <div id="poststuff">
   <div id="jquery-colorbox-delete_settings" class="postbox">
-    <h3 id="delete_options"><?php _e('Delete Settings', JQUERYCOLORBOX_TEXTDOMAIN) ?></h3>
+    <h3 id="delete_options"><?php _e('Delete Settings', JQUERYCOLORBOX_TEXTDOMAIN); ?></h3>
 
     <div class="inside">
       <p><?php _e('Check the box and click this button to delete settings of this plugin.', JQUERYCOLORBOX_TEXTDOMAIN); ?></p>

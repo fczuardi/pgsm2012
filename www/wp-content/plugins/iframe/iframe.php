@@ -1,12 +1,12 @@
 <?php
 /*
-Plugin Name: Iframe
+Plugin Name: iframe
 Plugin URI: http://web-profile.com.ua/wordpress/plugins/iframe/
-Description: [iframe src="http://player.vimeo.com/video/3261363" width="100%" height="480"] shortcode
-Version: 2.2
+Description: [iframe src="http://player.vimeo.com/video/819138" width="100%" height="480"] shortcode
+Version: 2.3
 Author: webvitaly
-Author Email: webvitaly(at)gmail.com
 Author URI: http://web-profile.com.ua/wordpress/
+License: GPLv2 or later
 */
 
 if ( !function_exists( 'iframe_embed_shortcode' ) ) :
@@ -18,20 +18,21 @@ if ( !function_exists( 'iframe_embed_shortcode' ) ) :
 	
 	function iframe_embed_shortcode($atts, $content = null) {
 		$defaults = array(
+			'src' => 'http://player.vimeo.com/video/819138',
 			'width' => '100%',
 			'height' => '480',
 			'scrolling' => 'no',
 			'class' => 'iframe-class',
 			'frameborder' => '0'
 		);
-		// add defaults
-		foreach ($defaults as $default => $value) {
-			if (!array_key_exists($default, $atts)) {
+
+		foreach ($defaults as $default => $value) { // add defaults
+			if (!@array_key_exists($default, $atts)) { // hide warning with "@" when no params at all
 				$atts[$default] = $value;
 			}
 		}
-		// special case maps
-		$src_cut = substr($atts["src"], 0, 35);
+
+		$src_cut = substr($atts["src"], 0, 35); // special case maps
 		if(strpos($src_cut, 'maps.google' )){
 			$atts["src"] .= '&output=embed';
 		}
@@ -72,7 +73,7 @@ if ( !function_exists( 'iframe_embed_shortcode' ) ) :
 				';
 			}
 		}
-        $html .= "\n".'<!-- Iframe plugin v.2.2 (wordpress.org/extend/plugins/iframe/) -->'."\n";
+        $html .= "\n".'<!-- iframe plugin v:2.3 - wordpress.org/extend/plugins/iframe/ -->'."\n";
 		$html .= '<iframe';
         foreach ($atts as $attr => $value) {
 			if( $attr != 'same_height_as' ){ // remove some attributes

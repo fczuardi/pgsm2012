@@ -18,11 +18,11 @@ class JQueryColorboxBackend {
    * @access static
    * @author Arne Franken
    *
-   * @param array $colorboxSettings user settings
-   * @param array $colorboxThemes plugin themes
-   * @param array $colorboxUnits plugin units
-   * @param array $colorboxTransitions plugin transitions
-   * @param array $colorboxDefaultSettings default settings
+   * @param string[] $colorboxSettings user settings
+   * @param string[] $colorboxThemes plugin themes
+   * @param string[] $colorboxUnits plugin units
+   * @param string[] $colorboxTransitions plugin transitions
+   * @param string[] $colorboxDefaultSettings default settings
    */
   //public static function JQueryColorboxBackend( $colorboxSettings, $colorboxThemes, $colorboxUnits, $colorboxTransitions, $colorboxDefaultSettings ) {
   function JQueryColorboxBackend($colorboxSettings, $colorboxThemes, $colorboxUnits, $colorboxTransitions, $colorboxDefaultSettings) {
@@ -125,8 +125,8 @@ class JQueryColorboxBackend {
    * @access public
    * @author Arne Franken
    *
-   * @param  array $action_links original links
-   * @return array $action_links with link to settings page
+   * @param  string[] $action_links original links
+   * @return string[] with link to settings page
    */
   //public function addPluginActionLinks($action_links) {
   function addPluginActionLinks($action_links) {
@@ -201,15 +201,15 @@ class JQueryColorboxBackend {
    * @access public
    * @author Arne Franken
    *
-   * @param  array $initialArray
-   * @return array $modifiedArray
+   * @param  string $initialCssFiles
+   * @return string
    */
   //public function addColorboxLinkClass($defaultCss) {
-  function addColorboxLinkClass($initialArray) {
-    $modifiedArray = $initialArray;
+  function addColorboxLinkClass($initialCssFiles) {
+    $modifiedCssFiles = $initialCssFiles;
 
-    $modifiedArray .= ','.JQUERYCOLORBOX_PLUGIN_URL.'/css/jquery-colorbox.css';
-    return $modifiedArray;
+    $modifiedCssFiles .= ','.JQUERYCOLORBOX_PLUGIN_URL.'/css/jquery-colorbox.css';
+    return $modifiedCssFiles;
   }
 
   // addColorboxLinkClasses()
@@ -221,8 +221,8 @@ class JQueryColorboxBackend {
    * @access public
    * @author Arne Franken
    *
-   * @param array $array
-   * @return array modified array
+   * @param string[] $array
+   * @return string[] modified array
    */
   //public function addStyleSelectorBox($array) {
   function addStyleSelectorBox($array) {

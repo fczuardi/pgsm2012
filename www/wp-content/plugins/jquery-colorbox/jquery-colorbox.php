@@ -6,7 +6,7 @@
  * Plugin Name: jQuery Colorbox
  * Plugin URI: http://www.techotronic.de/plugins/jquery-colorbox/
  * Description: Used to overlay images on the current page. Images in one post are grouped automatically.
- * Version: 4.3
+ * Version: 4.4.1
  * Author: Arne Franken
  * Author URI: http://www.techotronic.de/
  * License: GPL
@@ -19,7 +19,7 @@
 ?>
 <?php
 //define constants
-define('JQUERYCOLORBOX_VERSION', '4.3');
+define('JQUERYCOLORBOX_VERSION', '4.4.1');
 define('COLORBOXLIBRARY_VERSION', '1.3.19');
 
 if (!defined('JQUERYCOLORBOX_PLUGIN_BASENAME')) {
@@ -30,11 +30,11 @@ if (!defined('JQUERYCOLORBOX_PLUGIN_NAME')) {
   //jquery-colorbox
   define('JQUERYCOLORBOX_PLUGIN_NAME', trim(dirname(JQUERYCOLORBOX_PLUGIN_BASENAME), '/'));
 }
-if (!defined('JQUERYCOLORBOX_NAME')) {
-  define('JQUERYCOLORBOX_NAME', __('jQuery Colorbox',JQUERYCOLORBOX_TEXTDOMAIN));
-}
 if (!defined('JQUERYCOLORBOX_TEXTDOMAIN')) {
   define('JQUERYCOLORBOX_TEXTDOMAIN', 'jquery-colorbox');
+}
+if (!defined('JQUERYCOLORBOX_NAME')) {
+  define('JQUERYCOLORBOX_NAME', __('jQuery Colorbox',JQUERYCOLORBOX_TEXTDOMAIN));
 }
 if (!defined('JQUERYCOLORBOX_PLUGIN_DIR')) {
   // /path/to/wordpress/wp-content/plugins/jquery-colorbox
@@ -46,6 +46,9 @@ if (!defined('JQUERYCOLORBOX_PLUGIN_URL')) {
 }
 if (!defined('JQUERYCOLORBOX_SETTINGSNAME')) {
   define('JQUERYCOLORBOX_SETTINGSNAME', 'jquery-colorbox_settings');
+}
+if (!defined('JQUERYLIBRARY_VERSION')) {
+  define('JQUERYLIBRARY_VERSION', '1.7.2');
 }
 if (!defined('JQUERYCOLORBOX_USERAGENT')) {
   define('JQUERYCOLORBOX_USERAGENT', 'jQuery Colorbox V' . JQUERYCOLORBOX_VERSION . '; (' . get_bloginfo('url') . ')');
@@ -268,6 +271,8 @@ class JQueryColorbox {
       'debugMode' => false,
       'autoColorboxJavaScript' => false,
       'colorboxAddClassToLinks' => false,
+      'addZoomOverlay' => false,
+      'useGoogleJQuery' => false,
       'removeLinkFromMetaBox' => true
     );
   }

@@ -32,4 +32,3 @@ function file_gallery_filter_terms_list_table( $class )
 }
 add_filter('get_list_table_WP_Terms_List_Table', 'file_gallery_filter_terms_list_table');
 
-?>

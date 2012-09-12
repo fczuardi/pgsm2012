@@ -5,7 +5,7 @@
 	if( isset($overriding) && true === $overriding )
 		return;
 ?>
-<dl class="gallery-item<?php echo $endcol; ?>">
+<dl class="gallery-item<?php echo $startcol . $endcol; ?>">
 	<dt class="gallery-icon">
 	<?php if( ! empty($link) ) : ?>
 		<a href="<?php echo $link; ?>" title="<?php echo $title; ?>"<?php if( ! empty($link_class) ) : ?> class="<?php echo $link_class; ?>"<?php endif; ?><?php if( ! empty($rel) ) : ?> rel="<?php echo $rel; ?>"<?php endif; ?>>

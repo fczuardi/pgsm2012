@@ -72,4 +72,3 @@ add_filter('file_gallery_lightbox_linkrel',    'file_gallery_lightboxes_support'
 add_filter('file_gallery_lightbox_linkclass',  'file_gallery_lightboxes_support', 10, 3);
 add_filter('file_gallery_lightbox_imageclass', 'file_gallery_lightboxes_support', 10, 3);
 
-?>

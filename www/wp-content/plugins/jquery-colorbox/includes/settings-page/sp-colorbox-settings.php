@@ -68,7 +68,7 @@
           <label for="jquery-colorbox-slideshowSpeed"><?php _e('Speed of the slideshow', JQUERYCOLORBOX_TEXTDOMAIN); ?>:</label>
         </th>
         <td>
-          <input type="text" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[slideshowSpeed]" id="jquery-colorbox-slideshowSpeed" value="<?php echo $this->colorboxSettings['slideshowSpeed'] ?>" size="5" maxlength="5"/><?php _e('milliseconds', JQUERYCOLORBOX_TEXTDOMAIN) ?>
+          <input type="text" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[slideshowSpeed]" id="jquery-colorbox-slideshowSpeed" value="<?php echo $this->colorboxSettings['slideshowSpeed'] ?>" size="5" maxlength="5"/><?php _e('milliseconds', JQUERYCOLORBOX_TEXTDOMAIN); ?>
           <br/><?php _e('Sets the speed of the slideshow, in milliseconds', JQUERYCOLORBOX_TEXTDOMAIN); ?>.
         </td>
       </tr>
@@ -102,7 +102,7 @@
           <input type="radio" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[maxWidth]" id="jquery-colorbox-maxWidth-custom-radio" value="custom" <?php echo ($this->colorboxSettings['maxWidth']) == 'custom'
                 ? 'checked="checked"' : ''; ?>"/>
           <label for="jquery-colorbox-maxWidth-custom-radio"><?php _e('Set maximum width of an image', JQUERYCOLORBOX_TEXTDOMAIN); ?>.</label>
-          <input type="text" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[maxWidthValue]" id="jquery-colorbox-maxWidthValue" value="<?php echo $this->colorboxSettings['maxWidthValue'] ?>" size="3" maxlength="3"/>
+          <input type="text" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[maxWidthValue]" id="jquery-colorbox-maxWidthValue" value="<?php echo $this->colorboxSettings['maxWidthValue'] ?>" size="5" maxlength="5"/>
           <select name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[maxWidthUnit]" id="jquery-colorbox-maxWidth-unit" class="postform" style="margin:0">
       <?php
                       foreach ($this->colorboxUnits as $unit => $name) {
@@ -127,7 +127,7 @@
           <input type="radio" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[maxHeight]" id="jquery-colorbox-maxHeight-custom-radio" value="custom" <?php echo ($this->colorboxSettings['maxHeight']) == 'custom'
                 ? 'checked="checked"' : ''; ?>"/>
           <label for="jquery-colorbox-maxHeight-custom-radio"><?php _e('Set maximum height of an image', JQUERYCOLORBOX_TEXTDOMAIN); ?>.</label>
-          <input type="text" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[maxHeightValue]" id="jquery-colorbox-maxHeightValue" value="<?php echo $this->colorboxSettings['maxHeightValue'] ?>" size="3" maxlength="3"/>
+          <input type="text" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[maxHeightValue]" id="jquery-colorbox-maxHeightValue" value="<?php echo $this->colorboxSettings['maxHeightValue'] ?>" size="5" maxlength="5"/>
           <select name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[maxHeightUnit]" id="jquery-colorbox-maxHeight-unit" class="postform" style="margin:0">
       <?php
                       foreach ($this->colorboxUnits as $unit => $name) {
@@ -152,7 +152,7 @@
           <input type="radio" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[width]" id="jquery-colorbox-width-custom-radio" value="custom" <?php echo ($this->colorboxSettings['width']) == 'custom'
                 ? 'checked="checked"' : ''; ?>"/>
           <label for="jquery-colorbox-width-custom-radio"><?php _e('Set width of the Colorbox', JQUERYCOLORBOX_TEXTDOMAIN); ?>.</label>
-          <input type="text" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[widthValue]" id="jquery-colorbox-widthValue" value="<?php echo $this->colorboxSettings['widthValue'] ?>" size="3" maxlength="3"/>
+          <input type="text" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[widthValue]" id="jquery-colorbox-widthValue" value="<?php echo $this->colorboxSettings['widthValue'] ?>" size="5" maxlength="5"/>
           <select name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[widthUnit]" id="jquery-colorbox-width-unit" class="postform" style="margin:0">
       <?php
                       foreach ($this->colorboxUnits as $unit => $name) {
@@ -177,7 +177,7 @@
           <input type="radio" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[height]" id="jquery-colorbox-height-custom-radio" value="custom" <?php echo ($this->colorboxSettings['height']) == 'custom'
                 ? 'checked="checked"' : ''; ?>"/>
           <label for="jquery-colorbox-height-custom-radio"><?php _e('Set height of the Colorbox', JQUERYCOLORBOX_TEXTDOMAIN); ?>.</label>
-          <input type="text" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[heightValue]" id="jquery-colorbox-heightValue" value="<?php echo $this->colorboxSettings['heightValue'] ?>" size="3" maxlength="3"/>
+          <input type="text" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[heightValue]" id="jquery-colorbox-heightValue" value="<?php echo $this->colorboxSettings['heightValue'] ?>" size="5" maxlength="5"/>
           <select name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[heightUnit]" id="jquery-colorbox-height-unit" class="postform" style="margin:0">
       <?php
                       foreach ($this->colorboxUnits as $unit => $name) {
@@ -202,7 +202,7 @@
           <input type="radio" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[linkWidth]" id="jquery-colorbox-link-width-custom-radio" value="custom" <?php echo ($this->colorboxSettings['linkWidth']) == 'custom'
                 ? 'checked="checked"' : ''; ?>"/>
           <label for="jquery-colorbox-link-width-custom-radio"><?php _e('Set width of the Colorbox', JQUERYCOLORBOX_TEXTDOMAIN); ?>.</label>
-          <input type="text" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[linkWidthValue]" id="jquery-colorbox-linkWidthValue" value="<?php echo $this->colorboxSettings['linkWidthValue'] ?>" size="3" maxlength="3"/>
+          <input type="text" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[linkWidthValue]" id="jquery-colorbox-linkWidthValue" value="<?php echo $this->colorboxSettings['linkWidthValue'] ?>" size="5" maxlength="5"/>
           <select name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[linkWidthUnit]" id="jquery-colorbox-width-unit" class="postform" style="margin:0">
       <?php
                       foreach ($this->colorboxUnits as $unit => $name) {
@@ -227,7 +227,7 @@
           <input type="radio" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[linkHeight]" id="jquery-colorbox-link-height-custom-radio" value="custom" <?php echo ($this->colorboxSettings['linkHeight']) == 'custom'
                 ? 'checked="checked"' : ''; ?>"/>
           <label for="jquery-colorbox-link-height-custom-radio"><?php _e('Set height of the Colorbox', JQUERYCOLORBOX_TEXTDOMAIN); ?>.</label>
-          <input type="text" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[linkHeightValue]" id="jquery-colorbox-linkHeightValue" value="<?php echo $this->colorboxSettings['linkHeightValue'] ?>" size="3" maxlength="3"/>
+          <input type="text" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[linkHeightValue]" id="jquery-colorbox-linkHeightValue" value="<?php echo $this->colorboxSettings['linkHeightValue'] ?>" size="5" maxlength="5"/>
           <select name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[linkHeightUnit]" id="jquery-colorbox-link-height-unit" class="postform" style="margin:0">
       <?php
                       foreach ($this->colorboxUnits as $unit => $name) {
@@ -310,7 +310,7 @@
           <label for="jquery-colorbox-speed"><?php _e('Transition speed', JQUERYCOLORBOX_TEXTDOMAIN); ?>:</label>
         </th>
         <td>
-          <input type="text" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[speed]" id="jquery-colorbox-speed" value="<?php echo $this->colorboxSettings['speed'] ?>" size="5" maxlength="5"/><?php _e('milliseconds', JQUERYCOLORBOX_TEXTDOMAIN) ?>
+          <input type="text" name="<?php echo JQUERYCOLORBOX_SETTINGSNAME ?>[speed]" id="jquery-colorbox-speed" value="<?php echo $this->colorboxSettings['speed'] ?>" size="5" maxlength="5"/><?php _e('milliseconds', JQUERYCOLORBOX_TEXTDOMAIN); ?>
           <br/><?php _e('Sets the speed of the "fade" and "elastic" transitions, in milliseconds', JQUERYCOLORBOX_TEXTDOMAIN); ?>.
         </td>
       </tr>
@@ -326,7 +326,7 @@
     </table>
     <p class="submit">
       <input type="hidden" name="action" value="jQueryColorboxUpdateSettings"/>
-      <input type="submit" name="jQueryColorboxUpdateSettings" class="button-primary" value="<?php _e('Save Changes') ?>"/>
+      <input type="submit" name="jQueryColorboxUpdateSettings" class="button-primary" value="<?php _e('Save Changes'); ?>"/>
     </p>
 
   </div>

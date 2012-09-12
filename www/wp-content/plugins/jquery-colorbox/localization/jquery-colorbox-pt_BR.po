@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jQuery-Colorbox 3.8.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-11 23:41+0100\n"
-"PO-Revision-Date: 2012-03-11 23:42+0100\n"
+"POT-Creation-Date: 2012-04-15 22:30+0100\n"
+"PO-Revision-Date: 2012-04-15 22:30+0100\n"
 "Last-Translator: \n"
 "Language-Team: Gervásio Antônio, Joao Netto <nettojp@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -19,85 +19,85 @@ msgstr ""
 msgid "jQuery Colorbox"
 msgstr ""
 
-#: jquery-colorbox.php:95
+#: jquery-colorbox.php:98
 msgid "Theme #1"
 msgstr "Tema #1"
 
-#: jquery-colorbox.php:96
+#: jquery-colorbox.php:99
 msgid "Theme #2"
 msgstr "Tema #2"
 
-#: jquery-colorbox.php:97
+#: jquery-colorbox.php:100
 msgid "Theme #3"
 msgstr "Tema #3"
 
-#: jquery-colorbox.php:98
+#: jquery-colorbox.php:101
 msgid "Theme #4"
 msgstr "Tema #4"
 
-#: jquery-colorbox.php:99
+#: jquery-colorbox.php:102
 msgid "Theme #5"
 msgstr "Tema #5"
 
-#: jquery-colorbox.php:100
+#: jquery-colorbox.php:103
 msgid "Theme #6"
 msgstr "Tema #6"
 
-#: jquery-colorbox.php:101
+#: jquery-colorbox.php:104
 msgid "Theme #7"
 msgstr "Tema #7"
 
-#: jquery-colorbox.php:102
+#: jquery-colorbox.php:105
 msgid "Theme #8"
 msgstr "Tema #8"
 
-#: jquery-colorbox.php:103
+#: jquery-colorbox.php:106
 msgid "Theme #9"
 msgstr "Tema #9"
 
-#: jquery-colorbox.php:104
+#: jquery-colorbox.php:107
 msgid "Theme #10"
 msgstr "Tema #10"
 
-#: jquery-colorbox.php:105
+#: jquery-colorbox.php:108
 msgid "Theme #11"
 msgstr "Tema #11"
 
-#: jquery-colorbox.php:111
+#: jquery-colorbox.php:114
 msgid "Theme #12"
 msgstr "Tema #12"
 
-#: jquery-colorbox.php:112
+#: jquery-colorbox.php:115
 msgid "Theme #13"
 msgstr "Tema #13"
 
-#: jquery-colorbox.php:113
+#: jquery-colorbox.php:116
 msgid "Theme #14"
 msgstr "Tema #14"
 
-#: jquery-colorbox.php:114
+#: jquery-colorbox.php:117
 msgid "Theme #15"
 msgstr "Tema #15"
 
-#: jquery-colorbox.php:119
+#: jquery-colorbox.php:122
 msgid "percent"
 msgstr "%"
 
-#: jquery-colorbox.php:120
+#: jquery-colorbox.php:123
 #: includes/settings-page/sp-colorbox-settings.php:248
 #: includes/settings-page/sp-colorbox-settings.php:257
 msgid "pixels"
 msgstr "pixels"
 
-#: jquery-colorbox.php:125
+#: jquery-colorbox.php:128
 msgid "elastic"
 msgstr "elástico"
 
-#: jquery-colorbox.php:126
+#: jquery-colorbox.php:129
 msgid "fade"
 msgstr "esmaecer"
 
-#: jquery-colorbox.php:127
+#: jquery-colorbox.php:130
 msgid "none"
 msgstr "nenhuma"
 
@@ -128,7 +128,7 @@ msgstr "As configurações não foram atualizadas. Você não possui as permiss�
 msgid "Did not delete %1$s settings. Either you dont have the nececssary rights or you didnt check the checkbox."
 msgstr "As configurações do %1$s não foram excluídas. Você não possui as permissões necessárias ou não marcou a opção 'Excluir configurações'."
 
-#: includes/jquery-colorbox-frontend.php:66
+#: includes/jquery-colorbox-frontend.php:65
 msgid "Using"
 msgstr "Usando"
 
@@ -365,7 +365,7 @@ msgid "The overlay opacity level. Range: 0 to 1"
 msgstr "Define o nível de opacidade da camada de fundo. Variação: 0 até 1"
 
 #: includes/settings-page/sp-colorbox-settings.php:329
-#: includes/settings-page/sp-plugin-settings.php:107
+#: includes/settings-page/sp-plugin-settings.php:134
 msgid "Save Changes"
 msgstr "Salvar alterações"
 
@@ -485,35 +485,52 @@ msgstr "Ocultar objetos flash automaticamente"
 msgid "Automatically hide embeded flash objects behind the Colorbox layer."
 msgstr "Ocultar automaticamente objetos flash atrás da camada do Colorbox. É feito definindo wmode para transparente."
 
-#: includes/settings-page/sp-plugin-settings.php:69
+#: includes/settings-page/sp-plugin-settings.php:70
+msgid "Add Zoom overlay to pictures"
+msgstr ""
+
+#: includes/settings-page/sp-plugin-settings.php:76
+msgid "Add Zoom overlay to pictures that open in a Colorbox."
+msgstr ""
+
+#: includes/settings-page/sp-plugin-settings.php:82
+msgid "Use jQuery library from Google"
+msgstr ""
+
+#: includes/settings-page/sp-plugin-settings.php:88
+#, php-format
+msgid "Use jQuery library version %1$s from Google instead of the one that comes with WordPress."
+msgstr ""
+
+#: includes/settings-page/sp-plugin-settings.php:94
 msgid "Add JavaScript to footer"
 msgstr "Adicionar JavaScript ao footer"
 
-#: includes/settings-page/sp-plugin-settings.php:73
+#: includes/settings-page/sp-plugin-settings.php:100
 msgid "Add JavaScript to footer instead of the header."
 msgstr "Adicione o JavaScript para rodapé, em vez do cabeçalho."
 
-#: includes/settings-page/sp-plugin-settings.php:78
+#: includes/settings-page/sp-plugin-settings.php:105
 msgid "Remove link from Meta-box"
 msgstr "Remover link de Meta-box"
 
-#: includes/settings-page/sp-plugin-settings.php:82
+#: includes/settings-page/sp-plugin-settings.php:109
 msgid "Remove the link to the developers site from the WordPress meta-box."
 msgstr "Remova o link para o site de desenvolvedores da caixa meta WordPress."
 
-#: includes/settings-page/sp-plugin-settings.php:87
+#: includes/settings-page/sp-plugin-settings.php:114
 msgid "Activate debug mode"
 msgstr "Ativar o modo de depuração"
 
-#: includes/settings-page/sp-plugin-settings.php:91
+#: includes/settings-page/sp-plugin-settings.php:118
 msgid "Adds debug information and non-minified JavaScript to the page. Useful for troubleshooting."
 msgstr "Adiciona informações de depuração e não minified JavaScript para a página. Útil para solução de problemas."
 
-#: includes/settings-page/sp-plugin-settings.php:96
+#: includes/settings-page/sp-plugin-settings.php:123
 msgid "Disable warning"
 msgstr "Desativar aviso"
 
-#: includes/settings-page/sp-plugin-settings.php:101
+#: includes/settings-page/sp-plugin-settings.php:128
 msgid "Disables the warning that is displayed if the plugin is activated but the auto-colorbox feature for all images is turned off."
 msgstr "Desativa o aviso que é exibido se o plugin estiver ativado mas a função Colorbox Automático para todas as imagens estiver desligada."
 

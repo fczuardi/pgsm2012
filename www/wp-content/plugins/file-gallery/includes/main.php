@@ -3,7 +3,7 @@
 /**
  * Returns current post's attachments
  */
-function file_gallery_list_attachments(&$count_attachments, $post_id, $attachment_order, $checked_attachments, $attachment_orderby = 'menu_order')
+function file_gallery_list_attachments(&$count_attachments, $post_id, $attachment_order, $checked_attachments, $attachment_orderby = 'menu_order' )
 {
 	global $wpdb, $_wp_additional_image_sizes;
 	
@@ -13,18 +13,16 @@ function file_gallery_list_attachments(&$count_attachments, $post_id, $attachmen
 	
 	if( '' != $attachment_order && false !== strpos($attachment_order, ',') )
 	{
-		$attachment_ids = str_replace(',', "','", trim($attachment_order, ',') );
-		
 		$query = "SELECT * FROM $wpdb->posts 
-			 WHERE $wpdb->posts.post_parent = " . $post_id . "
-			 AND $wpdb->posts.post_type = 'attachment' 
-			 ORDER BY FIELD(ID, '" . $attachment_ids . "') ";
+			 WHERE post_parent = " . $post_id . "
+			 AND post_type = 'attachment' 
+			 ORDER BY FIELD(ID, " . $attachment_order . ") ";
 
 		$attachments = $wpdb->get_results( $query );
 	}
 	else
 	{
-		if( ! in_array($attachment_order, array('ASC', 'DESC')) )
+		if( 'DESC' != $attachment_order )
 			$attachment_order = 'ASC';
 		
 		if( ! in_array($attachment_orderby, array('post_title', 'post_name', 'post_date', 'menu_order')) )
@@ -43,13 +41,8 @@ function file_gallery_list_attachments(&$count_attachments, $post_id, $attachmen
 
 	if( $attachments )
 	{
-		$thumb_id = get_post_meta( $post_id, '_thumbnail_id', true );
-		
-		// start the list...
-		$attached_files = '<ul class="ui-sortable" id="file_gallery_list">' . "\n";
-		
 		$count_attachments = count($attachments);
-		
+		$thumb_id = get_post_meta( $post_id, '_thumbnail_id', true );
 		$attachment_thumb_size  = isset($options["default_metabox_image_size"]) ? $options["default_metabox_image_size"] : 'thumbnail';
 		$attachment_thumb_width = isset($options["default_metabox_image_width"]) && 0 < $options["default_metabox_image_width"] ? $options["default_metabox_image_width"] : 75;	
 		
@@ -63,40 +56,46 @@ function file_gallery_list_attachments(&$count_attachments, $post_id, $attachmen
 			$ats_width  = get_option($attachment_thumb_size . '_size_w');
 			$ats_height = get_option($attachment_thumb_size . '_size_h');
 		}
-		
-		if( 0 < (int) $ats_width && 0 < (int) $ats_height )
-			$attachment_thumb_ratio = $ats_width / $ats_height;
-		else
-			$attachment_thumb_ratio = 1;
+
+		$attachment_thumb_ratio = 0 < (int) $ats_width && 0 < (int) $ats_height ? $ats_width / $ats_height : 1;
 			
 		if( '' == strval($attachment_thumb_ratio) )
 			$attachment_thumb_ratio = 1;
 
 		$attachment_thumb_height = $attachment_thumb_width / $attachment_thumb_ratio;
 		
+		// start the list...
+		$attached_files = '<ul class="ui-sortable' . (($options['textual_mode']) ? ' textual' : '') . '" id="file_gallery_list">' . "\n";
+		
 		foreach( $attachments as $attachment )
 		{
-			$classes         = array("sortableitem");
-			$post_thumb_link = "set";
-			$non_image       = "";
-			$checked         = "";
+			$classes = array('sortableitem');
+			$post_thumb_link = 'set';
+			$non_image = '';
+			$checked = '';
+			$file_type = '';
 			
-			$original_id = get_post_meta($attachment->ID, "_is_copy_of", true);
-			$copies 	 = get_post_meta($attachment->ID, "_has_copies", true);
+			if ( preg_match( '/^.*?\.(\w+)$/', get_attached_file( $attachment->ID ), $matches ) )
+				$file_type = esc_html( strtoupper( $matches[1] ) );
+			else
+				$file_type = strtoupper( str_replace( 'image/', '', $attachment->post_mime_type ) );
 			
-			if( "" != strval($original_id) )
-				$classes[] = "copy copy-of-" . $original_id;
-			elseif( "" != strval($copies) )
-				$classes[] = "has_copies copies-" . implode("-", $copies);
+			$original_id = get_post_meta($attachment->ID, '_is_copy_of', true);
+			$copies 	 = get_post_meta($attachment->ID, '_has_copies', true);
+			
+			if( '' != strval($original_id) )
+				$classes[] = 'copy copy-of-' . $original_id;
+			elseif( '' != strval($copies) )
+				$classes[] = 'has_copies copies-' . implode('-', $copies);
 			
 			if( (int) $thumb_id === (int) $attachment->ID )
 			{
-				$classes[]       = "post_thumb";
-				$post_thumb_link = "unset";
+				$classes[]       = 'post_thumb';
+				$post_thumb_link = 'unset';
 			}
 			
 			$attachment_thumb = wp_get_attachment_image_src($attachment->ID, $attachment_thumb_size);
-			$large            = wp_get_attachment_image_src($attachment->ID, "large");
+			$large            = wp_get_attachment_image_src($attachment->ID, 'large');
 
 			if( in_array($attachment->ID, $checked_attachments) )
 			{
@@ -105,9 +104,9 @@ function file_gallery_list_attachments(&$count_attachments, $post_id, $attachmen
 			}
 			
 			// if it's not an image...
-			if( "" == $attachment_thumb )
+			if( '' == $attachment_thumb )
 			{
-				$attachment_thumb[0] = file_gallery_https( FILE_GALLERY_CRYSTAL_URL ). "/" . file_gallery_get_file_type($attachment->post_mime_type) . ".png";
+				$attachment_thumb    = array( 0 => file_gallery_https( wp_mime_type_icon($attachment->ID) ) );
 				$attachment_width    = '';
 				$attachment_height   = '';
 				$non_image           = ' non_image';
@@ -117,80 +116,63 @@ function file_gallery_list_attachments(&$count_attachments, $post_id, $attachmen
 			}
 			else
 			{
+				$forced_height = '';
 				$classes[] = 'image';
 				$_attachment_thumb_width = $attachment_thumb_width;
 				
 				if( 1 === $attachment_thumb_ratio && $attachment_thumb[2] > $attachment_thumb_width )
 					$forced_height = 'height: ' . $attachment_thumb_height . 'px';
-				else
-					$forced_height = '';
-				
+
 				$image_width_style = 'style="width: ' . $_attachment_thumb_width . 'px; ' . $forced_height . '"';
 			}
-			
-			$attached_files .= '
-			<li id="image-' . $attachment->ID . '" class="' . implode(" ", $classes) . '" style="width: ' . $_attachment_thumb_width . 'px; height: ' . $attachment_thumb_height . 'px">
-				
-				<img src="' . $attachment_thumb[0] . '" alt="' . $attachment->post_title . '" id="in-' . $attachment->ID . '" title="' . $attachment->post_title . '" class="fgtt' . $non_image . '" ' . $image_width_style . ' />';
-				
-				if( "" == $non_image ) :
-					$attached_files .= '<a href="' . $large[0] . '" id="in-' . $attachment->ID . '-zoom" class="img_zoom action">
-						<img src="' . file_gallery_https( FILE_GALLERY_URL ) . '/images/famfamfam_silk/magnifier.png" alt="' . __("Zoom", "file-gallery") . '" title="' . __("Zoom", "file-gallery") . '" />
-					</a>';
-				endif;
-				
-				$attached_files .= '<a href="#" id="in-' . $attachment->ID . '-edit" class="img_edit action">
-					<img src="' . file_gallery_https( FILE_GALLERY_URL ) . '/images/famfamfam_silk/pencil.png" alt="' . __("Edit", "file-gallery") . '" title="' . __("Edit", "file-gallery") . '" />
-				</a>
-				<span class="checker_action action" title="' . __('Click to select, or click and drag to change position', 'file-gallery') . '">
-					<input type="checkbox" id="att-chk-' . $attachment->ID . '" class="checker"' . $checked . ' title="' . __("Click to select", "file-gallery") . '" />
-				</span>';
-		
-			if( current_user_can('edit_post', $attachment->ID) ) :
-				
-				if( "" == $non_image && function_exists('current_theme_supports') && current_theme_supports('post-thumbnails') ) :
-				
-					if( "set" == $post_thumb_link )
-						$as_featured = __("Set as featured image", "file-gallery");
-					else
-						$as_featured = __("Unset as featured image", "file-gallery");
-				
-					$attached_files .= '<a href="#" class="post_thumb_status action" rel="' . $attachment->ID . '" title="' . $as_featured . '">
-							<img src="' . file_gallery_https( FILE_GALLERY_URL ) . '/images/famfamfam_silk/star_' . $post_thumb_link . '.png" alt="' . $as_featured . '" />
-						</a>';
-					
-					$attached_files .= '<div id="post_thumb_setter_' . $attachment->ID . '" class="post_thumb_setter">
-							' . __("Really set as featured image?", "file-gallery") . ' 
-							<a href="#" id="post_thumb_set[' . $attachment->ID . ']" class="post_thumb_set">' . __("Continue", "file-gallery") . '</a>
-							' . __("or", "file-gallery") . '
-							<a href="#" class="post_thumb_cancel" rel="' . $attachment->ID . '">' . __("Cancel", "file-gallery") . '</a>
-						</div>';
-					
-					$attached_files .= '<div id="post_thumb_unsetter_' . $attachment->ID . '" class="post_thumb_unsetter">
-							' . __("Really unset as featured image?", "file-gallery") . ' 
-							<a href="#" id="post_thumb_unset[' . $attachment->ID . ']" class="post_thumb_unset">' . __("Continue", "file-gallery") . '</a>
-							' . __("or", "file-gallery") . '
-							<a href="#" class="post_thumb_cancel" rel="' . $attachment->ID . '">' . __("Cancel", "file-gallery") . '</a>
-						</div>';
-				
-				endif;
 
+			$attached_files .= '
+			<li id="image-' . $attachment->ID . '" class="' . implode(' ', $classes) . '" style="width: ' . $_attachment_thumb_width . 'px; height: ' . $attachment_thumb_height . 'px" title="[' . $attachment->ID . '] ' . $attachment->post_title . ' [' . $file_type . ']">
+			
+			<img src="' . $attachment_thumb[0] . '" alt="' . $attachment->post_title . '" id="in-' . $attachment->ID . '" title="' . $attachment->post_title . '" class="fgtt' . $non_image . '" ' . $image_width_style . ' />
+			
+			<span class="attachment-title">' . $attachment->post_title . '</span>';
+				
+			if( "" == $non_image )
+			{
+				$attached_files .= '<a href="' . $large[0] . '" id="in-' . $attachment->ID . '-zoom" class="img_zoom action">
+					<img src="' . file_gallery_https( FILE_GALLERY_URL ) . '/images/famfamfam_silk/magnifier.png" alt="' . __("Zoom", "file-gallery") . '" title="' . __("Zoom", "file-gallery") . '" />
+				</a>';
+			}
+				
+			$attached_files .= '<a href="#" id="in-' . $attachment->ID . '-edit" class="img_edit action">
+				<img src="' . file_gallery_https( FILE_GALLERY_URL ) . '/images/famfamfam_silk/pencil.png" alt="' . __("Edit", "file-gallery") . '" title="' . __("Edit", "file-gallery") . '" />
+			</a>
+			<span class="checker_action action" title="' . __('Click to select, or click and drag to change position', 'file-gallery') . '">
+				<input type="checkbox" id="att-chk-' . $attachment->ID . '" class="checker"' . $checked . ' title="' . __("Click to select", "file-gallery") . '" />
+			</span>';
+		
+			if( current_user_can('edit_post', $attachment->ID) )
+			{				
+				if( '' == $non_image && function_exists('current_theme_supports') && current_theme_supports('post-thumbnails') )
+				{
+					$as_featured = "set" == $post_thumb_link ? __('Set as featured image', 'file-gallery') : __('Unset as featured image', 'file-gallery');
+				
+					$attached_files .= '<a href="#" class="post_thumb_status action" rel="' . $attachment->ID . '">
+							<img src="' . file_gallery_https( FILE_GALLERY_URL ) . '/images/famfamfam_silk/star_' . $post_thumb_link . '.png" alt="' . $as_featured . '" title="' . $as_featured . '" />
+						</a>';				
+				}
+	
 				$attached_files .= '<a href="#" class="delete_or_detach_link action" rel="' . $attachment->ID . '">
 					<img src="' . file_gallery_https( FILE_GALLERY_URL ) . '/images/famfamfam_silk/delete.png" alt="' . __("Detach / Delete", "file-gallery") . '" title="' . __("Detach / Delete", "file-gallery") . '" />
 				</a>
 				<div id="detach_or_delete_'  . $attachment->ID . '" class="detach_or_delete">
 					<br />';
-
-				if( current_user_can('delete_post', $attachment->ID) ) :
 	
+				if( current_user_can('delete_post', $attachment->ID) )
+				{
 					$attached_files .= '<a href="#" class="do_single_delete" rel="' . $attachment->ID . '">' . __("Delete", "file-gallery") . '</a>
 						<br />
 						' . __("or", "file-gallery") . '
 						<br />';
-						
-				endif;
+				}
 					
-					$attached_files .= '<a href="#" class="do_single_detach" rel="' . $attachment->ID . '">' . __("Detach", "file-gallery") . '</a>
+				$attached_files .= '<a href="#" class="do_single_detach" rel="' . $attachment->ID . '">' . __("Detach", "file-gallery") . '</a>
 				</div>
 				<div id="detach_attachment_'  . $attachment->ID . '" class="detach_attachment">
 					' . __("Really detach?", "file-gallery") . ' 
@@ -199,21 +181,19 @@ function file_gallery_list_attachments(&$count_attachments, $post_id, $attachmen
 					<a href="#" class="detach_cancel" rel="' . $attachment->ID . '">' . __("Cancel", "file-gallery") . '</a>
 				</div>';
 				
-				if( current_user_can('delete_post', $attachment->ID) ) :
-				
+				if( current_user_can('delete_post', $attachment->ID) )
+				{
 					$attached_files .= '<div id="del_attachment_' . $attachment->ID . '" class="del_attachment">
 						' . __("Really delete?", "file-gallery") . ' 
 						<a href="#" id="del[' . $attachment->ID . ']" class="delete">' . __("Continue", "file-gallery") . '</a>
 						' . __("or", "file-gallery") . '
 						<a href="#" class="delete_cancel" rel="' . $attachment->ID . '">' . __("Cancel", "file-gallery") . '</a>
 					</div>';
-					
-				endif;
-
-			endif;
-			
+				}
+			}
+				
 			$attached_files .= '</li>
-			' . "\n";
+				' . "\n";
 		}
 		
 		//end the list...
@@ -257,10 +237,11 @@ function file_gallery_list_tags( $args = array() )
 		
 		if( $cache )
 		{
-			if( $echo )
-				echo $cache;
-			else
-				return $cache;	
+			if( ! $echo )
+				return $cache;
+
+			echo $cache;	
+			return;
 		}
 	}
 
@@ -322,7 +303,7 @@ function file_gallery_list_tags( $args = array() )
 
 				foreach( $media_tags as $tag )
 				{						
-					$list[] = '<a href="' . file_gallery_https( get_bloginfo("url") ) . $fs . $media_tag_slug . $ss . $tag->slug . $ts . '" class="fg_insert_tag" name="' . $tag->slug . '">' . $tag->name . '</a>';
+					$list[] = '<a href="' . file_gallery_https( get_bloginfo('url') ) . $fs . $media_tag_slug . $ss . $tag->slug . $ts . '" class="fg_insert_tag" name="' . $tag->slug . '">' . $tag->name . '</a>';
 				}
 			}
 			else
@@ -589,4 +570,4 @@ add_action('wp_ajax_file_gallery_main_delete',		'file_gallery_main');
 add_action('wp_ajax_file_gallery_main_detach',		'file_gallery_main');
 add_action('wp_ajax_file_gallery_set_post_thumb',	'file_gallery_main');
 add_action('wp_ajax_file_gallery_unset_post_thumb',	'file_gallery_main');
-?>
+

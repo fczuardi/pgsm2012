@@ -122,4 +122,3 @@ function file_gallery_clear_cache_manual()
 }
 add_action('wp_ajax_file_gallery_clear_cache_manual', 'file_gallery_clear_cache_manual');
 
-?>

@@ -44,10 +44,10 @@ function file_gallery_check_attachment_originality()
 				var file_gallery_originals = <?php echo $originals; ?>,
 					file_gallery_copies = <?php echo $copies; ?>;
 
-				if( null !== file_gallery_originals)
+				if( null !== file_gallery_originals )
 					jQuery(file_gallery_originals).addClass("attachment-original");
 				
-				if( null !== file_gallery_copies)
+				if( null !== file_gallery_copies )
 					jQuery(file_gallery_copies).addClass("attachment-copy");
 			</script>
 		<?php
@@ -79,6 +79,7 @@ function file_gallery_get_attachment_data()
 	$external_url = $_POST['external_url'];
 	$linkclass 	  = $_POST['linkclass'];
 	$imageclass   = $_POST['imageclass'];
+	$_imageclass = '';
 	$align        = $_POST['align'];
 	$rel          = '';
 	$_caption      = ('true' == $_POST['caption'] || '1' == $_POST['caption']) ? true : false;
@@ -109,6 +110,7 @@ function file_gallery_get_attachment_data()
 
 	foreach( $attachments as $attachment_id )
 	{
+		$_imageclass = '';
 		$caption = $_caption;
 		$attachment = get_post($attachment_id);
 		$excerpt = trim($attachment->post_excerpt);
@@ -117,14 +119,14 @@ function file_gallery_get_attachment_data()
 			$caption = '' != $excerpt ? $excerpt : false;
 		
 		if( false === $caption )
-			$imageclass .= ' align' . $align;
+			$_imageclass = $imageclass . ' align' . $align;
 
-		$imageclass .= ' size-' . $size;
+		$_imageclass .= ' size-' . $size;
 		
 		if( (1 === count($attachments) || (1 < count($attachments) && '' == $linkclass)) && 'attachment' == $linkto )
 			$rel = ' rel="attachment wp-att-' . $attachment->ID . '"';
 
-		echo file_gallery_parse_attachment_data( $attachment, $size, $linkto, $linkclass, $imageclass, $rel, $caption, $align );
+		echo file_gallery_parse_attachment_data( $attachment, $size, $linkto, $linkclass, $_imageclass, $rel, $caption, $align );
 	}
 	
 	exit();
@@ -163,8 +165,7 @@ function file_gallery_parse_attachment_data( $attachment, $size, $linkto, $linkc
 	}
 	else
 	{
-		$filetype        = file_gallery_get_file_type($attachment->post_mime_type);
-		$size_src        = FILE_GALLERY_CRYSTAL_URL . '/' . $filetype . '.png';
+		$size_src        = wp_mime_type_icon($attachment->ID);
 		$width           = '';
 		$height          = '';
 		$imageclass     .= ' non-image';
@@ -268,7 +269,7 @@ function file_gallery_edit_attachment()
 	else
 	{
 		$fullsize_src = wp_get_attachment_url( $attachment->ID );
-		$size_src     = file_gallery_https( FILE_GALLERY_CRYSTAL_URL ) . '/' . file_gallery_get_file_type($attachment->post_mime_type) . '.png';
+		$size_src     = file_gallery_https( wp_mime_type_icon($attachment->ID) );
 		
 		$type = 'document';
 	}
@@ -294,7 +295,7 @@ function file_gallery_edit_attachment()
 		<?php if( 'image' == $type ) : ?>
 		<a href="<?php echo $fullsize_src; ?>" title="" class="attachment_edit_thumb"><img src="<?php echo $size_src; ?>" alt="image" /></a>
 		<p>
-			<a href="#" id="regenerate[<?php echo $attachment->ID; ?>]" class="file_gallery_regenerate"><?php _e("Regenerate this image's thumbnails", "file-gallery"); ?></a>
+			<a href="#" id="file_gallery_regenerate-<?php echo $attachment->ID; ?>" class="file_gallery_regenerate"><?php _e("Regenerate this image's thumbnails", "file-gallery"); ?></a>
 		</p>
 		<?php else : ?>
 		<img src="<?php echo $size_src; ?>" alt="image" />
@@ -482,6 +483,9 @@ function file_gallery_copy_attachment_to_post( $aid, $post_id )
 	
 	foreach( $acf as $key => $val )
 	{
+		if( in_array($key, array('_is_copy_of', '_has_copies')) )
+			continue;
+
 		foreach( $val as $v )
 		{
 			add_post_meta($attachment_id, $key, $v);
@@ -501,7 +505,7 @@ function file_gallery_copy_attachment_to_post( $aid, $post_id )
 	update_post_meta($attachment_id, '_is_copy_of', $aid);
 	
 	// meta for the original attachment (array holding ids of its copies)
-	$has_copies   = get_post_meta($aid, '_has_copies', true);
+	$has_copies = get_post_meta($aid, '_has_copies', true);
 	$has_copies[] = $attachment_id;
 	$has_copies = array_unique($has_copies);
 	
@@ -509,16 +513,19 @@ function file_gallery_copy_attachment_to_post( $aid, $post_id )
 	
 	/*  / copies and originals */
 
-	// copy media tags
-	$media_tags = wp_get_object_terms(array($aid), FILE_GALLERY_MEDIA_TAG_NAME);
-	$tags = array();
-	
-	foreach( $media_tags as $mt )
+	if( defined('FILE_GALLERY_MEDIA_TAG_NAME') )
 	{
-		$tags[] = $mt->name;
+		// copy media tags
+		$media_tags = wp_get_object_terms(array($aid), FILE_GALLERY_MEDIA_TAG_NAME);
+		$tags = array();
+		
+		foreach( $media_tags as $mt )
+		{
+			$tags[] = $mt->name;
+		}
+		
+		wp_set_object_terms($attachment_id, $tags, FILE_GALLERY_MEDIA_TAG_NAME);
 	}
-	
-	wp_set_object_terms($attachment_id, $tags, FILE_GALLERY_MEDIA_TAG_NAME);
 	
 	return $attachment_id;
 }
@@ -653,12 +660,16 @@ function file_gallery_cancel_file_deletion_if_attachment_copies( $file )
 	$was_original = true;
 		
 	// get '_wp_attached_file' value based on upload path
-	if( false !== get_option('uploads_use_yearmonth_folders') )
+	if( false != get_option('uploads_use_yearmonth_folders') )
 	{
 		$_file = explode('/', $_file);
 		$c     = count($_file);
 		
 		$_file = $_file[$c-3] . '/' . $_file[$c-2] . '/' . $_file[$c-1];
+	}
+	else
+	{
+		$_file = basename($file);
 	}
 	
 	// find all attachments that share the same file
@@ -707,7 +718,7 @@ function file_gallery_delete_all_attachment_copies( $attachment_id )
 	
 	if( is_array($copies) && ! empty($copies) )
 	{
-		do_action('file_gallery_delete_all_attachment_copies', $attachment_id, &$copies);
+		do_action('file_gallery_delete_all_attachment_copies', $attachment_id, array(&$copies));
 		
 		foreach( $copies as $copy )
 		{
@@ -758,7 +769,7 @@ function file_gallery_promote_first_attachment_copy( $attachment_id, $copies = f
 	if( is_array($copies) && ! empty($copies) )
 	{
 		$promoted_id = array_shift($copies);
-		do_action('file_gallery_promote_first_attachment_copy', $attachment_id, &$promoted_id);
+		do_action('file_gallery_promote_first_attachment_copy', $attachment_id, array(&$promoted_id));
 		delete_post_meta($promoted_id, '_is_copy_of');
 
 		if( ! empty($copies) )
@@ -780,4 +791,3 @@ function file_gallery_promote_first_attachment_copy( $attachment_id, $copies = f
 	return false;
 }
 
-?>

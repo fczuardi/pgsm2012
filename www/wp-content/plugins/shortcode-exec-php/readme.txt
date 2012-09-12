@@ -3,8 +3,8 @@ Contributors: Marcel Bokhorst
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=AJSBB7DGNA3MJ&lc=US&item_name=Shortcode%20Exec%20PHP%20WordPress%20Plugin&item_number=Marcel%20Bokhorst&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
 Tags: admin, shortcode, run, php, eval, execute, exec, code, post, posts, page, pages, comment, comments, sidebar, widget, widgets, rss, feed, feeds, AJAX, wpmu, tinymce
 Requires at least: 3.1
-Tested up to: 3.3.1
-Stable tag: 1.41
+Tested up to: 3.4.1
+Stable tag: 1.44
 
 Execute arbitrary, reusable PHP code in posts, pages, comments, widgets and RSS feeds using shortcodes in a safe and easy way
 
@@ -23,7 +23,7 @@ Advantages over other solutions:
 
 For those concerned about security (hopefully everybody): only administrators can define shortcodes and associated PHP code (see also the [FAQ](http://wordpress.org/extend/plugins/shortcode-exec-php/faq/ "FAQ")).
 
-Please report any issue you have with this plugin in [the forum](http://forum.bokhorst.biz/).
+Please report any issue you have with this plugin in [the forum](http://forum.faircode.eu/).
 
 See my [other plugins](http://wordpress.org/extend/plugins/profile/m66b "Marcel Bokhorst").
 
@@ -46,6 +46,10 @@ See my [other plugins](http://wordpress.org/extend/plugins/profile/m66b "Marcel 
 1. Activate the plugin through the Plugins menu in WordPress
 
 == Frequently Asked Questions ==
+
+= Where can I define shortcodes? =
+
+WordPress menu Tools > Shortcode Exec PHP
 
 = What happens when I disable a shortcode? =
 
@@ -102,11 +106,10 @@ The post or page author has insufficient privileges to execute shortcodes.
 
 Note that your code is not directly executed in the WordPress environment, but in a function.
 This means for example that a *global $wpdb;* is needed to access the [database class](http://codex.wordpress.org/Function_Reference/wpdb_Class "wpdb class").
-If I am around I am happy to help you with your code, see next question.
 
 = Where can I ask questions, report bugs and request features? =
 
-You can write a comment in the [the forum](http://forum.bokhorst.biz/).
+You can use the [the forum](http://forum.faircode.eu/).
 
 == Screenshots ==
 
@@ -114,8 +117,15 @@ You can write a comment in the [the forum](http://forum.bokhorst.biz/).
 
 == Changelog ==
 
-= Development version =
-* ...
+= 1.44 =
+* Bugfix: html entities (by *Joe Pruett*, thanks!)
+* Added Lithuanian (lt\_LT) by [Host1Free](http://www.host1free.com/ "Host1Free")
+
+= 1.43 =
+* Bugfix: added missing file
+
+= 1.42 =
+* Added link to [Pro version](http://www.faircode.eu/scepro/ "Shortcode Exec PHP Pro")
 
 = 1.41 =
 * Bugfix: require *manage_options* capability when site activated on a multisite network
@@ -327,6 +337,15 @@ You can write a comment in the [the forum](http://forum.bokhorst.biz/).
 * Development version
 
 == Upgrade Notice ==
+
+= 1.44 =
+One bugfix, new translation
+
+= 1.43 =
+One bugfix
+
+= 1.42
+Added link to Pro version
 
 = 1.41 =
 One bugfix

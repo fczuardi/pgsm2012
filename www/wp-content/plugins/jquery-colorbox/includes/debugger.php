@@ -44,8 +44,8 @@ class JQueryColorboxDebugger {
    * @author Arne Franken
    * @access public
    *
-   * @param $variable the variable 
-   * @param $title 
+   * @param object $variable the variable
+   * @param string $title
    *
    * @return void
    */
@@ -63,8 +63,8 @@ class JQueryColorboxDebugger {
    *
    * @access private
    *
-   * @param $var the variable
-   * @param String $info display as a title
+   * @param object $var the variable
+   * @param Boolean $info display as a title
    *
    * @return void
    */
@@ -96,10 +96,10 @@ class JQueryColorboxDebugger {
    *
    * @access private
    *
-   * @param  $var
-   * @param null $var_name
-   * @param null $indent
-   * @param null $reference
+   * @param object $var
+   * @param string $var_name
+   * @param string $indent
+   * @param string $reference
    *
    * @return void
    */
@@ -161,5 +161,5 @@ class JQueryColorboxDebugger {
 
 }
 
-// Debugger()
+// JQueryColorboxDebugger()
 ?>

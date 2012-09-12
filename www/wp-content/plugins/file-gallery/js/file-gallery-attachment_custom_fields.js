@@ -1,17 +1,17 @@
-var acf =
+var file_gallery_acf =
 {
-	L10n : acf_L10n,
-	options : acf_options
+	L10n : file_gallery_acf_L10n,
+	options : file_gallery_acf_options
 };
 
 jQuery(document).ready(function()
 {
 	var admin_url = ajaxurl.split("/wp-admin").shift() + "/wp-admin",
-		acf_custom_field_num = 1;
+		file_gallery_acf_custom_field_num = 1;
 	
 	jQuery("#media-single-form tbody tr").each(function()
 	{
-		if( -1 !== jQuery.inArray(jQuery(this).attr("class"), acf.options.custom_fields) )
+		if( -1 !== jQuery.inArray(jQuery(this).attr("class"), file_gallery_acf.options.custom_fields) )
 			jQuery(this).children(".field").append('<input class="button-secondary acf_delete_custom_field" type="button" value="Delete" name="acf_delete_custom_field_' + jQuery(this).attr("class") + '" />').addClass("custom_field");
 	});
 
@@ -33,22 +33,22 @@ jQuery(document).ready(function()
 					'attachment_id'	: attachment_id,
 					'key'			: key,
 					'value'			: value,
-					'_ajax_nonce'	: acf.options.add_new_attachment_custom_field_nonce
+					'_ajax_nonce'	: file_gallery_acf.options.add_new_attachment_custom_field_nonce
 				},
 				function(response)
 				{
 					if( 0 < Number(response) )
 					{
 						jQuery(".acf_new_custom_field")
-							.before('<tr class="' + key + '" id="acf_' + acf_custom_field_num + '"><th valign="top" class="label" scope="row"><label for="attachments[' + attachment_id + '][' + key + ']"><span class="alignleft">' + key + '</span><br class="clear" /></label></th><td class="field custom_field"><textarea name="attachments[' + attachment_id + '][' + key + ']" id="attachments[' + attachment_id + '][' + key + ']">' + value + '</textarea><input class="button-secondary acf_delete_custom_field" type="button" value="Delete" name="acf_delete_custom_field_' + key + '" /></td></tr>');
+							.before('<tr class="' + key + '" id="acf_' + file_gallery_acf_custom_field_num + '"><th valign="top" class="label" scope="row"><label for="attachments[' + attachment_id + '][' + key + ']"><span class="alignleft">' + key + '</span><br class="clear" /></label></th><td class="field custom_field"><textarea name="attachments[' + attachment_id + '][' + key + ']" id="attachments[' + attachment_id + '][' + key + ']">' + value + '</textarea><input class="button-secondary acf_delete_custom_field" type="button" value="Delete" name="acf_delete_custom_field_' + key + '" /></td></tr>');
 						
-						jQuery("#acf_" + acf_custom_field_num).fadeTo(0, 0).css({"visibility" : "visible", "backgroundColor":"#FFFF88"}).fadeTo(250, 1).animate({"backgroundColor" : "#F9F9F9"}, 250);
+						jQuery("#acf_" + file_gallery_acf_custom_field_num).fadeTo(0, 0).css({"visibility" : "visible", "backgroundColor":"#FFFF88"}).fadeTo(250, 1).animate({"backgroundColor" : "#F9F9F9"}, 250);
 						
-						acf_custom_field_num++;
+						file_gallery_acf_custom_field_num++;
 					}
 					else
 					{
-						alert(acf.L10n.error_adding_attachment_custom_field);
+						alert(file_gallery_acf.L10n.error_adding_attachment_custom_field);
 					}
 				},
 				'html'
@@ -64,7 +64,7 @@ jQuery(document).ready(function()
 	jQuery(".acf_delete_custom_field").live("click", function()
 	{
 		var that = this,
-			key = jQuery(that).attr("name").replace(/acf_delete_custom_field_/, ""),
+			key = jQuery(that).attr("name").replace(/file_gallery_acf_delete_custom_field_/, ""),
 			value = jQuery("." + key + " textarea").val(),
 			attachment_id = jQuery("#attachment_id").val() || jQuery("#fgae_attachment_id").val();
 
@@ -76,7 +76,7 @@ jQuery(document).ready(function()
 				attachment_id	: attachment_id,
 				key				: key,
 				value			: value,
-				_ajax_nonce		: acf.options.delete_attachment_custom_field_nonce
+				_ajax_nonce		: file_gallery_acf.options.delete_attachment_custom_field_nonce
 			},
 			function(response)
 			{
@@ -87,7 +87,7 @@ jQuery(document).ready(function()
 				}
 				else if( "0" == response )
 				{
-					alert(acf.L10n.error_deleting_attachment_custom_field);
+					alert(file_gallery_acf.L10n.error_deleting_attachment_custom_field);
 				}
 				
 				return;

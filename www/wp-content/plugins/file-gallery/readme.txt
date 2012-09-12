@@ -1,10 +1,10 @@
 === File Gallery ===
-Contributors: aesqe, azizur
+Contributors: aesqe
 Donate link: http://skyphe.org/donate/
-Tags: attachment, attachments, gallery, galleries, template, templates, shortcode, file, files, attach, detach, unattach, copy, media, tags, library, custom, custom fields, custom fields for attachments, attachment custom fields
+Tags: attachment, attachments, gallery, galleries, template, templates, shortcode, file, files, attach, detach, unattach, copy, media, tags, library, custom, custom fields, custom fields for attachments, attachment custom fields, drag drop upload
 Requires at least: 3.1
-Tested up to: 3.4-alpha-19931
-Stable tag: 1.7.4.1
+Tested up to: 3.5-alpha-21419
+Stable tag: 1.7.5.3
 
 File Gallery extends WordPress media (attachments) capabilities 
 by adding a new gallery shortcode handler with templating support 
@@ -117,7 +117,93 @@ file_gallery_get_file_type
 
 
 
+== More info ==
+
+This plugin uses icons from the awesome famfamfam Silk icon set by 
+Mark James :)
+
+"Silk" can be found at: http://famfamfam.com/lab/icons/silk/
+
+Plugin settings are integrated into media settings page.
+
+Help file is included, you'll find it in the "help" subfolder :)
+
+
+
+== Translation Credits ==
+
+Hebrew:
+* **Maor Barazany** - http://www.maorb.info/
+
+French:
+* **Jean-Michel Meyer** - http://www.li-an.fr/wpplugins/
+
+Italian:
+* **Pietro Palli** - http://ppal.li/
+* **Francesco Canovi**  - http://www.blackstudio.it/
+
+Arabic:
+* **Wassem Mansour** - http://www.sanapix.com
+
+Lithuanian:
+* **Vincent G** - http://www.Host1Free.com
+
+
+
+== Thanks goes out to... ==
+
+* All the translators, and people leaving comments, bug reports and 
+  suggestions on the official page and in the WordPress.org forums
+
+
+
 == Changelog ==
+
+= 1.7.5.3 =
+* August 4th, 2012
+* bugfix: attachment ordering ignored in galleries and File Gallery metabox
+* bugfix: class names appended ad infinitum when inserting multiple single images
+
+= 1.7.5.1 =
+* June 22nd, 2012
+* minor adjustments in gallery templates css files
+* link rel attribute added to active image in simple template
+
+= 1.7.5 =
+* June 17th, 2012
+* bugfix: php error because of referenced variables (thanks kraterdesign!)
+* bugfix: php error on media settings page when a value
+  contains a single quote (thanks crmart, grollaz, amandajoonline!)
+* Advanced Custom Fields compatibility fix (thanks serdominik!)
+* some new and some improved translations
+* moved debug info to Debug Bar plugin
+* minor adjustments in default and simple templates
+* bunch of minor fixes, as always
+
+= 1.7.5-beta-2 =
+* March 10th, 2012
+* bugfix: internet explorer - tinymce focus on insert
+* moved tinymce-related code into a tinymce plugin
+* media listings page - regenerate single image link
+* drag and drop upload to file gallery box
+* insert a tag gallery without any files attached to a post
+* post thumb on post listing screen - on click open thickbox 
+  with bigger image
+* add "change" link to media tags name and slug on media 
+  settings page
+
+= 1.7.5-beta-1 =
+* February 26th, 2012
+* added "change" links to media tags name and slug on 
+  media settings page
+* post thumb on post listing screen now opens a thickbox 
+  with the bigger image when clicked
+* ability tp insert a tag gallery without any files 
+  attached to a post
+* tweaked drag and drop upload to file gallery box a bit
+* bugfix: internet explorer insert content position
+  (adds a bookmark on mouse up)
+* added Arabic translation by Wassem Mansour (thanks!)
 
 = 1.7.4.1 =
 * February 16th, 2012
@@ -130,6 +216,14 @@ file_gallery_get_file_type
 * bugfix: check if tinymce is defined before calling it
  (thanks jrstaatsiii)
 * take care of a few php notices (thanks Hubert)
+
+= 1.7.4-RC2 =
+* January 14th, 2012
+* support for multiple editors
+* drag and drop upload by dragging files onto File Gallery interface
+* proper check for attachment copies on file deletion when not 
+  using year/month upload structure - thanks to Per Wiklander :)
+* NOTICE: this version has been renamed to 1.7.5-beta-1
 
 = 1.7.3 =
 * January 2nd, 2012
@@ -156,6 +250,17 @@ file_gallery_get_file_type
 = 1.7 =
 * December 13th, 2011
 * public release for WordPress 3.3
+* all below RC* fixes plus:
+* reworked the settings system so it's easier to add new options
+* improved lightbox support, more flexibility
+* improved pagination
+* new gallery option: gallery class
+* new metabox option: alternative color scheme 
+  (and still working on it)
+* ability to copy attachments from WPML translations which aren't
+  primary translations
+* added the pot file to languages directory
+* bugfixes, bugfixes, bugfixes
 
 = 1.7-RC14 =
 * December 11th, 2011
@@ -237,19 +342,6 @@ file_gallery_get_file_type
 * July 10th, 2011
 * WordPress 3.2 compatible
 * minor Media Tags plugin compatibility fix
-
-= 1.7 =
-* May XX, 2011
-* reworked the settings system so it's easier to add new options
-* improved lightbox support, more flexibility
-* improved pagination
-* new gallery option: gallery class
-* new metabox option: alternative color scheme 
-  (and still working on it)
-* ability to copy attachments from WPML translations which aren't
-  primary translations
-* added the pot file to languages directory
-* bugfixes, bugfixes, bugfixes
 
 = 1.6.5.6 =
 * August 4th, 2011
@@ -568,38 +660,9 @@ file_gallery_get_file_type
 = 1.1 =
 * December 12th, 2009
 * Rewritten a lot of stuff for better WordPress compliance :)
-
-
-
-== More info ==
-
-This plugin uses icons from the awesome famfamfam Silk icon set by 
-Mark James :)
-
-"Silk" can be found at: http://famfamfam.com/lab/icons/silk/
-
-Plugin settings are integrated into media settings page.
-
-Help file is included, you'll find it in the "help" subfolder :)
-
-
-
-== Translation Credits ==
-
-* **Maor Barazany**     - Hebrew  - http://www.maorb.info/
-* **Jean-Michel Meyer** - French  - http://www.li-an.fr/wpplugins/
-* **Pietro Palli**      - Italian - http://ppal.li/
-
-
-
-== Thanks goes out to... ==
-
-* All the translators, and people leaving comments, bug reports and 
-  suggestions on the official page and in the WordPress.org forums
-
   
   
-== Plans for the next version? ==
+== Plans for the next versions ==
 
 sooner:
 

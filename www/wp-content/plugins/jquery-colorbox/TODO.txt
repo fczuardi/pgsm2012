@@ -46,7 +46,7 @@ Feature 14
 http://wordpress.org/support/topic/plugin-jquery-colorbox-caption-exceeds-space?replies=1
 
 Feature 13
-- add colorbox 1.3.17.1 property "fixed"
+- add colorbox 1.3.17.1 "positioning" properties
 
 Feature 12
 - add option to switch colorbox off for whole posts and pages

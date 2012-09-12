@@ -18,7 +18,7 @@ class JQueryColorboxFrontend {
    * @access static
    * @author Arne Franken
    *
-   * @param array $colorboxSettings user settings
+   * @param string[] $colorboxSettings user settings
    */
   //public static function JQueryColorboxFrontend($colorboxSettings) {
   function JQueryColorboxFrontend($colorboxSettings) {
@@ -41,10 +41,9 @@ class JQueryColorboxFrontend {
     }
 
     // enqueue JavaScript and CSS files in WordPress
-    wp_enqueue_script('jquery');
-    wp_register_style('colorbox-' . $this->colorboxSettings['colorboxTheme'], JQUERYCOLORBOX_PLUGIN_URL . '/' . 'themes/' . $this->colorboxSettings['colorboxTheme'] . '/colorbox.css', array(), JQUERYCOLORBOX_VERSION, 'screen');
-    wp_enqueue_style('colorbox-' . $this->colorboxSettings['colorboxTheme']);
+    add_action('init', array(& $this, 'addJQueryJS'), 100);
 
+    $this->addColorboxCSS();
     $this->addColorboxJS();
     $this->addColorboxWrapperJS();
     $this->addColorboxProperties();
@@ -83,8 +82,8 @@ class JQueryColorboxFrontend {
    * @access public
    * @author Arne Franken
    *
-   * @param  XML $content post or page content
-   * @return XML replaced content or excerpt
+   * @param  string $content post or page content
+   * @return string replaced content or excerpt
    */
   //public function addColorboxGroupIdToImages($content) {
   function addColorboxGroupIdToImages($content) {
@@ -94,7 +93,7 @@ class JQueryColorboxFrontend {
     $imgPattern = "/<img([^\>]*?)>/i";
     if (preg_match_all($imgPattern, $content, $imgTags)) {
       foreach ($imgTags[0] as $imgTag) {
-        // only work on imgTags that do not already contain the String "colorbox-"
+        // only work on imgTags that do not already contain the string "colorbox-"
         if (!preg_match('/colorbox-/i', $imgTag)) {
           if (!preg_match('/class=/i', $imgTag)) {
             // imgTag does not contain class-attribute
@@ -126,8 +125,8 @@ class JQueryColorboxFrontend {
    * @access public
    * @author Arne Franken
    *
-   * @param  $attribute class attribute of the attachment link
-   * @return replaced attributes
+   * @param  string[] $attribute class attribute of the attachment link
+   * @return string[] replaced attributes
    */
   //public function wpPostThumbnailClassFilter($attribute) {
   function wpPostThumbnailClassFilter($attribute) {
@@ -151,6 +150,7 @@ class JQueryColorboxFrontend {
      * declare variables that are used in more than one function
      */
     $colorboxPropertyArray = array(
+      'jQueryColorboxVersion' => JQUERYCOLORBOX_VERSION,
       'colorboxInline' => 'false',
       'colorboxIframe' => 'false',
       'colorboxGroupId' => '',
@@ -199,6 +199,8 @@ class JQueryColorboxFrontend {
       'autoHideFlash' => $this->colorboxSettings['autoHideFlash'],
       'autoColorbox' => $this->colorboxSettings['autoColorbox'],
       'autoColorboxGalleries' => $this->colorboxSettings['autoColorboxGalleries'],
+      'addZoomOverlay' => $this->colorboxSettings['addZoomOverlay'],
+      'useGoogleJQuery' => $this->colorboxSettings['useGoogleJQuery'],
       'colorboxAddClassToLinks' => $this->colorboxSettings['colorboxAddClassToLinks']
     );
     wp_localize_script('colorbox', 'jQueryColorboxSettingsArray', $colorboxPropertyArray);
@@ -245,6 +247,53 @@ class JQueryColorboxFrontend {
   }
 
   // addColorboxJS()
+
+  /**
+   * Enqueue jQuery JavaScript Library into WP Header
+   *
+   * @since 4.4
+   * @access public
+   * @author Arne Franken
+   */
+  //public function addJQueryJS() {
+  function addJQueryJS() {
+    if ($this->colorboxSettings['useGoogleJQuery']) {
+      if ($this->colorboxSettings['debugMode']) {
+        $jQueryLibraryUrl = "http://code.jquery.com/jquery-".JQUERYLIBRARY_VERSION.".js";
+      }
+      else {
+        $jQueryLibraryUrl = "http://code.jquery.com/jquery-".JQUERYLIBRARY_VERSION.".min.js";
+      }
+
+      wp_deregister_script('jquery');
+      wp_register_script('jquery', $jQueryLibraryUrl, false, JQUERYLIBRARY_VERSION, true);
+    }
+    //enqueues WP's jQuery library if useGoogleJQuery==false
+    wp_enqueue_script('jquery');
+  }
+
+  // addJQueryJS()
+
+  /**
+   * Insert CSS into WP Header
+   *
+   * @since 4.4
+   * @access public
+   * @author Arne Franken
+   */
+  //public function addColorboxCSS() {
+  function addColorboxCSS() {
+
+    wp_register_style('colorbox-' . $this->colorboxSettings['colorboxTheme'], JQUERYCOLORBOX_PLUGIN_URL . '/' . 'themes/' . $this->colorboxSettings['colorboxTheme'] . '/colorbox.css', array(), JQUERYCOLORBOX_VERSION, 'screen');
+    wp_enqueue_style('colorbox-' . $this->colorboxSettings['colorboxTheme']);
+
+    if ($this->colorboxSettings['addZoomOverlay']) {
+      wp_register_style( 'colorbox-css', JQUERYCOLORBOX_PLUGIN_URL . '/css/jquery-colorbox-zoom.css' , false, COLORBOXLIBRARY_VERSION );
+      wp_enqueue_style( 'colorbox-css' );
+    }
+  }
+
+  // addColorboxCSS()
 }
 
 // class JQueryColorboxFrontend()

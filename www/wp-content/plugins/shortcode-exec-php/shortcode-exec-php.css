@@ -105,3 +105,9 @@
 	font-family: monospace;
 }
 
+#scep_pro {
+	border: black solid 1px;
+	padding: 0 10px 10px 10px;
+	margin: 10px 0 20px 0;
+	display: inline-block;
+}

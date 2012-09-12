@@ -3,11 +3,11 @@
 Plugin Name: User Photo
 Plugin URI: http://wordpress.org/extend/plugins/user-photo/
 Description: Allows users to associate photos with their accounts by accessing their "Your Profile" page. Uploaded images are resized to fit the dimensions specified on the options page; a thumbnail image is also generated. New template tags introduced are: <code>userphoto_the_author_photo</code>, <code>userphoto_the_author_thumbnail</code>, <code>userphoto_comment_author_photo</code>, and <code>userphoto_comment_author_thumbnail</code>. Uploaded images may be moderated by administrators.
-Version: 0.9.5.1
+Version: 0.9.5.2
 Author: <a href="http://weston.ruter.net/">Weston Ruter</a>
 
 Original code by Weston Ruter <http://weston.ruter.net> at Shepherd Interactive <http://shepherd-interactive.com>.
-Continued development and maintenance by Dave Wagner (cptnwinky) <http://dev.dave-wagner.com/>
+Continued development and maintenance by Dave Wagner (cptnwinky) <http://dev.dave-wagner.com/> and Ryan Hellyer (ryanhellyer)
 
 GNU General Public License, Free Software Foundation <http://creativecommons.org/licenses/GPL/2.0/>
 This program is free software; you can redistribute it and/or modify
@@ -722,7 +722,7 @@ function userphoto_options_page(){
 	?>
 	<div class="wrap">
 		<h2>User Photo Options</h2>
-		<form method="post" action="<?php echo $_SERVER['REQUEST_URI'] ?>" id='userphoto_options_form'>
+		<form method="post" action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ); ?>" id='userphoto_options_form'>
 			<?php 
 			if(function_exists('wp_nonce_field'))
 				wp_nonce_field('update-options-userphoto');

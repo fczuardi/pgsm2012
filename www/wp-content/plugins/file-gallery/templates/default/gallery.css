@@ -14,6 +14,21 @@
 	padding: 0;
 }
 
+.gallery.default .gallery-caption,
+#content .gallery.default .gallery-caption
+{
+	margin-left: 0;
+}
+
+.gallery.default .gallery-startcol,
+#content .gallery.default .gallery-startcol
+{
+	clear: left;
+}
+
+
+/* the following styles do not seem to be needed, please let me know if you feel otherwise! */
+/*
 .gallery.default .gallery-item .gallery-icon,
 #content .gallery.default .gallery-item .gallery-icon
 {
@@ -29,12 +44,6 @@
 	margin: 0;
 }
 
-.gallery.default .gallery-caption,
-#content .gallery.default .gallery-caption
-{
-	margin-left: 0;
-}
-
 .gallery.default .gallery-description,
 #content .gallery.default .gallery-description
 {
@@ -48,15 +57,20 @@
 	height: 0.001px;
 	visibility: hidden;
 }
+*/
+
+
+
+
+
+
 
 
 
 /*
 Default style for WP-PageNavi plugin
-
 http://wordpress.org/extend/plugins/wp-pagenavi/
 */
-
 .gallery.default .wp-pagenavi {
 	clear: both;
 	padding: 10px 0;

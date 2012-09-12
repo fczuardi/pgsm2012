@@ -27,9 +27,10 @@ html > body #content .entry ul.gallery.list li
 #content .gallery.list .gallery-item
 {
 	float: none;
-	width: auto;
+	width: auto !important;
 	text-align: left;
 	list-style: square;
+	display: list-item !important;
 }
 
 .gallery.list .gallery-item a,

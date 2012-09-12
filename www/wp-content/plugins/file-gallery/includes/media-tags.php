@@ -82,7 +82,7 @@ function file_gallery_media_tags_permalink_fields( $field )
 
 function file_gallery_media_tags_get_taxonomy_slug()
 {
-	global $wpdb, $mediatags, $file_gallery;
+	global $wpdb, $mediatags;
 
 	if( defined('FILE_GALLERY_MEDIA_TAG_NAME') )
 		return FILE_GALLERY_MEDIA_TAG_NAME;
@@ -136,4 +136,3 @@ function file_gallery_media_tags_update_taxonomy_slug( $old_slug = '', $new_slug
 	return false;
 }
 
-?>

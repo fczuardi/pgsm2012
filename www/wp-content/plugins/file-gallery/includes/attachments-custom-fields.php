@@ -221,4 +221,3 @@ function file_gallery_attachment_fields_to_save( $attachment, $new_data )
 if( false === $file_gallery->acf )
 	add_filter('attachment_fields_to_save', 'file_gallery_attachment_fields_to_save', 10, 2);
 
-?>

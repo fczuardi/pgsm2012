@@ -1,35 +1,37 @@
-=== Iframe ===
+=== iframe ===
 Contributors: webvitaly
-Plugin URI: http://web-profile.com.ua/wordpress/plugins/iframe/
+Donate link: http://web-profile.com.ua/donate/
 Tags: iframe, embed, youtube, vimeo, google-map, google-maps
-Author URI: http://web-profile.com.ua/wordpress/
 Requires at least: 3.0
-Tested up to: 3.3.1
-Stable tag: 2.2
+Tested up to: 3.4.2
+Stable tag: 2.3
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-[iframe src="http://player.vimeo.com/video/3261363" width="100%" height="480"] shortcode
+[iframe src="http://player.vimeo.com/video/819138" width="100%" height="480"] shortcode
 
 == Description ==
 
-Iframes are needed to embed video from youtube or to embed Google Map or just to embed content from external page.
+Use iframe to embed video from YouTube or Vimeo or to embed Google Map or just to embed content from external page.
 
-Embed iframe using shortcode `[iframe src="http://player.vimeo.com/video/3261363" width="100%" height="480"]`
+Embed iframe using shortcode `[iframe src="http://player.vimeo.com/video/819138" width="100%" height="480"]`
 
-[All Iframe params](http://wordpress.org/extend/plugins/iframe/other_notes/)
+[All iframe params](http://wordpress.org/extend/plugins/iframe/other_notes/)
 
-[Iframe plugin page](http://web-profile.com.ua/wordpress/plugins/iframe/)
+[iframe plugin page](http://web-profile.com.ua/wordpress/plugins/iframe/)
 
-= Try other useful plugins: =
-* [Page-list](http://wordpress.org/extend/plugins/page-list/) - show list of pages with shortcodes
-* [Login Logout](http://wordpress.org/extend/plugins/login-logout/) - default Meta widget replacement
-* [Filenames to latin](http://wordpress.org/extend/plugins/filenames-to-latin/) - sanitize filenames to latin during upload
+= Useful plugins: =
+* ["Page-list" - show list of pages with shortcodes](http://wordpress.org/extend/plugins/page-list/ "list of pages with shortcodes")
+* ["Anti-spam" - block spam in comments](http://wordpress.org/extend/plugins/anti-spam/ "no spam, no captcha")
+* ["Login-Logout" - default Meta widget replacement](http://wordpress.org/extend/plugins/login-logout/ "default Meta widget replacement")
+* ["Filenames to latin" - sanitize filenames to latin during upload](http://wordpress.org/extend/plugins/filenames-to-latin/ "sanitize filenames to latin")
 
 == Other Notes ==
 
 = Iframe params: =
-* **src** - source of the iframe `[iframe src="http://player.vimeo.com/video/3261363"]` (empty by default src="");
-* **width** - width in pixels or in percents `[iframe width="100%" src="http://player.vimeo.com/video/3261363"]` or `[iframe width="640" src="http://player.vimeo.com/video/3261363"]` (by default width="100%");
-* **height** - height in pixels `[iframe height="480" src="http://player.vimeo.com/video/3261363"]` (by default height="480");
+* **src** - source of the iframe `[iframe src="http://player.vimeo.com/video/819138"]` (by default src="http://player.vimeo.com/video/819138");
+* **width** - width in pixels or in percents `[iframe width="100%" src="http://player.vimeo.com/video/819138"]` or `[iframe width="640" src="http://player.vimeo.com/video/819138"]` (by default width="100%");
+* **height** - height in pixels `[iframe height="480" src="http://player.vimeo.com/video/819138"]` (by default height="480");
 * **scrolling** - parameter `[iframe scrolling="yes"]` (by default scrolling="no");
 * **frameborder** - parameter `[iframe frameborder="0"]` (by default frameborder="0");
 * **marginheight** - parameter `[iframe marginheight="0"]` (removed by default);
@@ -42,7 +44,15 @@ Embed iframe using shortcode `[iframe src="http://player.vimeo.com/video/3261363
 * **any_other_param** - allows to add new parameter of the iframe `[iframe any_other_param="any_value"]`;
 * **any_other_empty_param** - allows to add new empty parameter of the iframe (like "allowfullscreen" on youtube) `[iframe any_other_empty_param=""]`;
 
+== Screenshots ==
+
+1. [iframe] shortcode
+
 == Changelog ==
+
+= 2.3 - 2012.09.09 =
+* small fixes
+* added (src="http://player.vimeo.com/video/819138") by default
 
 = 2.2 =
 * fixed bug (Notice: Undefined index: same_height_as)
@@ -86,5 +96,5 @@ Embed iframe using shortcode `[iframe src="http://player.vimeo.com/video/3261363
 
 == Installation ==
 
-1. Install and activate the plugin on the Plugins page
-2. Add shortcode `[iframe src="http://player.vimeo.com/video/3261363" width="100%" height="480"]` to page or post content
+1. install and activate the plugin on the Plugins page
+2. add shortcode `[iframe src="http://player.vimeo.com/video/819138" width="100%" height="480"]` to page or post content

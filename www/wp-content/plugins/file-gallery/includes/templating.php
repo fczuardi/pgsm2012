@@ -98,7 +98,6 @@ function file_gallery_mobile_css( $stylesheet_url )
 }
 
 
-
 /**
  * Enqueues stylesheets for each gallery template
  */
@@ -280,7 +279,7 @@ function file_gallery_css_front( $mobile = false )
 				$missing[] = $template;
 				wp_enqueue_style('file_gallery_default', FILE_GALLERY_URL . '/templates/default/gallery.css', false, FILE_GALLERY_VERSION);
 				
-				echo '<!-- ' . __('file does not exist:', 'file-gallery') . ' ' . $template . '/gallery.css - ' . __('using default style', 'file-gallery') . '-->\n';
+				echo "\n<!-- " . __('file does not exist:', 'file-gallery') . ' ' . $template . '/gallery.css - ' . __('using default style', 'file-gallery') . "-->\n";
 			}
 		}
 	}
@@ -298,7 +297,6 @@ function file_gallery_css_front( $mobile = false )
 }
 add_action('wp_print_styles',  'file_gallery_css_front');
 add_action('wp_print_scripts', 'file_gallery_css_front');
-
 
 
 /**
@@ -371,7 +369,7 @@ function file_gallery_shortcode( $content = false, $attr = false )
 
 	// if the function is called directly, not via shortcode
 	if( false !== $content && false === $attr )
-		$attr = $content;
+		$attr = wp_parse_args($content);
 		
 	if( ! isset($file_gallery->gallery_id) )
 		$file_gallery->gallery_id = 1;
@@ -413,10 +411,6 @@ function file_gallery_shortcode( $content = false, $attr = false )
 		shortcode_atts(
 			array(
 				/* default values: */
-			//  'itemtag'    => 'dl',
-			//  'icontag'    => 'dt',
-			//  'captiontag' => 'dd',
-	
 				'order'				=> 'ASC',
 				'orderby'			=> '',
 				'id'				=> $post->ID,
@@ -441,7 +435,8 @@ function file_gallery_shortcode( $content = false, $attr = false )
 				'limit' 			=> -1,
 				'offset'			=> -1,
 				'paginate'			=> 0,
-				'link_size'			=> 'full'
+				'link_size'			=> 'full',
+				'include_meta'		=> false
 			)
 		, $attr)
 	);
@@ -539,9 +534,9 @@ function file_gallery_shortcode( $content = false, $attr = false )
 	$ignored_attachment_post_statuses  = apply_filters('file_gallery_ignored_attachment_post_statuses', array('trash', 'private', 'pending', 'future'));
 	
 	if( ! empty($approved_attachment_post_statuses) )
-		$post_statuses = " AND ($wpdb->posts.post_status IN ('" . implode("', '", $approved_attachment_post_statuses) . "') ) ";
+		$post_statuses = " AND (post_status IN ('" . implode("', '", $approved_attachment_post_statuses) . "') ) ";
 	elseif( ! empty($ignored_attachment_post_statuses) )
-		$post_statuses = " AND ($wpdb->posts.post_status NOT IN ('" . implode("', '", $ignored_attachment_post_statuses) . "') ) ";
+		$post_statuses = " AND (post_status NOT IN ('" . implode("', '", $ignored_attachment_post_statuses) . "') ) ";
 	else
 		$post_statuses = "";
 	
@@ -574,7 +569,7 @@ function file_gallery_shortcode( $content = false, $attr = false )
 
 		$file_gallery_query = new WP_Query( $query );
 		$attachments = $file_gallery_query->posts;
-		
+
 		unset($query);
 	}
 	elseif( '' != $attachment_ids )
@@ -590,18 +585,18 @@ function file_gallery_shortcode( $content = false, $attr = false )
 
 		if( '' == $orderby || 'rand' == $orderby )
 		{
-			$orderby = sprintf("FIELD(ID,'%s')", str_replace(",", "','", $attachment_ids));
+			$orderby = sprintf("FIELD(ID, %s)", $attachment_ids);
 			$order   = '';
 		}
 		elseif( 'title' == $orderby )
 		{
-			$orderby = "$wpdb->posts.post_title";
+			$orderby = "post_title";
 		}
 		
 		$query = sprintf(
 			"SELECT " . $found_rows . " * FROM $wpdb->posts 
-			 WHERE $wpdb->posts.ID IN (%s) 
-			 AND $wpdb->posts.post_type = 'attachment' 
+			 WHERE ID IN (%s) 
+			 AND post_type = 'attachment' 
 			" . $post_statuses . " ", 
 		$attachment_ids);
 		
@@ -619,11 +614,9 @@ function file_gallery_shortcode( $content = false, $attr = false )
 		$query = array(
 			'post_parent'		=> $id,
 			'post_status'		=> implode(',', $approved_attachment_post_statuses), 
-			//'post_status'		=> $approved_attachment_post_statuses, 
 			'post_type'			=> 'attachment', 
 			'order'				=> $order, 
 			'orderby'			=> $orderby,
-			//'numberposts'		=> $limit,
 			'posts_per_page'	=> $limit,
 			'post_mime_type'	=> $mimetype
 		);
@@ -636,7 +629,7 @@ function file_gallery_shortcode( $content = false, $attr = false )
 
 		$file_gallery_query = new WP_Query( $query );
 		$attachments = $file_gallery_query->posts;
-		
+
 		unset($query);
 	}
 	
@@ -657,6 +650,8 @@ function file_gallery_shortcode( $content = false, $attr = false )
 		}
 	}
 
+	$file_gallery->debug_add('attachments_query', compact('file_gallery_query'));
+	
 	if( empty($attachments) )
 		return '<!-- "File Gallery" plugin says: - No attachments found for the following shortcode arguments: "' . json_encode($attr) . '" -->';
 
@@ -704,6 +699,7 @@ function file_gallery_shortcode( $content = false, $attr = false )
 
 		$attachment_file = get_attached_file($attachment->ID);
 		$attachment_is_image = file_gallery_file_is_displayable_image($attachment_file);
+		$startcol = '';
 		$endcol = '';
 		$x = '';
 
@@ -788,7 +784,7 @@ function file_gallery_shortcode( $content = false, $attr = false )
 			}
 			else
 			{
-				$param['thumb_link']   = file_gallery_https( FILE_GALLERY_CRYSTAL_URL ) . '/' . file_gallery_get_file_type($attachment->post_mime_type) . '.png';
+				$param['thumb_link']   = wp_mime_type_icon($attachment->ID);
 				$param['thumb_link']   = apply_filters('file_gallery_non_image_thumb_link', $param['thumb_link'], $attachment->post_mime_type, $attachment->ID);
 				$param['thumb_width']  = '46';
 				$param['thumb_height'] = '60';
@@ -802,11 +798,17 @@ function file_gallery_shortcode( $content = false, $attr = false )
 		
 		$param = array_map('trim', $param);
 		
+		if( $include_meta )
+			$meta = get_post_custom($attachment->ID);
+		
 		if( 'object' == $output_type )
 		{
 			if( $output_params )
 				$attachment->params = (object) $param;
 			
+			if( $include_meta )
+				$attachment->meta = (object) $meta;
+
 			$gallery_items[] = $attachment;
 		}
 		elseif( 'array' == $output_type || 'json' == $output_type)
@@ -814,13 +816,20 @@ function file_gallery_shortcode( $content = false, $attr = false )
 			if( $output_params )
 				$attachment->params = $param;
 			
+			if( $include_meta )
+				$attachment->meta = $meta;
+			
 			$gallery_items[] = get_object_vars($attachment);
 		}
 		else
 		{
-			// add the column break class and append a line break...
-			if ( $columns > 0 && ++$i % $columns == 0 )
-				$endcol = ' gallery-endcol';
+			if( $columns > 0 )
+			{
+				if( 0 === $i || 0 === $i % $columns )
+					$startcol = ' gallery-startcol';
+				elseif( ($i+1) % $columns == 0 )// add the column break class
+					$endcol = ' gallery-endcol';
+			}
 
 			// parse template
 			ob_start();
@@ -831,10 +840,12 @@ function file_gallery_shortcode( $content = false, $attr = false )
 			
 			$file_gallery_this_template_counter++;
 			
-			if ( $columns > 0 && $i % $columns == 0 )
+			if ( $columns > 0 && $i+1 % $columns == 0 )
 				$x .= $cleartag;
 			
 			$gallery_items .= $x;
+			
+			$i++;
 		}
 	}
 
@@ -984,4 +995,3 @@ function file_gallery_register_shortcode_handler()
 }
 add_action('init', 'file_gallery_register_shortcode_handler');
 
-?>

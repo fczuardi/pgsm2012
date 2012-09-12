@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jQuery-Colorbox\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-11 23:45+0100\n"
-"PO-Revision-Date: 2012-03-11 23:45+0100\n"
+"POT-Creation-Date: 2012-04-15 22:31+0100\n"
+"PO-Revision-Date: 2012-04-15 22:31+0100\n"
 "Last-Translator: \n"
 "Language-Team: Techotronic <blog@techotronic.de>\n"
 "MIME-Version: 1.0\n"
@@ -19,85 +19,85 @@ msgstr ""
 msgid "jQuery Colorbox"
 msgstr ""
 
-#: jquery-colorbox.php:95
+#: jquery-colorbox.php:98
 msgid "Theme #1"
 msgstr "主题 #1"
 
-#: jquery-colorbox.php:96
+#: jquery-colorbox.php:99
 msgid "Theme #2"
 msgstr "主题 #2"
 
-#: jquery-colorbox.php:97
+#: jquery-colorbox.php:100
 msgid "Theme #3"
 msgstr "主题 #3"
 
-#: jquery-colorbox.php:98
+#: jquery-colorbox.php:101
 msgid "Theme #4"
 msgstr "主题 #4"
 
-#: jquery-colorbox.php:99
+#: jquery-colorbox.php:102
 msgid "Theme #5"
 msgstr "主题 #5"
 
-#: jquery-colorbox.php:100
+#: jquery-colorbox.php:103
 msgid "Theme #6"
 msgstr "主题 #6"
 
-#: jquery-colorbox.php:101
+#: jquery-colorbox.php:104
 msgid "Theme #7"
 msgstr "主题 #7"
 
-#: jquery-colorbox.php:102
+#: jquery-colorbox.php:105
 msgid "Theme #8"
 msgstr "主题 #8"
 
-#: jquery-colorbox.php:103
+#: jquery-colorbox.php:106
 msgid "Theme #9"
 msgstr "主题 #9"
 
-#: jquery-colorbox.php:104
+#: jquery-colorbox.php:107
 msgid "Theme #10"
 msgstr "主题 #10"
 
-#: jquery-colorbox.php:105
+#: jquery-colorbox.php:108
 msgid "Theme #11"
 msgstr "主题 #11"
 
-#: jquery-colorbox.php:111
+#: jquery-colorbox.php:114
 msgid "Theme #12"
 msgstr "主题 #12"
 
-#: jquery-colorbox.php:112
+#: jquery-colorbox.php:115
 msgid "Theme #13"
 msgstr "主题 #13"
 
-#: jquery-colorbox.php:113
+#: jquery-colorbox.php:116
 msgid "Theme #14"
 msgstr "主题 #14"
 
-#: jquery-colorbox.php:114
+#: jquery-colorbox.php:117
 msgid "Theme #15"
 msgstr "主题 #15"
 
-#: jquery-colorbox.php:119
+#: jquery-colorbox.php:122
 msgid "percent"
 msgstr "百分比"
 
-#: jquery-colorbox.php:120
+#: jquery-colorbox.php:123
 #: includes/settings-page/sp-colorbox-settings.php:248
 #: includes/settings-page/sp-colorbox-settings.php:257
 msgid "pixels"
 msgstr "像素"
 
-#: jquery-colorbox.php:125
+#: jquery-colorbox.php:128
 msgid "elastic"
 msgstr "弹出效果"
 
-#: jquery-colorbox.php:126
+#: jquery-colorbox.php:129
 msgid "fade"
 msgstr "渐变效果"
 
-#: jquery-colorbox.php:127
+#: jquery-colorbox.php:130
 msgid "none"
 msgstr "无"
 
@@ -128,7 +128,7 @@ msgstr "未更新设置，您没有需要的权限。"
 msgid "Did not delete %1$s settings. Either you dont have the nececssary rights or you didnt check the checkbox."
 msgstr "未删除%1$s项设置，您没有需要的权限或者您没有勾选复选框。"
 
-#: includes/jquery-colorbox-frontend.php:66
+#: includes/jquery-colorbox-frontend.php:65
 msgid "Using"
 msgstr "使用"
 
@@ -361,7 +361,7 @@ msgid "The overlay opacity level. Range: 0 to 1"
 msgstr "不透明度的级别。参数范围：0到1之间"
 
 #: includes/settings-page/sp-colorbox-settings.php:329
-#: includes/settings-page/sp-plugin-settings.php:107
+#: includes/settings-page/sp-plugin-settings.php:134
 msgid "Save Changes"
 msgstr "保存设置"
 
@@ -481,35 +481,52 @@ msgstr "自动隐藏Flash对象"
 msgid "Automatically hide embeded flash objects behind the Colorbox layer."
 msgstr "自动将flash对象隐藏到Colorbox层后面。"
 
-#: includes/settings-page/sp-plugin-settings.php:69
+#: includes/settings-page/sp-plugin-settings.php:70
+msgid "Add Zoom overlay to pictures"
+msgstr ""
+
+#: includes/settings-page/sp-plugin-settings.php:76
+msgid "Add Zoom overlay to pictures that open in a Colorbox."
+msgstr ""
+
+#: includes/settings-page/sp-plugin-settings.php:82
+msgid "Use jQuery library from Google"
+msgstr ""
+
+#: includes/settings-page/sp-plugin-settings.php:88
+#, php-format
+msgid "Use jQuery library version %1$s from Google instead of the one that comes with WordPress."
+msgstr ""
+
+#: includes/settings-page/sp-plugin-settings.php:94
 msgid "Add JavaScript to footer"
 msgstr "在页面底部添加JavaScript"
 
-#: includes/settings-page/sp-plugin-settings.php:73
+#: includes/settings-page/sp-plugin-settings.php:100
 msgid "Add JavaScript to footer instead of the header."
 msgstr "将JavaScript添加到页面底部而不是顶部"
 
-#: includes/settings-page/sp-plugin-settings.php:78
+#: includes/settings-page/sp-plugin-settings.php:105
 msgid "Remove link from Meta-box"
 msgstr "从元信息中移除链接"
 
-#: includes/settings-page/sp-plugin-settings.php:82
+#: includes/settings-page/sp-plugin-settings.php:109
 msgid "Remove the link to the developers site from the WordPress meta-box."
 msgstr "从Wordpress的元信息中移除开发者网站的链接"
 
-#: includes/settings-page/sp-plugin-settings.php:87
+#: includes/settings-page/sp-plugin-settings.php:114
 msgid "Activate debug mode"
 msgstr "激活调试模式"
 
-#: includes/settings-page/sp-plugin-settings.php:91
+#: includes/settings-page/sp-plugin-settings.php:118
 msgid "Adds debug information and non-minified JavaScript to the page. Useful for troubleshooting."
 msgstr "添加调试信息和完整的JavaScript到页面中。对排除故障有帮助。"
 
-#: includes/settings-page/sp-plugin-settings.php:96
+#: includes/settings-page/sp-plugin-settings.php:123
 msgid "Disable warning"
 msgstr "禁用警告"
 
-#: includes/settings-page/sp-plugin-settings.php:101
+#: includes/settings-page/sp-plugin-settings.php:128
 msgid "Disables the warning that is displayed if the plugin is activated but the auto-colorbox feature for all images is turned off."
 msgstr "不显示插件激活但是对于所有图片关闭Colorbox使用效果的警告信息。"
 

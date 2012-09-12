@@ -8,7 +8,7 @@ function file_gallery_https( $input )
 {
 	global $file_gallery;
 
-	if( $file_gallery->ssl_admin && 0 === strpos($input, 'http:') && 0 !== strpos($input, 'https:') )
+	if( defined('FORCE_SSL_ADMIN') && true === FORCE_SSL_ADMIN && 0 === strpos($input, 'http:') && 0 !== strpos($input, 'https:') )
 		$input = 'https' . substr($input, 4);
 	
 	return $input;
@@ -162,7 +162,7 @@ function file_gallery_save_menu()
 
 	foreach($order as $mo => $ID)
 	{
-		$updates .= sprintf(" WHEN '%d' THEN '%d' ", $ID, $mo);
+		$updates .= sprintf(" WHEN %d THEN %d ", $ID, $mo);
 	}
 	
 	if( false !== $wpdb->query("UPDATE $wpdb->posts SET `menu_order` = CASE `ID` " . $updates . " ELSE `menu_order` END") )
@@ -201,6 +201,9 @@ function file_gallery_save_toggle_state()
 		case 'file_gallery_save_acf_toggle_state' :
 			$opt = 'acf_state';
 			break;
+		case 'file_gallery_toggle_textual' :
+			$opt = 'textual_mode';
+			break;
 		default : 
 			break;
 	}
@@ -214,6 +217,7 @@ function file_gallery_save_toggle_state()
 add_action('wp_ajax_file_gallery_save_toggle_state', 'file_gallery_save_toggle_state');
 add_action('wp_ajax_file_gallery_save_single_toggle_state', 'file_gallery_save_toggle_state');
 add_action('wp_ajax_file_gallery_save_acf_toggle_state', 'file_gallery_save_toggle_state');
+add_action('wp_ajax_file_gallery_toggle_textual', 'file_gallery_save_toggle_state');
 
 
 /**
@@ -241,4 +245,3 @@ function file_gallery_write_log( $data = "" )
 	@fclose($file);
 }
 
-?>

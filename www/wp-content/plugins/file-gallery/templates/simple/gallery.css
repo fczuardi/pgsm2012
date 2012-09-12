@@ -109,7 +109,7 @@
 .gallery_simple_current_image_caption p,
 #content .gallery_simple_current_image_caption p
 {
-	margin-bottom: 0;
+	margin: 0 !important;
 	padding: 0.5em;
 	font-size: 13px;
 	font-family: Arial, Helvetica, sans-serif;

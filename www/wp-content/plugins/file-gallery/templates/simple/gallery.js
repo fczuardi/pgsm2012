@@ -2,7 +2,7 @@ jQuery(document).ready(function()
 {
 	var file_gallery_simple_gallery_counter = 1;
 
-	if( 0 < jQuery(".gallery.simple").length && "" != file_gallery_simple_linkclass )
+	if( 0 < jQuery(".gallery.simple").length )
 	{
 		var file_gallery_doing_ajax = false;
 
@@ -13,7 +13,11 @@ jQuery(document).ready(function()
 		jQuery(".gallery.simple").each(function()
 		{
 			var file_gallery_simple_current_image = 1,
-				id = "#" + jQuery(this).attr("id");
+				id = "#" + jQuery(this).attr("id"),
+				linkrel = jQuery(id + " .gallery-item a:first").attr("rel");
+			
+			if( linkrel )
+				linkrel = ' rel="' + linkrel + '"';
 			
 			// and each item in gallery
 			jQuery(id + " .gallery-item").each(function()
@@ -25,7 +29,7 @@ jQuery(document).ready(function()
 				{										
 					var current_anchor = jQuery(this).find("a:first"),
 						diff = jQuery(this).find("span.diff:first").text().split(file_gallery_simple_diff_sep),
-						ext_regex = new RegExp('\.' + diff[1]), // .jpg or .png...
+						ext_regex = new RegExp("\." + diff[1] + "$"), // .jpg or .png...
 						current_image_href = current_anchor.attr("href"),
 						current_image_src = current_image_href.replace(ext_regex, diff[0] + '.' + diff[1]),
 						current_caption = decodeURIComponent((current_anchor.attr("title") || "").replace(/\+/g, ' '));
@@ -38,7 +42,7 @@ jQuery(document).ready(function()
 					
 					if( "" != file_gallery_simple_link )
 					{
-						jQuery(".gallery_simple_current_image").wrap('<a href="' + current_image_href + '" title="' + strip_tags(current_caption) + '"></a>');
+						jQuery(".gallery_simple_current_image").wrap('<a href="' + current_image_href + '" title="' + strip_tags(current_caption) + '"' + linkrel +'></a>');
 
 						var lightbox = ("thickbox" == file_gallery_simple_linkclass && "function" === typeof(tb_init)) || jQuery.isFunction( jQuery.fn[file_gallery_simple_linkclass] ) ? true : false;
 
@@ -66,7 +70,7 @@ jQuery(document).ready(function()
 			file_gallery_simple_gallery_counter++;
 		});
 
-		jQuery(".gallery_simple_thumbnails a").removeClass(file_gallery_simple_linkclass);
+		jQuery(".gallery_simple_thumbnails a").attr("rel", "").removeClass(file_gallery_simple_linkclass);
 
 		// bind a function to each thumbnail link to replace the bigger image on the left
 		jQuery(".gallery.simple .gallery-item a").live("click", function(e)
@@ -78,8 +82,8 @@ jQuery(document).ready(function()
 			file_gallery_doing_ajax = true;
 			
 			var id = "#" + jQuery(this).parents(".gallery").attr("id"),
-				diff = jQuery(this).find("span.diff:first").text().split(file_gallery_simple_diff_sep),
-				ext_regex = new RegExp('\.' + diff[1]), // .jpg or .png...
+				diff = jQuery(this).parent().find("span.diff:first").text().split(file_gallery_simple_diff_sep),
+				ext_regex = new RegExp("\." + diff[1] + "$"), // .jpg or .png...
 				new_href = jQuery(this).attr("href"),
 				new_src = new_href.replace(ext_regex, diff[0] + '.' + diff[1]),
 				new_caption = decodeURIComponent((jQuery(this).attr("title") || "").replace(/\+/g, ' ')),

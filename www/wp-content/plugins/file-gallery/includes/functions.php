@@ -51,4 +51,3 @@ function file_gallery_filename_end_diff( $ori, $size )
 	return array(str_replace($ori, '', $size), $ext);
 }
 
-?>
