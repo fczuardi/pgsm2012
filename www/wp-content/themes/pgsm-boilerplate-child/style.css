@@ -139,7 +139,7 @@ header[role=banner] {
   float:left;
   position: relative;
   height: 165px;
-  width: 50%;  
+  width: 50%;
   left: 50%;
   background-color: #236174;
   background-image: url(images/degradee.png);
@@ -379,7 +379,7 @@ body #content .com-subtitulo{
     -moz-transition: height 2s ease-in-out;
     -o-transition: height 2s ease-in-out;
     -ms-transition: height 2s ease-in-out;
-    transition: height 2s ease-in-out;  
+    transition: height 2s ease-in-out;
 */
 }
 .collapsible.closed .entry{
@@ -538,7 +538,7 @@ body.slug-credenciados{
 }
 #content .people .sidebar .photo{
   margin-bottom: 24px;
-  
+
 }
 #content .people .sidebar h2,
 #content .people .sidebar h2{
@@ -630,7 +630,7 @@ section.collapsible .entry{
   padding-top:22px;
 }
 section.collapsible.closed .entry{
-  padding-top:0px;  
+  padding-top:0px;
 }
 section .destaque{
   border:1px solid #ddd;
@@ -744,7 +744,7 @@ footer[role=contentinfo]{
   margin-left:-282px;
   clear:both;
   background-color: none;
-  color: #25667a; 
+  color: #25667a;
   left:50%;
 }
 footer[role=contentinfo] h2{
@@ -775,7 +775,7 @@ html.lte8 nav{
   display:none;
 }
 html.lte8 #content{
-  display:none; 
+  display:none;
 }
 html.lte8 footer{
   width:425px;
