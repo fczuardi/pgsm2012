@@ -3,7 +3,7 @@
 Plugin Name: Shortcode Exec PHP
 Plugin URI: http://wordpress.org/extend/plugins/shortcode-exec-php/
 Description: Execute arbitrary, reusable PHP code in posts, pages, comments, widgets and RSS feeds using shortcodes in a safe and easy way
-Version: 1.44
+Version: 1.45
 Author: Marcel Bokhorst
 Author URI: http://blog.bokhorst.biz/about/
 */
