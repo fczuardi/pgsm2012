@@ -12,16 +12,18 @@ jQuery(document).ready(function()
 	jQuery("#media-single-form tbody tr").each(function()
 	{
 		if( -1 !== jQuery.inArray(jQuery(this).attr("class"), file_gallery_acf.options.custom_fields) )
-			jQuery(this).children(".field").append('<input class="button-secondary acf_delete_custom_field" type="button" value="Delete" name="acf_delete_custom_field_' + jQuery(this).attr("class") + '" />').addClass("custom_field");
+		{
+			var delete_button = '<input class="button-secondary acf_delete_custom_field" type="button" value="Delete" name="acf_delete_custom_field_' + jQuery(this).attr("class") + '" />';
+			jQuery(this).children(".field").append(delete_buton).addClass("custom_field");
+		}
 	});
-
 
 	// add new custom field
 	jQuery("#new_custom_field_submit").live("click", function(e)
 	{
 		var key = jQuery("#new_custom_field_key").val(),
 			value = jQuery("#new_custom_field_value").val(),
-			attachment_id = jQuery("#attachment_id").val() ? jQuery("#attachment_id").val() : jQuery("#fgae_attachment_id").val();
+			attachment_id = jQuery("#attachment_id").val() || jQuery("#fgae_attachment_id").val();
 
 		if( "" != key )
 		{
@@ -29,11 +31,11 @@ jQuery(document).ready(function()
 			(
 				ajaxurl,
 				{
-					'action'		: 'add_new_attachment_custom_field',
-					'attachment_id'	: attachment_id,
-					'key'			: key,
-					'value'			: value,
-					'_ajax_nonce'	: file_gallery_acf.options.add_new_attachment_custom_field_nonce
+					action: 		"file_gallery_add_new_attachment_custom_field",
+					attachment_id: 	attachment_id,
+					key: 			key,
+					value: 			value,
+					_ajax_nonce: 	file_gallery_acf.options.add_new_attachment_custom_field_nonce
 				},
 				function(response)
 				{
@@ -51,7 +53,7 @@ jQuery(document).ready(function()
 						alert(file_gallery_acf.L10n.error_adding_attachment_custom_field);
 					}
 				},
-				'html'
+				"html"
 			);
 		}
 		
@@ -61,38 +63,38 @@ jQuery(document).ready(function()
 	
 	
 	// delete a custom field
-	jQuery(".acf_delete_custom_field").live("click", function()
+	jQuery(".file_gallery_acf_delete_custom_field").live("click", function()
 	{
-		var that = this,
-			key = jQuery(that).attr("name").replace(/file_gallery_acf_delete_custom_field_/, ""),
-			value = jQuery("." + key + " textarea").val(),
-			attachment_id = jQuery("#attachment_id").val() || jQuery("#fgae_attachment_id").val();
+		var that = jQuery(this),
+			row = that.parents("tr"),
+			key = that.attr("name").replace(/file_gallery_acf_delete_custom_field_/, "");
 
 		jQuery.post
 		(
 			ajaxurl,
 			{
-				action			: "delete_attachment_custom_field",
-				attachment_id	: attachment_id,
-				key				: key,
-				value			: value,
-				_ajax_nonce		: file_gallery_acf.options.delete_attachment_custom_field_nonce
+				action:			"file_gallery_delete_attachment_custom_field",
+				attachment_id:	jQuery("#attachment_id").val() || jQuery("#fgae_attachment_id").val(),
+				key:			key,
+				value:			jQuery(".fgacf_" + key + " textarea").val(),
+				_ajax_nonce:	file_gallery_acf.options.delete_attachment_custom_field_nonce
 			},
 			function(response)
 			{
-				if( "1" == response )
+				response = Number(response);
+
+				if( response === 1 )
 				{
-					jQuery(that).parents("tr").css({"backgroundColor":"#FF8888"}).fadeTo(250, 0);
-					setTimeout(function(){jQuery(that).parents("tr").remove();}, 250);
+					row.css({"backgroundColor": "#FF8888"}).fadeTo(250, 0, function(){ row.remove(); });
 				}
-				else if( "0" == response )
+				else if( response === 0 )
 				{
 					alert(file_gallery_acf.L10n.error_deleting_attachment_custom_field);
 				}
 				
 				return;
 			},
-			'html'
+			"html"
 		);
 	});
 });

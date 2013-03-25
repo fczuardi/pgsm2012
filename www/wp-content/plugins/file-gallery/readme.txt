@@ -3,8 +3,8 @@ Contributors: aesqe
 Donate link: http://skyphe.org/donate/
 Tags: attachment, attachments, gallery, galleries, template, templates, shortcode, file, files, attach, detach, unattach, copy, media, tags, library, custom, custom fields, custom fields for attachments, attachment custom fields, drag drop upload
 Requires at least: 3.1
-Tested up to: 3.5-alpha-21419
-Stable tag: 1.7.5.3
+Tested up to: 3.5
+Stable tag: 1.7.7
 
 File Gallery extends WordPress media (attachments) capabilities 
 by adding a new gallery shortcode handler with templating support 
@@ -148,6 +148,9 @@ Arabic:
 Lithuanian:
 * **Vincent G** - http://www.Host1Free.com
 
+Polish:
+* **Michał Budzik** - http://www.mindborn.pl/en/
+
 
 
 == Thanks goes out to... ==
@@ -158,6 +161,24 @@ Lithuanian:
 
 
 == Changelog ==
+
+= 1.7.7 =
+* December 16th, 2012
+* bugfix for WP 3.5 - link="post" wouldn't link to attachment 
+  page but to "/post"- sorry for that :/
+* a few more smaller bugfixes because of WP 3.5 and compatibility
+  with previous WP versions
+* various smaller fixes and visual adjustments
+* COMPLETELY UNTESTED support for multisite activation and deactivation
+  (more on this in next version, fingers crossed for now o.O)
+* Polish translation by Michał Budzik (thank you very much!) 
+
+= 1.7.6 =
+* December 12th, 2012
+* support for WordPress 3.5:
+   - "ids" instead of "includes" in gallery shortcode;
+   - attachment custom fields on single media item page;
+   - some minor compatibility corrections and adjustments
 
 = 1.7.5.3 =
 * August 4th, 2012

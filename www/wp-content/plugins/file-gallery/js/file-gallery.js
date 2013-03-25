@@ -139,11 +139,15 @@ jQuery(document).ready(function($)
 		 */
 		tinymce_gallery : function( title )
 		{
-			var opt = title.replace("gallery", ""), // gets gallery options from image title
-				attachment_ids = opt.match(/attachment_ids=['"]([0-9,]+)['"]/),
+			if( typeof title === "undefined" ) {
+				title = $("#data_collector").val();
+			}
+			
+			var opt = title.replace("gallery", "").replace("attachment_ids", "ids"), // gets gallery options from image title
+				attachment_ids = opt.match(/ids=['"]([0-9,]+)['"]/),
 				attachment_includes = opt.match(/include=['"]([0-9,]+)['"]/),
 				post_id = opt.match(/id=['"](\d+)['"]/),
-				size = opt.match(/\ssize=['"]([^'"]+)['"]/i),
+				size = opt.match(/(^|[\s]+)size=['"]([^'"]+)['"]/i),
 				linkto = opt.match(/link=['"]([^'"]+)['"]/i),
 				thelink = linkto ? linkto[1] : "attachment",
 				linkrel = opt.match(/rel=['"]([^'"]+)['"]/i),
@@ -161,14 +165,21 @@ jQuery(document).ready(function($)
 				paginate = opt.match(/paginate=['"]([^'"]+)['"]/i),
 				columns = opt.match(/columns=['"](\d+)['"]/),
 				tags = opt.match(/tags=['"]([^'"]+)['"]/i),
-				tags_from = opt.match(/tags_from=['"]([^'"]+)['"]/i);
+				tags_from = opt.match(/tags_from=['"]([^'"]+)['"]/i),
+				this_post_attachment_ids = [],
+				external_attachments = [],
+				i = 0;
 
-			if( linkto && "none" != thelink && "file" != thelink && "parent_post" != thelink )
+			if( thelink === "attachment" && file_gallery_options.wp_version >= 3.5 ) {
+				thelink = "post";
+			}
+
+			if( linkto && thelink !== "none" && thelink !== "file" && thelink !== "parent_post" && thelink !== "post" )
 			{
 				external_url = decodeURIComponent(thelink);
 				thelink = "external_url";
 			}
-			
+		
 			$("#file_gallery_postid").val( post_id ? post_id[1] : ""  );
 			$("#file_gallery_size").val(size ? size[1] : "thumbnail" );
 			$("#file_gallery_linkto").val( thelink );
@@ -212,12 +223,15 @@ jQuery(document).ready(function($)
 				file_gallery.files_or_tags( false );
 			}
 
-			if( null !== attachment_ids )
+			if( null !== attachment_ids ) {
 				attachment_ids = attachment_ids[1].split(",");
-			else if( null !== attachment_includes )
+			}
+			else if( null !== attachment_includes ) {
 				attachment_ids = attachment_includes[1].split(",");
-			else
+			}
+			else {
 				attachment_ids = "all";
+			}
 			
 			if( 0 < file_gallery.options.num_attachments )
 			{
@@ -225,14 +239,29 @@ jQuery(document).ready(function($)
 				
 				$("#fg_container .sortableitem .checker").map(function()
 				{
-					if( "all" === attachment_ids || -1 < attachment_ids.indexOf($(this).attr("id").replace("att-chk-", "")) )
+					var id = $(this).attr("id").replace("att-chk-", "");
+					
+					this_post_attachment_ids.push(id);
+					
+					if( "all" === attachment_ids || -1 < attachment_ids.indexOf(id) )
 					{
 						$(this).parents(".sortableitem").addClass("selected");
 						return this.checked = true;
 					}
 				});
 				
-				file_gallery.serialize("tinymce_gallery");
+				for( i; i < attachment_ids.length; i++ )
+				{
+					if( this_post_attachment_ids.indexOf(attachment_ids[i]) === -1 ) {
+						external_attachments.push(attachment_ids[i]);
+					}
+				}
+				
+				file_gallery.serialize("tinymce_gallery", external_attachments);
+			}
+			else
+			{
+				file_gallery.serialize("tinymce_gallery", attachment_ids);
 			}
 		},
 
@@ -433,7 +462,7 @@ jQuery(document).ready(function($)
 		/**
 		 * processes attachments data, builds the [gallery] shortcode
 		 */
-		serialize : function( internal_event )
+		serialize : function( internal_event, external_attachments )
 		{
 			var serial = "",
 				id = ""
@@ -463,10 +492,12 @@ jQuery(document).ready(function($)
 				copies = "",
 				originals = "",
 				file_gallery_order = "",
-				file_gallery_orderby = "";
+				file_gallery_orderby = "",
+				include_attribute_name = file_gallery_options.wp_version >= 3.5 ? "ids" : "include";
 			
-			if( "undefined" == typeof(internal_event) )
+			if( "undefined" == typeof(internal_event) ) {
 				internal_event = "normal";
+			}
 			
 			if( "" != $("#file_gallery_linkrel_custom").val() && "undefined" != typeof($("#file_gallery_linkrel_custom").val()) )
 			{
@@ -478,8 +509,9 @@ jQuery(document).ready(function($)
 				linkrel = ' rel="false"';
 			}
 
-			if( "external_url" == linkto_val )
+			if( "external_url" == linkto_val ) {
 				linkto_val = encodeURIComponent(external_url);
+			}
 
 
 			// tags
@@ -488,18 +520,20 @@ jQuery(document).ready(function($)
 				if( "undefined" == typeof( $("#fg_gallery_tags").val() ) || "undefined" == $("#fg_gallery_tags").val() )
 					$("#fg_gallery_tags").val("");
 				
-				tags      = $("#fg_gallery_tags").val();
+				tags = $("#fg_gallery_tags").val();
 				tags_from = $("#fg_gallery_tags_from").prop("checked");
 				
 				tags = tags.replace(/\s+/g, " ").replace(/\s+,/g, ",").replace(/,+\s*/g, ",");
 			
 				ctlen = tags.length;
 				
-				if( "," == tags[0] )
+				if( "," == tags[0] ) {
 					tags = tags.substring(1);
+				}
 				
-				if( "," == tags[ctlen-2] )
+				if( "," == tags[ctlen-2] ) {
 					tags = tags.substring(0, ctlen-1);
+				}
 			
 				$("#fg_gallery_tags").val(tags);
 				
@@ -509,16 +543,19 @@ jQuery(document).ready(function($)
 					ns = "," + $(this).attr("name") + ",";
 					nn = "," + $(this).html() + ",";
 					
-					if ( -1 < ct.search(ns) || -1 < ct.search(nn) )
+					if ( -1 < ct.search(ns) || -1 < ct.search(nn) ) {
 						$(this).addClass("selected");
-					else
+					}
+					else {
 						$(this).removeClass("selected");
+					}
 				});
 			}
 
 
-			if( 0 < file_gallery.options.num_attachments )
+			if( 0 < file_gallery.options.num_attachments ) {
 				serial = $("#file_gallery_list").sortable("serialize");
+			}
 			
 			serial = serial.toString().replace(/image\[\]=/g, '').replace(/&/g, ',').replace(/,+/g, ',');
 			$("#data_collector_full").val(serial);
@@ -535,10 +572,11 @@ jQuery(document).ready(function($)
 			originals = file_gallery.map("has_copies", serial);
 			$("#file_gallery_originals").val(originals);
 			
-			if( "" == $("#file_gallery_originals").val() && "" == $("#file_gallery_copies").val() )
+			if( "" == $("#file_gallery_originals").val() && "" == $("#file_gallery_copies").val() ) {
 				$("#file_gallery_delete_what").val("all");
+			}
 			
-			file_gallery_order   = $("#file_gallery_order");
+			file_gallery_order = $("#file_gallery_order");
 			file_gallery_orderby = $("#file_gallery_orderby");
 			
 			order = ' order="' + file_gallery_order.val() + '"';
@@ -564,57 +602,82 @@ jQuery(document).ready(function($)
 				orderby = "";
 			}
 			
-			if( "external_url" == $("#file_gallery_linkto").val() )
+			if( "external_url" == $("#file_gallery_linkto").val() ) {
 				$("#file_gallery_external_url_label").show();
-			else
+			}
+			else {
 				$("#file_gallery_external_url_label").hide();
+			}
 			
-			if( "external_url" == $("#file_gallery_single_linkto").val() )
+			if( "external_url" == $("#file_gallery_single_linkto").val() ) {
 				$("#file_gallery_single_external_url_label").show();
-			else
+			}
+			else {
 				$("#file_gallery_single_external_url_label").hide();
+			}
 
-			if( "none" == $("#file_gallery_linkto").val() )
+			if( "none" == $("#file_gallery_linkto").val() ) {
 				$("#file_gallery_linkclass_label").hide();
-			else
+			}
+			else {
 				$("#file_gallery_linkclass_label").show();
+			}
 
-			if( "none" == $("#file_gallery_single_linkto").val() )
+			if( "none" == $("#file_gallery_single_linkto").val() ) {
 				$("#file_gallery_single_linkclass_label").hide();
-			else
+			}
+			else {
 				$("#file_gallery_single_linkclass_label").show();
+			}
 			
-			if( 0 < Number($("#file_gallery_limit").val()) )
+			if( 0 < Number($("#file_gallery_limit").val()) ) {
 				$("#file_gallery_paginate_label").show();
-			else
+			}
+			else {
 				$("#file_gallery_paginate_label").hide();
+			}
 			
 			if( "file" == $("#file_gallery_linkto").val() || "external_url" == $("#file_gallery_linkto").val())
 			{
 				$("#file_gallery_linksize_label").show();
 				$("#file_gallery_linkrel_custom_label").show();
 
-				if( "full" != $("#file_gallery_linksize").val() )
+				if( "full" != $("#file_gallery_linksize").val() ) {
 					linksize = ' link_size="' + $("#file_gallery_linksize").val() + '"';
+				}
 			}
 			else
 			{
 				$("#file_gallery_linksize_label").hide();
 				linksize = "";
 			}
-			
-			
-			if( tags_from )
+
+			if( tags_from ) {
 				tags_from = "";
-			else
+			}
+			else {
 				tags_from = ' tags_from="all"';
-		
-			if( "" != tags )
+			}
+
+			if( typeof external_attachments !== "undefined" ) {
+				
+				if( serial == "" ) {
+					serial = external_attachments.join(",");
+				}
+				else {
+					serial += "," + external_attachments.join(",");
+				}
+			}
+
+			if( "" != tags ) {
 				serial = '[gallery tags="' + tags + '"' + tags_from;
-			else if( "" != serial && false === file_gallery.is_all_checked() )
-				serial = '[gallery include="' + serial + '"';
-			else
+			}
+			else if( "" != serial && false === file_gallery.is_all_checked() ) {
+				serial = '[gallery ' + include_attribute_name + '="' + serial + '"';
+			}
+			else {
 				serial = '[gallery';
+			}
 		
 			if( "thumbnail" != $("#file_gallery_size").val() )
 				size = ' size="' + $("#file_gallery_size").val() + '"';
@@ -2004,8 +2067,9 @@ jQuery(document).ready(function($)
 			}
 			
 			// with serialization if tinymce gallery placeholder isn't clicked
-			if( "click" === e.type )
+			if( "click" === e.type ) {
 				file_gallery.serialize();
+			}
 		});
 		
 	
@@ -2066,24 +2130,34 @@ jQuery(document).ready(function($)
 			);
 		});
 		
-		
-		// thickbox window closed
-		// WP >= 3.3
-		if( "function" === typeof(jQuery.fn.on) )
+		if( file_gallery_options.wp_version >= 3.5 )
 		{
-			jQuery(document.body).on("tb_unload", "#TB_window", function(e)
+			jQuery('.media-modal-close').live("click", function(e)
 			{
 				file_gallery.tinymce_deselect( true );
 				file_gallery.init();
 			});
 		}
-		else // WP < 3.3
+		else
 		{
-			jQuery('#TB_window').live("unload", function(e)
+			// thickbox window closed
+			// WP >= 3.3
+			if( "function" === typeof(jQuery.fn.on) )
 			{
-				file_gallery.tinymce_deselect( true );
-				file_gallery.init();
-			});
+				jQuery(document.body).on("tb_unload", "#TB_window", function(e)
+				{
+					file_gallery.tinymce_deselect( true );
+					file_gallery.init();
+				});
+			}
+			else // WP < 3.3
+			{
+				jQuery('#TB_window').live("unload", function(e)
+				{
+					file_gallery.tinymce_deselect( true );
+					file_gallery.init();
+				});
+			}
 		}
 	}
 

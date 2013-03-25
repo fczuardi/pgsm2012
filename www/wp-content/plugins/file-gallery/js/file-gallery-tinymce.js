@@ -58,58 +58,6 @@
 						file_gallery.gallery_image_clicked[ed.id] = false;
 					}
 				});	
-				
-				
-				/*
-				ed.onLoadContent.add( function(tiny, e)
-				{
-					$( ed.getDoc() ).bind("dragenter dragleave", function(e)
-					{
-						var b = ed.getBody(),
-							d = $(b).parent(),
-							style = 'position: absolute; top: 0; left: 0; width: ' + (d.width() - 20) + 'px; height: ' + (d.height() - 20) + 'px;';
-						
-						e.preventDefault();
-						e.stopPropagation();
-						
-						if( "dragenter" == e.type && 0 === $( b ).children("#file_gallery_tinymce_upload").length )
-						{							
-							$( b )
-								.css({position: "relative"})
-								.append('<iframe id="file_gallery_tinymce_upload" style="' + style + '" src="http://localhost/wpcl/wp-admin/media-upload.php?post_id=555&TB_iframe=1&file_gallery=true" />');
-						}
-						else if( 0 < $( b ).children("#file_gallery_tinymce_upload").length )
-						{
-							var related = e.relatedTarget,
-								inside = false;
-						
-							if( null === related ) // webkit
-								related = e.target;
-							
-							// console.log(related);
-							
-							if( related !== this )
-							{
-								if( related )
-								{
-									if( $.contains(this, related) || $.contains($("#file_gallery_tinymce_upload"), related) )
-										inside = true;
-								}
-							}
-							else
-							{
-								if( null === e.relatedTarget ) // webkit
-									inside = false;
-							}
-							
-							if( ! inside )
-								$( b ).children("#file_gallery_tinymce_upload").remove();
-						}
-						
-						return false;
-					});
-				});
-				*/	
 			}
 		},
 		
@@ -119,7 +67,7 @@
                 author : 'Bruno "Aesqe" babic',
                 authorurl : "http://skyphe.org/",
                 infourl : "http://skyphe.org/code/wordpress/file-gallery/",
-                version : "1.7.5"
+                version : "1.7.7"
             };
         }
     });

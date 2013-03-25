@@ -10,7 +10,17 @@
 		$fgf_class .= ' alternative-color-scheme';
 	
 	if( isset($file_gallery_options["display_gallery_fieldset"]) && false == $file_gallery_options["display_gallery_fieldset"] && isset($file_gallery_options["display_single_fieldset"]) && false == $file_gallery_options["display_single_fieldset"] )
+	{
 		$fgf_class .= ' no-fieldsets';
+	}
+	else if( isset($file_gallery_options["display_gallery_fieldset"]) && false == $file_gallery_options["display_gallery_fieldset"] )
+	{
+		$fgf_class .= ' no-gallery-fieldset';
+	}
+	else if( isset($file_gallery_options["display_single_fieldset"]) && false == $file_gallery_options["display_single_fieldset"] )
+	{
+		$fgf_class .= ' no-single-fieldset';
+	}
 	
 	if( '' != $fgf_class )
 		$fgf_class = ' class="' . trim($fgf_class) . '"';
@@ -38,7 +48,11 @@
 			<input type="button" value="<?php _e("Detach all checked", "file-gallery"); ?>" title="<?php _e("Detach all checked", "file-gallery"); ?>" class="button" id="file_gallery_detach_checked" />
 		</div>
 		
+	<?php if( floatval(get_bloginfo('version')) >= 3.5 ) : ?>
+		<a id="file_gallery_upload_media" href="#" class="insert-media button" title="<?php _e('Upload new files', 'file-gallery');?>"><?php _e('Upload new files', 'file-gallery');?></a>
+	<?php else : ?>
 		<a id="file_gallery_upload_media" href="media-upload.php?post_id=<?php echo $post_id;?>&amp;type=image&amp;TB_iframe=1&amp;tab=library" class="thickbox button" title="<?php _e('Upload new files', 'file-gallery');?>"><?php _e('Add an Image', 'file-gallery');?></a>
+	<?php endif; ?>
 		
 		<input type="button" value="<?php _e("Copy all attachments from another post", "file-gallery"); ?>" title="<?php _e("Copy all attachments from another post", "file-gallery"); ?>" class="button" id="file_gallery_copy_all" />
 	
@@ -86,7 +100,12 @@
 					<select name="file_gallery_linkto" id="file_gallery_linkto">
 						<option value="none"<?php if( "none" == $file_gallery_options["default_linkto"]){ ?> selected="selected"<?php } ?>><?php _e("nothing (do not link)", "file-gallery"); ?></option>
 						<option value="file"<?php if( "file" == $file_gallery_options["default_linkto"]){ ?> selected="selected"<?php } ?>><?php _e("file", "file-gallery"); ?></option>
-						<option value="attachment"<?php if( "attachment" == $file_gallery_options["default_linkto"]){ ?> selected="selected"<?php } ?>><?php _e("attachment page", "file-gallery"); ?></option>
+						<?php if( floatval(get_bloginfo('version')) >= 3.5 ) : ?>
+							<option value="post"<?php if( "attachment" == $file_gallery_options["default_linkto"]){ ?> selected="selected"<?php } ?>><?php _e("attachment page", "file-gallery"); ?></option>
+						<?php else: ?>
+							<option value="attachment"<?php if( "attachment" == $file_gallery_options["default_linkto"]){ ?> selected="selected"<?php } ?>><?php _e("attachment page", "file-gallery"); ?></option>
+						<?php endif; ?>
+
 						<option value="parent_post"<?php if( "parent_post" == $file_gallery_options["default_linkto"]){ ?> selected="selected"<?php } ?>><?php _e("parent post", "file-gallery"); ?></option>
 						<option value="external_url"<?php if( "external_url" == $file_gallery_options["default_external_url"]){ ?> selected="selected"<?php } ?>><?php _e("external url", "file-gallery"); ?></option>
 					</select>
@@ -315,6 +334,10 @@
 	<?php if( 3.3 <= floatval(get_bloginfo('version')) ) : ?>
 		<iframe name="file_gallery_upload_iframe" id="file_gallery_upload_area" src="<?php echo admin_url('media-upload.php?file_gallery=true&post_id=' . $post_id); ?>" ondragenter="event.stopPropagation(); event.preventDefault();" ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();"></iframe>
 	<?php endif; ?>
+	
+	<?php if( false == $file_gallery_options["display_single_fieldset"] && true == $file_gallery_options['insert_single_button'] ) : ?>
+		<input type="button" class="button-primary" id="file_gallery_send_single_legend" value="<?php _e("Insert single files", "file-gallery"); ?>" />
+	<?php endif; ?>
 		
 		<fieldset id="file_gallery_tag_attachment_switcher">
 		
@@ -330,9 +353,7 @@
 		
 		</fieldset>
 	
-	<?php if( false == $file_gallery_options["display_single_fieldset"] && true == $file_gallery_options['insert_single_button'] ) : ?>
-		<input type="button" class="button-primary" id="file_gallery_send_single_legend" value="<?php _e("Insert single files", "file-gallery"); ?>" />
-	<?php endif; ?>
+	
 	
 		<div id="file_gallery_attachment_list">
 		

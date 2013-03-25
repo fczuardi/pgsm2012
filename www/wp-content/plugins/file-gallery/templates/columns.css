@@ -53,3 +53,10 @@
 {
 	width: 11.1%;
 }
+
+/* twenty twelve fix */
+
+.entry-content .gallery li.gallery-item
+{
+	margin-left: 0;
+}

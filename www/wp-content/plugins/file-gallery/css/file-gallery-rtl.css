@@ -18,18 +18,6 @@
 	float: right !important;
 }
 
-#file_gallery .button-primary
-{
-	background: #21759B url(../images/button-grad.png) repeat-x scroll right bottom;	
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3) !important;
-}
-
-#file_gallery .button-primary:hover,
-#file_gallery .button-primary:active
-{
-	background: #FFFFFF url(../images/white-grad.png) repeat-x scroll right bottom;	
-}
-
 .sortableitem,
 .ui-selected
 {
@@ -206,6 +194,7 @@ a.img_edit
 	background:url(../images/file-gallery-logo.png) left center no-repeat;
 }
 
-#file_gallery_list .img_zoom img	{
-	right:28%;
+#file_gallery_list .img_zoom img
+{
+	right: 28%;
 }

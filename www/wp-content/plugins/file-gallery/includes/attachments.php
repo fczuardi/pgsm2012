@@ -302,14 +302,29 @@ function file_gallery_edit_attachment()
 		<?php endif; ?>
 		<br />
 		<div id="attachment_data">
-			<p><strong><?php _e('ID:', 'file-gallery'); ?></strong> <a href="<?php echo admin_url('media.php?attachment_id=' . $attachment->ID . '&action=edit&TB_iframe=1'); ?>" class="thickbox" onclick="return false;"><?php echo $attachment->ID; ?></a></p>
+		<?php
+			$attachment_link = 'post.php?post=' . $attachment->ID . '&action=edit';
+			$original_link = 'post.php?post=' . $attachment->ID . '&action=edit';
+			
+			if( floatval(get_bloginfo('version')) < 3.5 ) {
+				$attachment_link = 'media.php?attachment_id=' . $attachment->ID . '&action=edit';
+			}
+		?>
+			<p><strong><?php _e('ID:', 'file-gallery'); ?></strong> <a href="<?php echo admin_url($attachment_link . '&TB_iframe=1'); ?>" class="thickbox" onclick="return false;"><?php echo $attachment->ID; ?></a></p>
 			<p><strong><?php _e('Date uploaded:', 'file-gallery'); ?></strong><br /><?php echo date(get_option('date_format'), strtotime($attachment->post_date)); ?></p>
 			<p><strong><?php _e('Uploaded by:', 'file-gallery'); ?></strong> <?php echo $post_author; ?></p>
 			<?php if( is_array($has_copies) ) : ?>
 			<p class="attachment_info_has_copies"><?php _e('IDs of copies of this attachment:', 'file-gallery'); ?> <strong><?php foreach( $has_copies as $c){ echo '<a href="' . admin_url('media.php?attachment_id=' . $c . '&action=edit') . '" target="_blank">' . $c . '</a>'; }?></strong></p>
 			<?php endif; ?>
-			<?php if( $is_copy ) : ?>
-			<p class="attachment_info_is_a_copy"><?php _e('This attachment is a copy of attachment ID', 'file-gallery'); ?> <strong><?php echo '<a href="' . admin_url('media.php?attachment_id=' . $is_copy . '&action=edit') . '" target="_blank">' . $is_copy . '</a>'; ?></strong></p>
+			<?php if( $is_copy ) : 
+			
+				$original_link = 'post.php?post=' . $is_copy . '&action=edit';
+			
+				if( floatval(get_bloginfo('version')) < 3.5 ) {
+					$original_link = 'media.php?attachment_id=' . $is_copy . '&action=edit';
+				}
+			?>
+			<p class="attachment_info_is_a_copy"><?php _e('This attachment is a copy of attachment ID', 'file-gallery'); ?> <strong><?php echo '<a href="' . admin_url($original_link) . '" target="_blank">' . $is_copy . '</a>'; ?></strong></p>
 			<?php endif; ?>
 
 			
@@ -362,7 +377,6 @@ function file_gallery_edit_attachment()
 	
 	</div>	
 <?php
-
 	do_action('file_gallery_edit_attachment_post_form', $attachment->ID);
 
 	exit();

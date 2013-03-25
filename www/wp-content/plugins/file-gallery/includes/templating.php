@@ -406,40 +406,43 @@ function file_gallery_shortcode( $content = false, $attr = false )
 			unset($attr['orderby']);
 	}
 	
-	// extract the defaults...
-	extract(
-		shortcode_atts(
-			array(
-				/* default values: */
-				'order'				=> 'ASC',
-				'orderby'			=> '',
-				'id'				=> $post->ID,
-				'columns'			=> 3,
-				'size'				=> 'thumbnail',
-				'link'				=> 'attachment',
-				'include'			=> '',
-				'exclude'			=> '',
-	
-				/* added by file gallery: */
-				'template'			=> 'default',
-				'linkclass'			=> '',
-				'imageclass'		=> '',
-				'galleryclass'		=> '',
-				'rel'				=> 1,
-				'tags'				=> '',
-				'tags_from'			=> 'current',
-				'output_type'		=> 'html',
-				'output_params'		=> 1,				// needed when outputting html
-				'attachment_ids'	=> '',				// alias of 'include'
-				'mimetype'			=> '',
-				'limit' 			=> -1,
-				'offset'			=> -1,
-				'paginate'			=> 0,
-				'link_size'			=> 'full',
-				'include_meta'		=> false
-			)
-		, $attr)
+	$defaults = array(
+		/* default values: */
+		'order'				=> 'ASC',
+		'orderby'			=> '',
+		'id'				=> $post->ID,
+		'columns'			=> 3,
+		'size'				=> 'thumbnail',
+		'link'				=> 'attachment',
+		'include'			=> '',
+		'ids'				=> '',
+		'exclude'			=> '',
+
+		/* added by file gallery: */
+		'template'			=> 'default',
+		'linkclass'			=> '',
+		'imageclass'		=> '',
+		'galleryclass'		=> '',
+		'rel'				=> 1,
+		'tags'				=> '',
+		'tags_from'			=> 'current',
+		'output_type'		=> 'html',
+		'output_params'		=> 1,				// needed when outputting html
+		'attachment_ids'	=> '',				// old alias of 'include' and 'ids'
+		'mimetype'			=> '',
+		'limit' 			=> -1,
+		'offset'			=> -1,
+		'paginate'			=> 0,
+		'link_size'			=> 'full',
+		'include_meta'		=> false
 	);
+	
+	if( floatval(get_bloginfo('version')) >= 3.5 ) {
+		$defaults['link'] = 'post';
+	}
+	
+	// extract the defaults...
+	extract( shortcode_atts($defaults, $attr) );
 
 	if( ! in_array($template, $default_templates) )
 	{
@@ -516,9 +519,18 @@ function file_gallery_shortcode( $content = false, $attr = false )
 	
 	$file_gallery->debug_add('pagination', compact('paginate', 'page'));
 
-	if( '' != $include && '' == $attachment_ids )
-		$attachment_ids = $include;
-	
+/**/
+	$_attachment_ids = explode(',', trim($attachment_ids, ','));
+	$_include = explode(',', trim($include, ','));
+	$_ids = explode(',', trim($ids, ','));
+
+	$attachment_ids = array_merge($_attachment_ids, $_include, $_ids);
+	$attachment_ids = array_unique($attachment_ids);
+	$attachment_ids = implode(',', $attachment_ids);
+	$attachment_ids = trim($attachment_ids, ',');
+	$attachment_ids = trim($attachment_ids);
+/**/
+
 	if( ! isset( $linkto ) )
 		$linkto = $link;
 	
@@ -530,7 +542,7 @@ function file_gallery_shortcode( $content = false, $attr = false )
 		$sql_mimetype = wp_post_mime_type_where($mimetype);
 	}
 
-	$approved_attachment_post_statuses = apply_filters('file_gallery_approved_attachment_post_statuses', array('inherit', 'draft'));
+	$approved_attachment_post_statuses = apply_filters('file_gallery_approved_attachment_post_statuses', array('inherit'));
 	$ignored_attachment_post_statuses  = apply_filters('file_gallery_ignored_attachment_post_statuses', array('trash', 'private', 'pending', 'future'));
 	
 	if( ! empty($approved_attachment_post_statuses) )
@@ -574,16 +586,15 @@ function file_gallery_shortcode( $content = false, $attr = false )
 	}
 	elseif( '' != $attachment_ids )
 	{
-		$attachment_ids = trim($attachment_ids, ',');
 		$attachment_ids = explode(',', $attachment_ids);
-		$sql_limit      = count($attachment_ids);
+		$sql_limit = count($attachment_ids);
 
 		if( 'rand' == $orderby )
 			shuffle($attachment_ids);
 			
 		$attachment_ids = implode(',', $attachment_ids);
 
-		if( '' == $orderby || 'rand' == $orderby )
+		if( '' == $orderby || 'rand' == $orderby || $orderby == 'post__in' )
 		{
 			$orderby = sprintf("FIELD(ID, %s)", $attachment_ids);
 			$order   = '';
@@ -602,7 +613,7 @@ function file_gallery_shortcode( $content = false, $attr = false )
 		
 		$query .= $sql_mimetype;
 		$query .= sprintf(" ORDER BY %s %s ", $orderby, $order);
-		
+
 		if( true !== $paginate )
 			$limit = $sql_limit;
 	}
@@ -755,6 +766,7 @@ function file_gallery_shortcode( $content = false, $attr = false )
 					$param['link'] = wp_get_attachment_url($attachment->ID);
 					break;
 				case 'attachment' :
+				case 'post' :
 					$param['link'] = get_attachment_link($attachment->ID);
 					break;
 				case 'none' :
