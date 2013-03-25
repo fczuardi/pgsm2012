@@ -271,7 +271,7 @@ final class _WP_Editors {
 								if ( ! empty($strings) )
 									$ext_plugins .= "\n" . $strings . "\n";
 							}
-var_dump($plugurl);
+
 							$ext_plugins .= 'tinyMCEPreInit.load_ext("' . $plugurl . '", "' . $mce_locale . '");' . "\n";
 							$ext_plugins .= 'tinymce.PluginManager.load("' . $name . '", "' . $url . '");' . "\n";
 						}
