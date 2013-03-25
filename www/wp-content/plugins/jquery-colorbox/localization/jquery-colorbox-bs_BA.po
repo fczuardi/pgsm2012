@@ -2,19 +2,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jQuery-Colorbox\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-15 22:23+0100\n"
-"PO-Revision-Date: 2012-04-15 22:23+0100\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2012-09-23 21:27+0100\n"
+"PO-Revision-Date: 2012-09-23 21:27+0100\n"
+"Last-Translator: Arne Franken <blog@techotronic.de>\n"
 "Language-Team: \n"
+"Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Bosnian\n"
 "X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 1.5.3\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: jquery-colorbox.php:34
+#: jquery-colorbox.php:37
 msgid "jQuery Colorbox"
 msgstr ""
 
@@ -82,8 +83,7 @@ msgstr "Tema #15"
 msgid "percent"
 msgstr "procenat"
 
-#: jquery-colorbox.php:123
-#: includes/settings-page/sp-colorbox-settings.php:248
+#: jquery-colorbox.php:123 includes/settings-page/sp-colorbox-settings.php:248
 #: includes/settings-page/sp-colorbox-settings.php:257
 msgid "pixels"
 msgstr "piksel"
@@ -100,32 +100,36 @@ msgstr "izblijediti"
 msgid "none"
 msgstr "bez efekta"
 
-#: includes/jquery-colorbox-backend.php:85
+#: includes/jquery-colorbox-backend.php:84
 #, php-format
 msgid "Successfully updated %1$s settings."
 msgstr "Uspješno ažurirano %1$s promjena."
 
-#: includes/jquery-colorbox-backend.php:87
+#: includes/jquery-colorbox-backend.php:86
 #, php-format
 msgid "%1$s settings were successfully deleted."
 msgstr "%1$s opcije su uspiješno izbrisane."
 
-#: includes/jquery-colorbox-backend.php:112
+#: includes/jquery-colorbox-backend.php:111
 msgid "needs attention: the plugin is not activated to work for all images."
 msgstr "Pažnja "
 
-#: includes/jquery-colorbox-backend.php:133
+#: includes/jquery-colorbox-backend.php:132
 msgid "Settings"
 msgstr "Opcije"
 
-#: includes/jquery-colorbox-backend.php:155
+#: includes/jquery-colorbox-backend.php:154
 msgid "Did not update settings, you do not have the necessary rights."
 msgstr "Opcije nisu ažurirane, nemaš potrebna ovlaštenja."
 
-#: includes/jquery-colorbox-backend.php:188
+#: includes/jquery-colorbox-backend.php:187
 #, php-format
-msgid "Did not delete %1$s settings. Either you dont have the nececssary rights or you didnt check the checkbox."
-msgstr " %1$s opcije nisu mogle biti izbrisane. Ili nemaš potrebna ovlaštenja ili si zaboravio da aktiviraš Checkbox."
+msgid ""
+"Did not delete %1$s settings. Either you dont have the nececssary rights or "
+"you didnt check the checkbox."
+msgstr ""
+" %1$s opcije nisu mogle biti izbrisane. Ili nemaš potrebna ovlaštenja ili si "
+"zaboravio da aktiviraš Checkbox."
 
 #: includes/jquery-colorbox-frontend.php:65
 msgid "Using"
@@ -154,6 +158,14 @@ msgstr "Zaustavi slideshow"
 #: includes/jquery-colorbox-frontend.php:180
 msgid "{current} of {total} images"
 msgstr "{current} od {total} slika"
+
+#: includes/jquery-colorbox-frontend.php:181
+msgid "This content failed to load."
+msgstr ""
+
+#: includes/jquery-colorbox-frontend.php:182
+msgid "This image failed to load."
+msgstr ""
 
 #: includes/settings-page.php:18
 #, php-format
@@ -191,8 +203,12 @@ msgstr "Pokreni slideshow automatski"
 
 #: includes/settings-page/sp-colorbox-settings.php:63
 #, php-format
-msgid "Start Slideshow automatically if slideshow functionality is added to %1$s Groups"
-msgstr "Pokreni slideshow automatski ako je slideshow funkcionalnost dodana %1$s grupama"
+msgid ""
+"Start Slideshow automatically if slideshow functionality is added to %1$s "
+"Groups"
+msgstr ""
+"Pokreni slideshow automatski ako je slideshow funkcionalnost dodana %1$s "
+"grupama"
 
 #: includes/settings-page/sp-colorbox-settings.php:68
 msgid "Speed of the slideshow"
@@ -220,7 +236,9 @@ msgid "Disable keys"
 msgstr ""
 
 #: includes/settings-page/sp-colorbox-settings.php:90
-msgid "Disable ESC to close Colorbox and arrow keys to go to next and previous images"
+msgid ""
+"Disable ESC to close Colorbox and arrow keys to go to next and previous "
+"images"
 msgstr ""
 
 #: includes/settings-page/sp-colorbox-settings.php:95
@@ -238,8 +256,14 @@ msgid "Set maximum width of an image"
 msgstr "Postavi maksimalnu širinu slike"
 
 #: includes/settings-page/sp-colorbox-settings.php:115
-msgid "Set the maximum width of the image in the Colorbox in relation to the browser window in percent or pixels. If maximum width is not set, image is as wide as the Colorbox"
-msgstr "Postavi maksimalnu širinu slike u Colorboxu u relaciji prema web pretraživaču u postotcima ili pikselima. Ako maksimalna širina nije postavljenja, slika je iste širine kao Colorbox"
+msgid ""
+"Set the maximum width of the image in the Colorbox in relation to the "
+"browser window in percent or pixels. If maximum width is not set, image is "
+"as wide as the Colorbox"
+msgstr ""
+"Postavi maksimalnu širinu slike u Colorboxu u relaciji prema web "
+"pretraživaču u postotcima ili pikselima. Ako maksimalna širina nije "
+"postavljenja, slika je iste širine kao Colorbox"
 
 #: includes/settings-page/sp-colorbox-settings.php:120
 msgid "Maximum height of an image"
@@ -256,8 +280,14 @@ msgid "Set maximum height of an image"
 msgstr "Postavi visinu slike"
 
 #: includes/settings-page/sp-colorbox-settings.php:140
-msgid "Set the maximum height of the image in the Colorbox in relation to the browser window to a value in percent or pixels. If maximum height is not set, the image is as high as the Colorbox"
-msgstr "Postavi maksimalnu visinu slike u Colorboxu u relaciji prema web pretraživaču u postotcima ili pikselima. Ako maksimalna visina nije postavljenja, slika je iste visine kao Colorbox"
+msgid ""
+"Set the maximum height of the image in the Colorbox in relation to the "
+"browser window to a value in percent or pixels. If maximum height is not "
+"set, the image is as high as the Colorbox"
+msgstr ""
+"Postavi maksimalnu visinu slike u Colorboxu u relaciji prema web "
+"pretraživaču u postotcima ili pikselima. Ako maksimalna visina nije "
+"postavljenja, slika je iste visine kao Colorbox"
 
 #: includes/settings-page/sp-colorbox-settings.php:145
 msgid "Maximum width of the Colorbox"
@@ -270,8 +300,16 @@ msgstr "Postavi širinu Colorboxa"
 
 #: includes/settings-page/sp-colorbox-settings.php:165
 #: includes/settings-page/sp-colorbox-settings.php:215
-msgid "Set the maximum width of the Colorbox itself in relation to the browser window to a value between in percent or pixels. If the image is bigger than the colorbox, scrollbars are displayed. If width is not set, the Colorbox will be as wide as the picture in it"
-msgstr "Postavi maksimalnu širinu Colorboxa u relaciji prema web pretraživaču u postotcima ili pikselima. Ako je slika veća od Colorboxa bit će prikazan scrollbar. Ako širina nije postavljena, Colorbox će biti iste širine kao i sama slika"
+msgid ""
+"Set the maximum width of the Colorbox itself in relation to the browser "
+"window to a value between in percent or pixels. If the image is bigger than "
+"the colorbox, scrollbars are displayed. If width is not set, the Colorbox "
+"will be as wide as the picture in it"
+msgstr ""
+"Postavi maksimalnu širinu Colorboxa u relaciji prema web pretraživaču u "
+"postotcima ili pikselima. Ako je slika veća od Colorboxa bit će prikazan "
+"scrollbar. Ako širina nije postavljena, Colorbox će biti iste širine kao i "
+"sama slika"
 
 #: includes/settings-page/sp-colorbox-settings.php:170
 msgid "Maximum height of the Colorbox"
@@ -284,8 +322,16 @@ msgstr "Postavi visinu Colorboxa"
 
 #: includes/settings-page/sp-colorbox-settings.php:190
 #: includes/settings-page/sp-colorbox-settings.php:240
-msgid "Set the maximum height of the Colorbox itself in relation to the browser window to a value between in percent or pixels. If the image is bigger than the colorbox, scrollbars are displayed. If height is not set, the Colorbox will be as high as the picture in it"
-msgstr "Postavi maksimalnu visinu Colorboxa u relaciji prema web pretraživaču u postotcima ili pikselima. Ako je slika veća od Colorboxa bit će prikazan scrollbar. Ako visina nije postavljena, Colorbox će biti iste visine kao i sama slika"
+msgid ""
+"Set the maximum height of the Colorbox itself in relation to the browser "
+"window to a value between in percent or pixels. If the image is bigger than "
+"the colorbox, scrollbars are displayed. If height is not set, the Colorbox "
+"will be as high as the picture in it"
+msgstr ""
+"Postavi maksimalnu visinu Colorboxa u relaciji prema web pretraživaču u "
+"postotcima ili pikselima. Ako je slika veća od Colorboxa bit će prikazan "
+"scrollbar. Ako visina nije postavljena, Colorbox će biti iste visine kao i "
+"sama slika"
 
 #: includes/settings-page/sp-colorbox-settings.php:195
 #, fuzzy
@@ -322,39 +368,56 @@ msgid "Resize images"
 msgstr "Promijeni veličinu slike"
 
 #: includes/settings-page/sp-colorbox-settings.php:268
-msgid "If enabled and if maximum width of images, maximum height of images, width of the Colorbox, or height of the Colorbox have been defined, ColorBox will scale photos to fit within the those values"
-msgstr "Ako su omogučeni i definirani maksimalna širina slike, maksimalna visina slike, širina Colorboxa ili visina Colorboxa, Clorobox će prilagoditi veličinu slike ovim vrijednostima"
+msgid ""
+"If enabled and if maximum width of images, maximum height of images, width "
+"of the Colorbox, or height of the Colorbox have been defined, ColorBox will "
+"scale photos to fit within the those values"
+msgstr ""
+"Ako su omogučeni i definirani maksimalna širina slike, maksimalna visina "
+"slike, širina Colorboxa ili visina Colorboxa, Clorobox će prilagoditi "
+"veličinu slike ovim vrijednostima"
 
 #: includes/settings-page/sp-colorbox-settings.php:273
 msgid "Close Colorbox on overlay click"
 msgstr "Zatvori Colorbox ako se klikne na overlay."
 
 #: includes/settings-page/sp-colorbox-settings.php:278
-msgid "If checked, enables closing ColorBox by clicking on the background overlay"
-msgstr "Ako označeno, omogućava zatvaranje Colorboxa klikom na overlay u pozadini"
+msgid ""
+"If checked, enables closing ColorBox by clicking on the background overlay"
+msgstr ""
+"Ako označeno, omogućava zatvaranje Colorboxa klikom na overlay u pozadini"
 
 #: includes/settings-page/sp-colorbox-settings.php:283
 msgid "Preload images"
 msgstr "Preučitaj slike"
 
 #: includes/settings-page/sp-colorbox-settings.php:288
-msgid "Allows for preloading of \"next\" and \"previous\" content in a group, after the current content has finished loading. Uncheck box to disable."
-msgstr "Dozvoljava preučitavanje \"next\" i \"previous\" slika unutar jedne grupe nakon učitavanja aktuelnog sadržaja. Da bi deaktivirao ovaj elemenat ukloni kvačicu iz odjeljka. "
+msgid ""
+"Allows for preloading of \"next\" and \"previous\" content in a group, after "
+"the current content has finished loading. Uncheck box to disable."
+msgstr ""
+"Dozvoljava preučitavanje \"next\" i \"previous\" slika unutar jedne grupe "
+"nakon učitavanja aktuelnog sadržaja. Da bi deaktivirao ovaj elemenat ukloni "
+"kvačicu iz odjeljka. "
 
 #: includes/settings-page/sp-colorbox-settings.php:293
 msgid "Transition type"
 msgstr "Tip izmjene"
 
 #: includes/settings-page/sp-colorbox-settings.php:305
-msgid "The transition type of the Colorbox. Can be set to \"elastic\", \"fade\", or \"none\""
-msgstr "Vrsta prijelaza.Može biti postavljena na \"elastic\", \"fade\", ili \"none\""
+msgid ""
+"The transition type of the Colorbox. Can be set to \"elastic\", \"fade\", or "
+"\"none\""
+msgstr ""
+"Vrsta prijelaza.Može biti postavljena na \"elastic\", \"fade\", ili \"none\""
 
 #: includes/settings-page/sp-colorbox-settings.php:310
 msgid "Transition speed"
 msgstr "Brzina izjmene"
 
 #: includes/settings-page/sp-colorbox-settings.php:314
-msgid "Sets the speed of the \"fade\" and \"elastic\" transitions, in milliseconds"
+msgid ""
+"Sets the speed of the \"fade\" and \"elastic\" transitions, in milliseconds"
 msgstr "Određuje brzinu \"fade\" i \"elastic\" prijelaza, u milisekundama"
 
 #: includes/settings-page/sp-colorbox-settings.php:319
@@ -377,15 +440,21 @@ msgstr "Izbriši postavke"
 
 #: includes/settings-page/sp-delete-settings.php:17
 msgid "Check the box and click this button to delete settings of this plugin."
-msgstr "Aktiviraj Checkbox i klikni na odgovarajuće dugme da bi izbrisao opcije ovog plugin-a."
+msgstr ""
+"Aktiviraj Checkbox i klikni na odgovarajuće dugme da bi izbrisao opcije ovog "
+"plugin-a."
 
 #: includes/settings-page/sp-donate-box.php:14
 msgid "Donate"
 msgstr "Doniraj"
 
 #: includes/settings-page/sp-donate-box.php:18
-msgid "If you would like to make a small (or large) contribution towards future development please consider making a donation."
-msgstr "Ako bi želio da daš doprinos daljnjem usavršavanju, molim te razmisli o davanju donacije. "
+msgid ""
+"If you would like to make a small (or large) contribution towards future "
+"development please consider making a donation."
+msgstr ""
+"Ako bi želio da daš doprinos daljnjem usavršavanju, molim te razmisli o "
+"davanju donacije. "
 
 #: includes/settings-page/sp-donate-box.php:20
 msgid "Donate using Paypal"
@@ -448,8 +517,14 @@ msgid "Automate %1$s for all images in pages, posts and galleries"
 msgstr "Automatiziraj %1$s za slike u WordPress galeriji."
 
 #: includes/settings-page/sp-plugin-settings.php:25
-msgid "Automatically add colorbox-class to images in posts and pages. Also adds colorbox-class to galleries. Images in one page or post are grouped automatically."
-msgstr "Dodaj automatski colorbox-klasu slikama u člancima i na stranicama. Takođe dodaje colobox-klasu galerijama. Sve slike unutar jednog članka ili jedne stranice če automatski biti grupirane. "
+msgid ""
+"Automatically add colorbox-class to images in posts and pages. Also adds "
+"colorbox-class to galleries. Images in one page or post are grouped "
+"automatically."
+msgstr ""
+"Dodaj automatski colorbox-klasu slikama u člancima i na stranicama. Takođe "
+"dodaje colobox-klasu galerijama. Sve slike unutar jednog članka ili jedne "
+"stranice če automatski biti grupirane. "
 
 #: includes/settings-page/sp-plugin-settings.php:30
 #, fuzzy, php-format
@@ -457,8 +532,13 @@ msgid "Automate %1$s for images in WordPress galleries only"
 msgstr "Automatiziraj %1$s za slike u WordPress galeriji."
 
 #: includes/settings-page/sp-plugin-settings.php:35
-msgid "Automatically add colorbox-class to images in WordPress galleries, but nowhere else. Images in one page or post are grouped automatically."
-msgstr "Dodaj automatksi colorbox-klasu za slike samo u galerijama, nigdje drugdje. SSe slike unutar jednog članka ili jedne stranice če automatski biti grupirane. "
+msgid ""
+"Automatically add colorbox-class to images in WordPress galleries, but "
+"nowhere else. Images in one page or post are grouped automatically."
+msgstr ""
+"Dodaj automatksi colorbox-klasu za slike samo u galerijama, nigdje drugdje. "
+"SSe slike unutar jednog članka ili jedne stranice če automatski biti "
+"grupirane. "
 
 #: includes/settings-page/sp-plugin-settings.php:40
 #, fuzzy, php-format
@@ -466,7 +546,9 @@ msgid "Automate %1$s for all other images"
 msgstr "Automatiziraj %1$s za sve slike"
 
 #: includes/settings-page/sp-plugin-settings.php:45
-msgid "Automatically add colorbox-class to all images that are not in posts and pages (e.g. the sidebar)."
+msgid ""
+"Automatically add colorbox-class to all images that are not in posts and "
+"pages (e.g. the sidebar)."
 msgstr ""
 
 #: includes/settings-page/sp-plugin-settings.php:50
@@ -475,7 +557,8 @@ msgid "Automate %1$s for all text links to images"
 msgstr "Automatiziraj %1$s za sve slike"
 
 #: includes/settings-page/sp-plugin-settings.php:54
-msgid "Automatically add colorbox-link-class to all links that point to images."
+msgid ""
+"Automatically add colorbox-link-class to all links that point to images."
 msgstr ""
 
 #: includes/settings-page/sp-plugin-settings.php:59
@@ -485,7 +568,9 @@ msgstr "Automatsko sakrivanje flash objekata"
 #: includes/settings-page/sp-plugin-settings.php:64
 #, fuzzy
 msgid "Automatically hide embeded flash objects behind the Colorbox layer."
-msgstr "Sakrij automatski flash objekte iza Colorbox layera. Za to će \"wmode\" biti podešen na \"transparent\"."
+msgstr ""
+"Sakrij automatski flash objekte iza Colorbox layera. Za to će \"wmode\" biti "
+"podešen na \"transparent\"."
 
 #: includes/settings-page/sp-plugin-settings.php:70
 msgid "Add Zoom overlay to pictures"
@@ -501,7 +586,9 @@ msgstr ""
 
 #: includes/settings-page/sp-plugin-settings.php:88
 #, php-format
-msgid "Use jQuery library version %1$s from Google instead of the one that comes with WordPress."
+msgid ""
+"Use jQuery library version %1$s from Google instead of the one that comes "
+"with WordPress."
 msgstr ""
 
 #: includes/settings-page/sp-plugin-settings.php:94
@@ -525,7 +612,9 @@ msgid "Activate debug mode"
 msgstr ""
 
 #: includes/settings-page/sp-plugin-settings.php:118
-msgid "Adds debug information and non-minified JavaScript to the page. Useful for troubleshooting."
+msgid ""
+"Adds debug information and non-minified JavaScript to the page. Useful for "
+"troubleshooting."
 msgstr ""
 
 #: includes/settings-page/sp-plugin-settings.php:123
@@ -533,16 +622,23 @@ msgid "Disable warning"
 msgstr "Deaktiviraj upozorenje"
 
 #: includes/settings-page/sp-plugin-settings.php:128
-msgid "Disables the warning that is displayed if the plugin is activated but the auto-colorbox feature for all images is turned off."
-msgstr "Onemogućuje opomenu, prikazanu ako je plugin aktiviran ali element \"auto-colorbox\" za sve slike nije."
+msgid ""
+"Disables the warning that is displayed if the plugin is activated but the "
+"auto-colorbox feature for all images is turned off."
+msgstr ""
+"Onemogućuje opomenu, prikazanu ako je plugin aktiviran ali element \"auto-"
+"colorbox\" za sve slike nije."
 
 #: includes/settings-page/sp-translation.php:14
 msgid "Translation"
 msgstr "Prijevod"
 
 #: includes/settings-page/sp-translation.php:17
-msgid "The english translation was done by <a href=\"http://www.techotronic.de\">Arne Franken</a>."
-msgstr "Na bosanski je preveo <a href=\"http://www.vjucon.com\">Vedran Jurinčić</a>."
+msgid ""
+"The english translation was done by <a href=\"http://www.techotronic.de"
+"\">Arne Franken</a>."
+msgstr ""
+"Na bosanski je preveo <a href=\"http://www.vjucon.com\">Vedran Jurinčić</a>."
 
 #~ msgid "Automate %1$s for all images"
 #~ msgstr "Automatiziraj %1$s za sve slike"

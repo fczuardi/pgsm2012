@@ -26,17 +26,17 @@ class JQueryColorboxFrontend {
     $this->colorboxSettings = $colorboxSettings;
 
     //only add link to meta box if
-    if (isset($this->colorboxSettings['removeLinkFromMetaBox']) && !$this->colorboxSettings['removeLinkFromMetaBox']) {
+    if ($this->isFalse('removeLinkFromMetaBox')) {
       add_action('wp_meta', array(& $this, 'renderMetaLink'));
     }
 
-    if (isset($this->colorboxSettings['autoColorbox']) && $this->colorboxSettings['autoColorbox']) {
+    if ($this->isTrue('autoColorbox')) {
       //write "colorbox-postID" to "img"-tags class attribute.
       //Priority = 100, hopefully the preg_replace is then executed after other plugins messed with the_content
       add_filter('the_content', array(& $this, 'addColorboxGroupIdToImages'), 100);
       add_filter('the_excerpt', array(& $this, 'addColorboxGroupIdToImages'), 100);
     }
-    if (isset($this->colorboxSettings['autoColorboxGalleries']) && $this->colorboxSettings['autoColorboxGalleries']) {
+    if ($this->isTrue('autoColorboxGalleries') || $this->isTrue('autoColorbox')) {
       add_filter('wp_get_attachment_image_attributes', array(& $this, 'wpPostThumbnailClassFilter'));
     }
 
@@ -178,6 +178,8 @@ class JQueryColorboxFrontend {
       'colorboxSlideshowStart' => __('start slideshow', JQUERYCOLORBOX_TEXTDOMAIN),
       'colorboxSlideshowStop' => __('stop slideshow', JQUERYCOLORBOX_TEXTDOMAIN),
       'colorboxCurrent' => __('{current} of {total} images', JQUERYCOLORBOX_TEXTDOMAIN),
+      'colorboxXhrError'=> __('This content failed to load.', JQUERYCOLORBOX_TEXTDOMAIN),
+      'colorboxImgError'=> __('This image failed to load.', JQUERYCOLORBOX_TEXTDOMAIN),
 
       'colorboxImageMaxWidth' => $this->colorboxSettings['maxWidth'] == "false" ? 'false'
               : $this->colorboxSettings['maxWidthValue'] . $this->colorboxSettings['maxWidthUnit'],
@@ -217,7 +219,7 @@ class JQueryColorboxFrontend {
    */
   //public function addColorboxWrapperJS() {
   function addColorboxWrapperJS() {
-    if ($this->colorboxSettings['debugMode']) {
+    if ($this->isTrue('debugMode')) {
       $jqueryColorboxWrapperJavaScriptPath = "js/jquery-colorbox-wrapper.js";
     }
     else {
@@ -237,7 +239,7 @@ class JQueryColorboxFrontend {
    */
   //public function addColorboxJS() {
   function addColorboxJS() {
-    if ($this->colorboxSettings['debugMode']) {
+    if ($this->isTrue('debugMode')) {
       $jqueryColorboxJavaScriptPath = "js/jquery.colorbox.js";
     }
     else {
@@ -257,8 +259,8 @@ class JQueryColorboxFrontend {
    */
   //public function addJQueryJS() {
   function addJQueryJS() {
-    if ($this->colorboxSettings['useGoogleJQuery']) {
-      if ($this->colorboxSettings['debugMode']) {
+    if ($this->isTrue('useGoogleJQuery')) {
+      if ($this->isTrue('debugMode')) {
         $jQueryLibraryUrl = "http://code.jquery.com/jquery-".JQUERYLIBRARY_VERSION.".js";
       }
       else {
@@ -287,13 +289,54 @@ class JQueryColorboxFrontend {
     wp_register_style('colorbox-' . $this->colorboxSettings['colorboxTheme'], JQUERYCOLORBOX_PLUGIN_URL . '/' . 'themes/' . $this->colorboxSettings['colorboxTheme'] . '/colorbox.css', array(), JQUERYCOLORBOX_VERSION, 'screen');
     wp_enqueue_style('colorbox-' . $this->colorboxSettings['colorboxTheme']);
 
-    if ($this->colorboxSettings['addZoomOverlay']) {
+    if ($this->isTrue('addZoomOverlay')) {
       wp_register_style( 'colorbox-css', JQUERYCOLORBOX_PLUGIN_URL . '/css/jquery-colorbox-zoom.css' , false, COLORBOXLIBRARY_VERSION );
       wp_enqueue_style( 'colorbox-css' );
     }
   }
 
   // addColorboxCSS()
+
+
+  //====================================================================================================================
+
+
+  /**
+   * Returns true if the option exists and is set to 'true'
+   *
+   * @since 4.5
+   * @access private
+   * @author Arne Franken
+   *
+   * @param $optionName String the option to check
+   *
+   * @return bool
+   */
+  //private function isTrue($optionName) {
+  function isTrue($optionName) {
+    return isset($this->colorboxSettings[$optionName]) && $this->colorboxSettings[$optionName];
+  }
+
+  //isTrue()
+
+  /**
+   * Returns true if the option exists and is set to 'false'
+   *
+   * @since 4.5
+   * @access private
+   * @author Arne Franken
+   *
+   * @param $optionName String the option to check
+   *
+   * @return bool
+   */
+  //private function isFalse($optionName) {
+  function isFalse($optionName) {
+    return isset($this->colorboxSettings[$optionName]) && !$this->colorboxSettings[$optionName];
+  }
+
+  //isFalse()
+
 }
 
 // class JQueryColorboxFrontend()

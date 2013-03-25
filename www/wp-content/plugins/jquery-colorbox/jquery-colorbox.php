@@ -6,7 +6,7 @@
  * Plugin Name: jQuery Colorbox
  * Plugin URI: http://www.techotronic.de/plugins/jquery-colorbox/
  * Description: Used to overlay images on the current page. Images in one post are grouped automatically.
- * Version: 4.4.1
+ * Version: 4.6
  * Author: Arne Franken
  * Author URI: http://www.techotronic.de/
  * License: GPL
@@ -19,8 +19,8 @@
 ?>
 <?php
 //define constants
-define('JQUERYCOLORBOX_VERSION', '4.4.1');
-define('COLORBOXLIBRARY_VERSION', '1.3.19');
+define('JQUERYCOLORBOX_VERSION', '4.6');
+define('COLORBOXLIBRARY_VERSION', '1.3.21');
 
 if (!defined('JQUERYCOLORBOX_PLUGIN_BASENAME')) {
   //jquery-colorbox/jquery-colorbox.php
@@ -48,7 +48,7 @@ if (!defined('JQUERYCOLORBOX_SETTINGSNAME')) {
   define('JQUERYCOLORBOX_SETTINGSNAME', 'jquery-colorbox_settings');
 }
 if (!defined('JQUERYLIBRARY_VERSION')) {
-  define('JQUERYLIBRARY_VERSION', '1.7.2');
+  define('JQUERYLIBRARY_VERSION', '1.9.0');
 }
 if (!defined('JQUERYCOLORBOX_USERAGENT')) {
   define('JQUERYCOLORBOX_USERAGENT', 'jQuery Colorbox V' . JQUERYCOLORBOX_VERSION . '; (' . get_bloginfo('url') . ')');
@@ -153,7 +153,7 @@ class JQueryColorbox {
    * @since 2.0
    * @access public
    * @author Arne Franken
-   * @param $colorboxSettings current colorboxSettings.
+   * @param $colorboxSettings array current colorboxSettings.
    *
    * @return bool true if settings work with this plugin version
    */

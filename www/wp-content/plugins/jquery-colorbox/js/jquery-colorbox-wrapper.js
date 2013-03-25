@@ -50,12 +50,12 @@ jQuery(document).ready(function() {
   colorboxShowFlash = function() {
     jQuery(document).bind('cbox_closed', function() {
       var flashObjects = document.getElementsByTagName("object");
-      for (i = 0; i < flashObjects.length; i++) {
+      for (var i = 0; i < flashObjects.length; i++) {
         flashObjects[i].style.visibility = "visible";
       }
       var flashEmbeds = document.getElementsByTagName("embed");
-      for (i = 0; i < flashEmbeds.length; i++) {
-        flashEmbeds[i].style.visibility = "visible";
+      for (var j = 0; j < flashEmbeds.length; j++) {
+        flashEmbeds[j].style.visibility = "visible";
       }
     });
   };
@@ -72,12 +72,12 @@ jQuery(document).ready(function() {
   colorboxHideFlash = function() {
     jQuery(document).bind('cbox_open', function() {
       var flashObjects = document.getElementsByTagName("object");
-      for (i = 0; i < flashObjects.length; i++) {
+      for (var i = 0; i < flashObjects.length; i++) {
         flashObjects[i].style.visibility = "hidden";
       }
       var flashEmbeds = document.getElementsByTagName("embed");
-      for (i = 0; i < flashEmbeds.length; i++) {
-        flashEmbeds[i].style.visibility = "hidden";
+      for (var j = 0; j < flashEmbeds.length; j++) {
+        flashEmbeds[j].style.visibility = "hidden";
       }
     });
   };
@@ -209,7 +209,7 @@ jQuery(document).ready(function() {
         colorboxWrapper(link);
       }
     }
-  }
+  };
 })(jQuery);
 
 // colorboxImage()
@@ -320,11 +320,15 @@ jQuery(document).ready(function() {
       escKey:ColorboxLocal.colorboxEscKey,
       arrowKey:ColorboxLocal.colorboxArrowKey,
       loop:ColorboxLocal.colorboxLoop,
+      //data
+
+      //--- Internationalization
       current:ColorboxLocal.colorboxCurrent,
       previous:ColorboxLocal.colorboxPrevious,
       next:ColorboxLocal.colorboxNext,
       close:ColorboxLocal.colorboxClose,
-      //data
+      xhrError:ColorboxLocal.colorboxXhrError,
+      imgError:ColorboxLocal.colorboxImgError,
 
       // --- content type
       iframe:ColorboxLocal.colorboxIframe,
@@ -350,6 +354,14 @@ jQuery(document).ready(function() {
       slideshowStart:ColorboxLocal.colorboxSlideshowStart,
       slideshowStop:ColorboxLocal.colorboxSlideshowStop
 
+      // --- positioning
+      //fixed:false
+      //top:false
+      //bottom:false
+      //left: false
+      //right:false
+
+
       // --- callbacks
       //onOpen
       //onLoad
@@ -367,18 +379,22 @@ jQuery(document).ready(function() {
  */
 (function (jQuery) {
   colorboxAddZoomOverlayToImages = function ($link, $image) {
-    var $zoomHover = jQuery('<div class="zoomHover" style="opacity: 0;"></div>');
+    var $zoomHover = jQuery('<span class="zoomHover" style="opacity: 0;"></span>');
+
+    //add float from image to link, otherwise the zoom overlay would not be visible
+    $link.css("float",$image.css("float"));
+
     $link.append($zoomHover);
     $link.addClass("zoomLink");
 
     $link.hover(
         function () {
-          //mouseIn
+          //mouseIn, show zoom overlay
           $zoomHover.stop().animate({opacity:0.8}, 300);
           $image.stop().animate({opacity:0.6}, 300);
         },
         function () {
-          //mouseOut
+          //mouseOut, hide zoom overlay
           $zoomHover.stop().animate({ opacity:0 }, 300);
           $image.stop().animate({ opacity:1 }, 300);
         });
@@ -423,6 +439,8 @@ jQuery(document).ready(function() {
       colorboxSlideshowStart:'start slideshow',
       colorboxSlideshowStop:'stop slideshow',
       colorboxCurrent:'{current} of {total} images',
+      colorboxXhrError:'This content failed to load.',
+      colorboxImgError:'This image failed to load.',
 
       colorboxImageMaxWidth: false,
       colorboxImageMaxHeight: false,
@@ -482,7 +500,7 @@ jQuery(document).ready(function() {
         }
 
         return output;
-      }
+      };
 })(jQuery);
 
 // printArray()

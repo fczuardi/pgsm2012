@@ -2,7 +2,7 @@
  * This file contains CSS classes used for the zoom overlay on images.
  */
 
-div.zoomHover {
+span.zoomHover {
   height:     100%;
   left:       0;
   position:   absolute;

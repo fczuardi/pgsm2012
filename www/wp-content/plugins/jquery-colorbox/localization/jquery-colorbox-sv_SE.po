@@ -2,20 +2,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jQuery-Colorbox\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-15 22:31+0100\n"
-"PO-Revision-Date: 2012-04-15 22:31+0100\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2012-09-23 21:30+0100\n"
+"PO-Revision-Date: 2012-09-23 21:30+0100\n"
+"Last-Translator: Arne Franken <blog@techotronic.de>\n"
 "Language-Team: Skez <contact@theindiaexperience.se>\n"
+"Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Swedish\n"
 "X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: ..\n"
-"X-Poedit-Country: SWEDEN\n"
+"X-Generator: Poedit 1.5.3\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: jquery-colorbox.php:34
+#: jquery-colorbox.php:37
 msgid "jQuery Colorbox"
 msgstr ""
 
@@ -83,8 +83,7 @@ msgstr "Tema #15"
 msgid "percent"
 msgstr "procent"
 
-#: jquery-colorbox.php:123
-#: includes/settings-page/sp-colorbox-settings.php:248
+#: jquery-colorbox.php:123 includes/settings-page/sp-colorbox-settings.php:248
 #: includes/settings-page/sp-colorbox-settings.php:257
 msgid "pixels"
 msgstr "pixlar"
@@ -101,32 +100,39 @@ msgstr "tona"
 msgid "none"
 msgstr "inget"
 
-#: includes/jquery-colorbox-backend.php:85
+#: includes/jquery-colorbox-backend.php:84
 #, php-format
 msgid "Successfully updated %1$s settings."
 msgstr "Uppdaterade inställningarna för %1$s."
 
-#: includes/jquery-colorbox-backend.php:87
+#: includes/jquery-colorbox-backend.php:86
 #, php-format
 msgid "%1$s settings were successfully deleted."
 msgstr "Inställningarna för %1$s är borttagna."
 
-#: includes/jquery-colorbox-backend.php:112
+#: includes/jquery-colorbox-backend.php:111
 msgid "needs attention: the plugin is not activated to work for all images."
-msgstr "behöver uppmärksamhet: pluginet är inte inställt att fungera på alla bilder."
+msgstr ""
+"behöver uppmärksamhet: pluginet är inte inställt att fungera på alla bilder."
 
-#: includes/jquery-colorbox-backend.php:133
+#: includes/jquery-colorbox-backend.php:132
 msgid "Settings"
 msgstr "Inställningar"
 
-#: includes/jquery-colorbox-backend.php:155
+#: includes/jquery-colorbox-backend.php:154
 msgid "Did not update settings, you do not have the necessary rights."
-msgstr "Kunde inte uppdaterade inställningarna, du har inte dem nödvändiga rättigheterna."
+msgstr ""
+"Kunde inte uppdaterade inställningarna, du har inte dem nödvändiga "
+"rättigheterna."
 
-#: includes/jquery-colorbox-backend.php:188
+#: includes/jquery-colorbox-backend.php:187
 #, php-format
-msgid "Did not delete %1$s settings. Either you dont have the nececssary rights or you didnt check the checkbox."
-msgstr "Inställningarna för %1$s togs inte bort. Du har antingen inte nödvändiga rättigheter eller så markerade du inte boxen."
+msgid ""
+"Did not delete %1$s settings. Either you dont have the nececssary rights or "
+"you didnt check the checkbox."
+msgstr ""
+"Inställningarna för %1$s togs inte bort. Du har antingen inte nödvändiga "
+"rättigheter eller så markerade du inte boxen."
 
 #: includes/jquery-colorbox-frontend.php:65
 msgid "Using"
@@ -155,6 +161,14 @@ msgstr "stoppa bildspel"
 #: includes/jquery-colorbox-frontend.php:180
 msgid "{current} of {total} images"
 msgstr "{current} av {total} bilder"
+
+#: includes/jquery-colorbox-frontend.php:181
+msgid "This content failed to load."
+msgstr ""
+
+#: includes/jquery-colorbox-frontend.php:182
+msgid "This image failed to load."
+msgstr ""
 
 #: includes/settings-page.php:18
 #, php-format
@@ -192,8 +206,12 @@ msgstr "Starta bildspel automatiskt"
 
 #: includes/settings-page/sp-colorbox-settings.php:63
 #, php-format
-msgid "Start Slideshow automatically if slideshow functionality is added to %1$s Groups"
-msgstr "Starta bildspel automatiskt om bildspels funktionalitet för %1$s grupper är tillagt"
+msgid ""
+"Start Slideshow automatically if slideshow functionality is added to %1$s "
+"Groups"
+msgstr ""
+"Starta bildspel automatiskt om bildspels funktionalitet för %1$s grupper är "
+"tillagt"
 
 #: includes/settings-page/sp-colorbox-settings.php:68
 msgid "Speed of the slideshow"
@@ -221,8 +239,12 @@ msgid "Disable keys"
 msgstr "Inaktivera tangenter"
 
 #: includes/settings-page/sp-colorbox-settings.php:90
-msgid "Disable ESC to close Colorbox and arrow keys to go to next and previous images"
-msgstr "Inaktivera ESC för att stänga Colorbox och piltangenterna för nästa och föregående bilder"
+msgid ""
+"Disable ESC to close Colorbox and arrow keys to go to next and previous "
+"images"
+msgstr ""
+"Inaktivera ESC för att stänga Colorbox och piltangenterna för nästa och "
+"föregående bilder"
 
 #: includes/settings-page/sp-colorbox-settings.php:95
 msgid "Maximum width of an image"
@@ -239,8 +261,14 @@ msgid "Set maximum width of an image"
 msgstr "Ändra maximal bredd för en bild"
 
 #: includes/settings-page/sp-colorbox-settings.php:115
-msgid "Set the maximum width of the image in the Colorbox in relation to the browser window in percent or pixels. If maximum width is not set, image is as wide as the Colorbox"
-msgstr "Ändrar maximal bredd för en bild i Colorbox i relation till webbläsarens fönster, i procent och pixlar. Om maximal bredd inte är ändrad är bilden lika stor som Colorbox"
+msgid ""
+"Set the maximum width of the image in the Colorbox in relation to the "
+"browser window in percent or pixels. If maximum width is not set, image is "
+"as wide as the Colorbox"
+msgstr ""
+"Ändrar maximal bredd för en bild i Colorbox i relation till webbläsarens "
+"fönster, i procent och pixlar. Om maximal bredd inte är ändrad är bilden "
+"lika stor som Colorbox"
 
 #: includes/settings-page/sp-colorbox-settings.php:120
 msgid "Maximum height of an image"
@@ -257,8 +285,14 @@ msgid "Set maximum height of an image"
 msgstr "Ändra maximal höjd för en bild"
 
 #: includes/settings-page/sp-colorbox-settings.php:140
-msgid "Set the maximum height of the image in the Colorbox in relation to the browser window to a value in percent or pixels. If maximum height is not set, the image is as high as the Colorbox"
-msgstr "Ändrar maximal höjd för en bild i Colorbox i relation till webbläsarens fönster, i procent och pixlar. Om maximal höjd inte är ändrad är bilden lika stor som Colorbox"
+msgid ""
+"Set the maximum height of the image in the Colorbox in relation to the "
+"browser window to a value in percent or pixels. If maximum height is not "
+"set, the image is as high as the Colorbox"
+msgstr ""
+"Ändrar maximal höjd för en bild i Colorbox i relation till webbläsarens "
+"fönster, i procent och pixlar. Om maximal höjd inte är ändrad är bilden lika "
+"stor som Colorbox"
 
 #: includes/settings-page/sp-colorbox-settings.php:145
 msgid "Maximum width of the Colorbox"
@@ -271,8 +305,16 @@ msgstr "Ändra bredd för Colorbox"
 
 #: includes/settings-page/sp-colorbox-settings.php:165
 #: includes/settings-page/sp-colorbox-settings.php:215
-msgid "Set the maximum width of the Colorbox itself in relation to the browser window to a value between in percent or pixels. If the image is bigger than the colorbox, scrollbars are displayed. If width is not set, the Colorbox will be as wide as the picture in it"
-msgstr "Ändrar maximal bredd för Colorbox i relation till webbläsarens fönster, i procent och pixlar. Om bilden är större än Colorbox kommer rullningslist att visas. Om bredden inte är ändrad kommer Colorbox automatiskt anpassa sig efter bilden"
+msgid ""
+"Set the maximum width of the Colorbox itself in relation to the browser "
+"window to a value between in percent or pixels. If the image is bigger than "
+"the colorbox, scrollbars are displayed. If width is not set, the Colorbox "
+"will be as wide as the picture in it"
+msgstr ""
+"Ändrar maximal bredd för Colorbox i relation till webbläsarens fönster, i "
+"procent och pixlar. Om bilden är större än Colorbox kommer rullningslist att "
+"visas. Om bredden inte är ändrad kommer Colorbox automatiskt anpassa sig "
+"efter bilden"
 
 #: includes/settings-page/sp-colorbox-settings.php:170
 msgid "Maximum height of the Colorbox"
@@ -285,8 +327,16 @@ msgstr "Ändra höjd för Colorbox"
 
 #: includes/settings-page/sp-colorbox-settings.php:190
 #: includes/settings-page/sp-colorbox-settings.php:240
-msgid "Set the maximum height of the Colorbox itself in relation to the browser window to a value between in percent or pixels. If the image is bigger than the colorbox, scrollbars are displayed. If height is not set, the Colorbox will be as high as the picture in it"
-msgstr "Ändrar maximal höjd för Colorbox i relation till webbläsarens fönster, i procent och pixlar. Om bilden är större än Colorbox kommer rullningslist att visas. Om höjden inte är ändrad kommer Colorbox automatiskt anpassa sig efter bilden"
+msgid ""
+"Set the maximum height of the Colorbox itself in relation to the browser "
+"window to a value between in percent or pixels. If the image is bigger than "
+"the colorbox, scrollbars are displayed. If height is not set, the Colorbox "
+"will be as high as the picture in it"
+msgstr ""
+"Ändrar maximal höjd för Colorbox i relation till webbläsarens fönster, i "
+"procent och pixlar. Om bilden är större än Colorbox kommer rullningslist att "
+"visas. Om höjden inte är ändrad kommer Colorbox automatiskt anpassa sig "
+"efter bilden"
 
 #: includes/settings-page/sp-colorbox-settings.php:195
 #, fuzzy
@@ -323,15 +373,21 @@ msgid "Resize images"
 msgstr "Ändra storlek för bilder"
 
 #: includes/settings-page/sp-colorbox-settings.php:268
-msgid "If enabled and if maximum width of images, maximum height of images, width of the Colorbox, or height of the Colorbox have been defined, ColorBox will scale photos to fit within the those values"
-msgstr "Om aktiverad och om maximal bredd och höjd av bilder och Colorbox är definierade kommer Colorbox skala inom dessa värden"
+msgid ""
+"If enabled and if maximum width of images, maximum height of images, width "
+"of the Colorbox, or height of the Colorbox have been defined, ColorBox will "
+"scale photos to fit within the those values"
+msgstr ""
+"Om aktiverad och om maximal bredd och höjd av bilder och Colorbox är "
+"definierade kommer Colorbox skala inom dessa värden"
 
 #: includes/settings-page/sp-colorbox-settings.php:273
 msgid "Close Colorbox on overlay click"
 msgstr "Stäng Colorbox vid klick utanför bild"
 
 #: includes/settings-page/sp-colorbox-settings.php:278
-msgid "If checked, enables closing ColorBox by clicking on the background overlay"
+msgid ""
+"If checked, enables closing ColorBox by clicking on the background overlay"
 msgstr "Om markerad, aktiverar stängning av Colorbox via klickning utanför"
 
 #: includes/settings-page/sp-colorbox-settings.php:283
@@ -339,24 +395,34 @@ msgid "Preload images"
 msgstr "Förhandsladda bilder"
 
 #: includes/settings-page/sp-colorbox-settings.php:288
-msgid "Allows for preloading of \"next\" and \"previous\" content in a group, after the current content has finished loading. Uncheck box to disable."
-msgstr "Tillåter förhandsladdning av \"nästa\" och \"föregående\" innehåll i en grupp efter att nuvarande innehåll har laddats. Avmarkera boxen för att inaktivera."
+msgid ""
+"Allows for preloading of \"next\" and \"previous\" content in a group, after "
+"the current content has finished loading. Uncheck box to disable."
+msgstr ""
+"Tillåter förhandsladdning av \"nästa\" och \"föregående\" innehåll i en "
+"grupp efter att nuvarande innehåll har laddats. Avmarkera boxen för att "
+"inaktivera."
 
 #: includes/settings-page/sp-colorbox-settings.php:293
 msgid "Transition type"
 msgstr "Typ av övergång"
 
 #: includes/settings-page/sp-colorbox-settings.php:305
-msgid "The transition type of the Colorbox. Can be set to \"elastic\", \"fade\", or \"none\""
-msgstr "Typ av övergång för Colorbox. Kan vara \"elastisk\", \"tona\" eller \"inget\""
+msgid ""
+"The transition type of the Colorbox. Can be set to \"elastic\", \"fade\", or "
+"\"none\""
+msgstr ""
+"Typ av övergång för Colorbox. Kan vara \"elastisk\", \"tona\" eller \"inget\""
 
 #: includes/settings-page/sp-colorbox-settings.php:310
 msgid "Transition speed"
 msgstr "Övergångshastighet"
 
 #: includes/settings-page/sp-colorbox-settings.php:314
-msgid "Sets the speed of the \"fade\" and \"elastic\" transitions, in milliseconds"
-msgstr "Ändrar hastigheten för övergång av \"tona\" och \"elastisk\", i millieskunder"
+msgid ""
+"Sets the speed of the \"fade\" and \"elastic\" transitions, in milliseconds"
+msgstr ""
+"Ändrar hastigheten för övergång av \"tona\" och \"elastisk\", i millieskunder"
 
 #: includes/settings-page/sp-colorbox-settings.php:319
 msgid "Opacity"
@@ -378,15 +444,20 @@ msgstr "Återställ inställningar"
 
 #: includes/settings-page/sp-delete-settings.php:17
 msgid "Check the box and click this button to delete settings of this plugin."
-msgstr "Markera boxen och klicka för att återställ inställningarna för detta plugin."
+msgstr ""
+"Markera boxen och klicka för att återställ inställningarna för detta plugin."
 
 #: includes/settings-page/sp-donate-box.php:14
 msgid "Donate"
 msgstr "Donera"
 
 #: includes/settings-page/sp-donate-box.php:18
-msgid "If you would like to make a small (or large) contribution towards future development please consider making a donation."
-msgstr "Om du vill göra ett litet (eller stort) bidrag för framtida utveckling var god överväg en donering."
+msgid ""
+"If you would like to make a small (or large) contribution towards future "
+"development please consider making a donation."
+msgstr ""
+"Om du vill göra ett litet (eller stort) bidrag för framtida utveckling var "
+"god överväg en donering."
 
 #: includes/settings-page/sp-donate-box.php:20
 msgid "Donate using Paypal"
@@ -398,7 +469,9 @@ msgstr "Techotronic utvecklingssupport"
 
 #: includes/settings-page/sp-donate-box.php:28
 msgid "Please enter the URL you'd like me to link to in the donors lists"
-msgstr "Var god skriv in vilken URL du vill att jag ska länka till i listan för donatorer"
+msgstr ""
+"Var god skriv in vilken URL du vill att jag ska länka till i listan för "
+"donatorer"
 
 #: includes/settings-page/sp-donate-box.php:30
 msgid "Return to Your Dashboard"
@@ -449,8 +522,14 @@ msgid "Automate %1$s for all images in pages, posts and galleries"
 msgstr "Automatisera %1$s för bilder i WordPress biblioteket"
 
 #: includes/settings-page/sp-plugin-settings.php:25
-msgid "Automatically add colorbox-class to images in posts and pages. Also adds colorbox-class to galleries. Images in one page or post are grouped automatically."
-msgstr "Lägg automatiskt till colorbox-class för bilder i inlägg och sidor. Lägger även till colorbox-class till gallerier. Fler bilder i ett inlägg eller en sida läggs tillsammans automatiskt."
+msgid ""
+"Automatically add colorbox-class to images in posts and pages. Also adds "
+"colorbox-class to galleries. Images in one page or post are grouped "
+"automatically."
+msgstr ""
+"Lägg automatiskt till colorbox-class för bilder i inlägg och sidor. Lägger "
+"även till colorbox-class till gallerier. Fler bilder i ett inlägg eller en "
+"sida läggs tillsammans automatiskt."
 
 #: includes/settings-page/sp-plugin-settings.php:30
 #, fuzzy, php-format
@@ -458,8 +537,13 @@ msgid "Automate %1$s for images in WordPress galleries only"
 msgstr "Automatisera %1$s för bilder i WordPress biblioteket"
 
 #: includes/settings-page/sp-plugin-settings.php:35
-msgid "Automatically add colorbox-class to images in WordPress galleries, but nowhere else. Images in one page or post are grouped automatically."
-msgstr "Lägg automatiskt till colorbox-class för bilder i WordPress biblioteket men ingen annanstans. Fler bilder i ett inlägg eller en sida läggs tillsammans automatiskt."
+msgid ""
+"Automatically add colorbox-class to images in WordPress galleries, but "
+"nowhere else. Images in one page or post are grouped automatically."
+msgstr ""
+"Lägg automatiskt till colorbox-class för bilder i WordPress biblioteket men "
+"ingen annanstans. Fler bilder i ett inlägg eller en sida läggs tillsammans "
+"automatiskt."
 
 #: includes/settings-page/sp-plugin-settings.php:40
 #, fuzzy, php-format
@@ -467,7 +551,9 @@ msgid "Automate %1$s for all other images"
 msgstr "Automatisera %1$s för alla bilder"
 
 #: includes/settings-page/sp-plugin-settings.php:45
-msgid "Automatically add colorbox-class to all images that are not in posts and pages (e.g. the sidebar)."
+msgid ""
+"Automatically add colorbox-class to all images that are not in posts and "
+"pages (e.g. the sidebar)."
 msgstr ""
 
 #: includes/settings-page/sp-plugin-settings.php:50
@@ -476,7 +562,8 @@ msgid "Automate %1$s for all text links to images"
 msgstr "Automatisera %1$s för alla bilder"
 
 #: includes/settings-page/sp-plugin-settings.php:54
-msgid "Automatically add colorbox-link-class to all links that point to images."
+msgid ""
+"Automatically add colorbox-link-class to all links that point to images."
 msgstr ""
 
 #: includes/settings-page/sp-plugin-settings.php:59
@@ -501,7 +588,9 @@ msgstr ""
 
 #: includes/settings-page/sp-plugin-settings.php:88
 #, php-format
-msgid "Use jQuery library version %1$s from Google instead of the one that comes with WordPress."
+msgid ""
+"Use jQuery library version %1$s from Google instead of the one that comes "
+"with WordPress."
 msgstr ""
 
 #: includes/settings-page/sp-plugin-settings.php:94
@@ -525,7 +614,9 @@ msgid "Activate debug mode"
 msgstr ""
 
 #: includes/settings-page/sp-plugin-settings.php:118
-msgid "Adds debug information and non-minified JavaScript to the page. Useful for troubleshooting."
+msgid ""
+"Adds debug information and non-minified JavaScript to the page. Useful for "
+"troubleshooting."
 msgstr ""
 
 #: includes/settings-page/sp-plugin-settings.php:123
@@ -533,16 +624,24 @@ msgid "Disable warning"
 msgstr "Inaktivera varning"
 
 #: includes/settings-page/sp-plugin-settings.php:128
-msgid "Disables the warning that is displayed if the plugin is activated but the auto-colorbox feature for all images is turned off."
-msgstr "Inaktiverar varningen som visas om pluginet är aktiverat men funktionen auto-colorbox för alla bilder är avstängd."
+msgid ""
+"Disables the warning that is displayed if the plugin is activated but the "
+"auto-colorbox feature for all images is turned off."
+msgstr ""
+"Inaktiverar varningen som visas om pluginet är aktiverat men funktionen auto-"
+"colorbox för alla bilder är avstängd."
 
 #: includes/settings-page/sp-translation.php:14
 msgid "Translation"
 msgstr "Översättning"
 
 #: includes/settings-page/sp-translation.php:17
-msgid "The english translation was done by <a href=\"http://www.techotronic.de\">Arne Franken</a>."
-msgstr "Denna svenska översättning är gjord av <a href=\"http://www.theindiaexperience.se\">Christian Nilsson</a>."
+msgid ""
+"The english translation was done by <a href=\"http://www.techotronic.de"
+"\">Arne Franken</a>."
+msgstr ""
+"Denna svenska översättning är gjord av <a href=\"http://www."
+"theindiaexperience.se\">Christian Nilsson</a>."
 
 #~ msgid "Make images draggable"
 #~ msgstr "Gör bilderna dragbara"

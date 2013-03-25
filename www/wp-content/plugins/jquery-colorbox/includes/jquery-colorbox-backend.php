@@ -44,11 +44,10 @@ class JQueryColorboxBackend {
     //add Colorbox CSS class to TinyMCE dropdown box
     add_filter('mce_css', array(& $this, 'addColorboxLinkClass'), 100);
 
-    require_once 'donationloader.php';
-    $donationLoader = new JQueryColorboxDonationLoader();
-
-    //only load JavaScript if we are on this plugin's settingspage
+    //only instanciate donationloader and load JavaScript if we are on this plugin's settingspage
     if (isset($_GET['page']) && $_GET['page'] == JQUERYCOLORBOX_PLUGIN_BASENAME) {
+      require_once 'donationloader.php';
+      $donationLoader = new JQueryColorboxDonationLoader();
       add_action('admin_print_scripts', array(& $donationLoader, 'registerDonationJavaScript'));
     }
   }

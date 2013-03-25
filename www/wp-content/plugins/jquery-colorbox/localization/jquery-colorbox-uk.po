@@ -2,21 +2,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jQuery-Colorbox-Українська-версія\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-15 22:31+0100\n"
-"PO-Revision-Date: 2012-04-15 22:31+0100\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2012-09-23 21:31+0100\n"
+"PO-Revision-Date: 2012-09-23 21:31+0100\n"
+"Last-Translator: Arne Franken <blog@techotronic.de>\n"
 "Language-Team: ПіК - Політика і Культура <tekimorukiari@gmail.com>\n"
+"Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"X-Poedit-Language: Ukrainian\n"
 "X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: ..\n"
-"X-Poedit-Country: UKRAINE\n"
+"X-Generator: Poedit 1.5.3\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: jquery-colorbox.php:34
+#: jquery-colorbox.php:37
 msgid "jQuery Colorbox"
 msgstr ""
 
@@ -84,8 +83,7 @@ msgstr "Тема #15"
 msgid "percent"
 msgstr "процентів"
 
-#: jquery-colorbox.php:123
-#: includes/settings-page/sp-colorbox-settings.php:248
+#: jquery-colorbox.php:123 includes/settings-page/sp-colorbox-settings.php:248
 #: includes/settings-page/sp-colorbox-settings.php:257
 msgid "pixels"
 msgstr "пікселів"
@@ -102,31 +100,35 @@ msgstr "затухання"
 msgid "none"
 msgstr "відсутня"
 
-#: includes/jquery-colorbox-backend.php:85
+#: includes/jquery-colorbox-backend.php:84
 #, php-format
 msgid "Successfully updated %1$s settings."
 msgstr "Опції оновлено успішно %1$s"
 
-#: includes/jquery-colorbox-backend.php:87
+#: includes/jquery-colorbox-backend.php:86
 #, php-format
 msgid "%1$s settings were successfully deleted."
 msgstr "Налаштування %1$s вдало видалені"
 
-#: includes/jquery-colorbox-backend.php:112
+#: includes/jquery-colorbox-backend.php:111
 msgid "needs attention: the plugin is not activated to work for all images."
-msgstr "Увага: плаґін не налаштований на роботу з усіма зображеннями сайту (це можна змінити в налаштуваннях)."
+msgstr ""
+"Увага: плаґін не налаштований на роботу з усіма зображеннями сайту (це можна "
+"змінити в налаштуваннях)."
 
-#: includes/jquery-colorbox-backend.php:133
+#: includes/jquery-colorbox-backend.php:132
 msgid "Settings"
 msgstr "Налаштування"
 
-#: includes/jquery-colorbox-backend.php:155
+#: includes/jquery-colorbox-backend.php:154
 msgid "Did not update settings, you do not have the necessary rights."
 msgstr "Налаштування не оновлені. У Вас немає достатніх прав."
 
-#: includes/jquery-colorbox-backend.php:188
+#: includes/jquery-colorbox-backend.php:187
 #, php-format
-msgid "Did not delete %1$s settings. Either you dont have the nececssary rights or you didnt check the checkbox."
+msgid ""
+"Did not delete %1$s settings. Either you dont have the nececssary rights or "
+"you didnt check the checkbox."
 msgstr "%1$s не видалений. У вас немає достатніх прав."
 
 #: includes/jquery-colorbox-frontend.php:65
@@ -156,6 +158,14 @@ msgstr "Зупинити слайдшоу"
 #: includes/jquery-colorbox-frontend.php:180
 msgid "{current} of {total} images"
 msgstr "{current} з {total}"
+
+#: includes/jquery-colorbox-frontend.php:181
+msgid "This content failed to load."
+msgstr ""
+
+#: includes/jquery-colorbox-frontend.php:182
+msgid "This image failed to load."
+msgstr ""
 
 #: includes/settings-page.php:18
 #, php-format
@@ -193,8 +203,12 @@ msgstr "Запускати слайдшоу автоматично"
 
 #: includes/settings-page/sp-colorbox-settings.php:63
 #, php-format
-msgid "Start Slideshow automatically if slideshow functionality is added to %1$s Groups"
-msgstr "Запускає слайдшоу автоматично, якщо функціонал слайдшоу %1$s додано до зображень"
+msgid ""
+"Start Slideshow automatically if slideshow functionality is added to %1$s "
+"Groups"
+msgstr ""
+"Запускає слайдшоу автоматично, якщо функціонал слайдшоу %1$s додано до "
+"зображень"
 
 #: includes/settings-page/sp-colorbox-settings.php:68
 msgid "Speed of the slideshow"
@@ -222,7 +236,9 @@ msgid "Disable keys"
 msgstr ""
 
 #: includes/settings-page/sp-colorbox-settings.php:90
-msgid "Disable ESC to close Colorbox and arrow keys to go to next and previous images"
+msgid ""
+"Disable ESC to close Colorbox and arrow keys to go to next and previous "
+"images"
 msgstr ""
 
 #: includes/settings-page/sp-colorbox-settings.php:95
@@ -240,8 +256,14 @@ msgid "Set maximum width of an image"
 msgstr "Встановіть максимальну ширину зображення"
 
 #: includes/settings-page/sp-colorbox-settings.php:115
-msgid "Set the maximum width of the image in the Colorbox in relation to the browser window in percent or pixels. If maximum width is not set, image is as wide as the Colorbox"
-msgstr "Встановить максимальну ширину зображення ColorBox у співвідношенні з вікном браузера у відсотках або пікселях. Якщо ширина не встановлена, зображення буде на всю ширину ColorBox"
+msgid ""
+"Set the maximum width of the image in the Colorbox in relation to the "
+"browser window in percent or pixels. If maximum width is not set, image is "
+"as wide as the Colorbox"
+msgstr ""
+"Встановить максимальну ширину зображення ColorBox у співвідношенні з вікном "
+"браузера у відсотках або пікселях. Якщо ширина не встановлена, зображення "
+"буде на всю ширину ColorBox"
 
 #: includes/settings-page/sp-colorbox-settings.php:120
 msgid "Maximum height of an image"
@@ -258,8 +280,14 @@ msgid "Set maximum height of an image"
 msgstr "Встановити максимальну висоту зображення"
 
 #: includes/settings-page/sp-colorbox-settings.php:140
-msgid "Set the maximum height of the image in the Colorbox in relation to the browser window to a value in percent or pixels. If maximum height is not set, the image is as high as the Colorbox"
-msgstr "Встановить максимальну висоту зображення ColorBox в співвідношенні з вікном браузера у відсотках або пікселях. Якщо висота не встановлена, зображення буде на всю висоту ColorBox"
+msgid ""
+"Set the maximum height of the image in the Colorbox in relation to the "
+"browser window to a value in percent or pixels. If maximum height is not "
+"set, the image is as high as the Colorbox"
+msgstr ""
+"Встановить максимальну висоту зображення ColorBox в співвідношенні з вікном "
+"браузера у відсотках або пікселях. Якщо висота не встановлена, зображення "
+"буде на всю висоту ColorBox"
 
 #: includes/settings-page/sp-colorbox-settings.php:145
 msgid "Maximum width of the Colorbox"
@@ -272,8 +300,16 @@ msgstr "Встановіть ширину ColorBox"
 
 #: includes/settings-page/sp-colorbox-settings.php:165
 #: includes/settings-page/sp-colorbox-settings.php:215
-msgid "Set the maximum width of the Colorbox itself in relation to the browser window to a value between in percent or pixels. If the image is bigger than the colorbox, scrollbars are displayed. If width is not set, the Colorbox will be as wide as the picture in it"
-msgstr "Встановить максимальну ширину ColorBox в співвідношенні з вікном браузера в процентах або пікселях. Якщо зображення більше заданого розміру будуть показані смуги прокручування. Якщо ширина не встановлена, ColorBox буде підлаштовуватися під зображення."
+msgid ""
+"Set the maximum width of the Colorbox itself in relation to the browser "
+"window to a value between in percent or pixels. If the image is bigger than "
+"the colorbox, scrollbars are displayed. If width is not set, the Colorbox "
+"will be as wide as the picture in it"
+msgstr ""
+"Встановить максимальну ширину ColorBox в співвідношенні з вікном браузера в "
+"процентах або пікселях. Якщо зображення більше заданого розміру будуть "
+"показані смуги прокручування. Якщо ширина не встановлена, ColorBox буде "
+"підлаштовуватися під зображення."
 
 #: includes/settings-page/sp-colorbox-settings.php:170
 msgid "Maximum height of the Colorbox"
@@ -286,8 +322,16 @@ msgstr "Встановіть висоту ColorBox"
 
 #: includes/settings-page/sp-colorbox-settings.php:190
 #: includes/settings-page/sp-colorbox-settings.php:240
-msgid "Set the maximum height of the Colorbox itself in relation to the browser window to a value between in percent or pixels. If the image is bigger than the colorbox, scrollbars are displayed. If height is not set, the Colorbox will be as high as the picture in it"
-msgstr "Встановить висоту ColorBox в співвідношенні з вікном браузера в процентах або пікселях. Якщо зображення більше заданого розміру будуть показані смуги прокручування. Якщо висота не встановлена, ColorBox буде підлаштовуватися під зображення."
+msgid ""
+"Set the maximum height of the Colorbox itself in relation to the browser "
+"window to a value between in percent or pixels. If the image is bigger than "
+"the colorbox, scrollbars are displayed. If height is not set, the Colorbox "
+"will be as high as the picture in it"
+msgstr ""
+"Встановить висоту ColorBox в співвідношенні з вікном браузера в процентах "
+"або пікселях. Якщо зображення більше заданого розміру будуть показані смуги "
+"прокручування. Якщо висота не встановлена, ColorBox буде підлаштовуватися "
+"під зображення."
 
 #: includes/settings-page/sp-colorbox-settings.php:195
 msgid "Maximum width of the Colorbox used for links"
@@ -318,40 +362,57 @@ msgid "Resize images"
 msgstr "Змінювати розмір зображень"
 
 #: includes/settings-page/sp-colorbox-settings.php:268
-msgid "If enabled and if maximum width of images, maximum height of images, width of the Colorbox, or height of the Colorbox have been defined, ColorBox will scale photos to fit within the those values"
-msgstr "Якщо увімкнено один з параметрів не відповідає налаштуванням ширини та висоти, ColorBox автоматично змінить зображення до необхідного розміру"
+msgid ""
+"If enabled and if maximum width of images, maximum height of images, width "
+"of the Colorbox, or height of the Colorbox have been defined, ColorBox will "
+"scale photos to fit within the those values"
+msgstr ""
+"Якщо увімкнено один з параметрів не відповідає налаштуванням ширини та "
+"висоти, ColorBox автоматично змінить зображення до необхідного розміру"
 
 #: includes/settings-page/sp-colorbox-settings.php:273
 msgid "Close Colorbox on overlay click"
 msgstr "Закривати ColorBox при натисканні на фоні ColorBox"
 
 #: includes/settings-page/sp-colorbox-settings.php:278
-msgid "If checked, enables closing ColorBox by clicking on the background overlay"
-msgstr "Якщо активовано, ColorBox буде закриватися при натисканні на фоні ColorBox"
+msgid ""
+"If checked, enables closing ColorBox by clicking on the background overlay"
+msgstr ""
+"Якщо активовано, ColorBox буде закриватися при натисканні на фоні ColorBox"
 
 #: includes/settings-page/sp-colorbox-settings.php:283
 msgid "Preload images"
 msgstr "Довантажувати зображення"
 
 #: includes/settings-page/sp-colorbox-settings.php:288
-msgid "Allows for preloading of \"next\" and \"previous\" content in a group, after the current content has finished loading. Uncheck box to disable."
-msgstr "Довантажує наступне і попереднє зображення, після завантаження поточного. Зніміть галочку для відключення цієї функції."
+msgid ""
+"Allows for preloading of \"next\" and \"previous\" content in a group, after "
+"the current content has finished loading. Uncheck box to disable."
+msgstr ""
+"Довантажує наступне і попереднє зображення, після завантаження поточного. "
+"Зніміть галочку для відключення цієї функції."
 
 #: includes/settings-page/sp-colorbox-settings.php:293
 msgid "Transition type"
 msgstr "Тип переходу"
 
 #: includes/settings-page/sp-colorbox-settings.php:305
-msgid "The transition type of the Colorbox. Can be set to \"elastic\", \"fade\", or \"none\""
-msgstr "Тип переходів ColorBox може бути встановлений на \"гнучкий\", \"затухання\", або \"відсутній\""
+msgid ""
+"The transition type of the Colorbox. Can be set to \"elastic\", \"fade\", or "
+"\"none\""
+msgstr ""
+"Тип переходів ColorBox може бути встановлений на \"гнучкий\", \"затухання\", "
+"або \"відсутній\""
 
 #: includes/settings-page/sp-colorbox-settings.php:310
 msgid "Transition speed"
 msgstr "Швидкість переходу"
 
 #: includes/settings-page/sp-colorbox-settings.php:314
-msgid "Sets the speed of the \"fade\" and \"elastic\" transitions, in milliseconds"
-msgstr "Встановлює швидкість \"затухаючого\" і \"гнучкого\" переходів в мілісекундах"
+msgid ""
+"Sets the speed of the \"fade\" and \"elastic\" transitions, in milliseconds"
+msgstr ""
+"Встановлює швидкість \"затухаючого\" і \"гнучкого\" переходів в мілісекундах"
 
 #: includes/settings-page/sp-colorbox-settings.php:319
 msgid "Opacity"
@@ -373,15 +434,21 @@ msgstr "Видалити налаштування"
 
 #: includes/settings-page/sp-delete-settings.php:17
 msgid "Check the box and click this button to delete settings of this plugin."
-msgstr "Поставте галочку й натисніть на кнопку, щоб видалити всі налаштування ColorBox"
+msgstr ""
+"Поставте галочку й натисніть на кнопку, щоб видалити всі налаштування "
+"ColorBox"
 
 #: includes/settings-page/sp-donate-box.php:14
 msgid "Donate"
 msgstr "Пожертвувати"
 
 #: includes/settings-page/sp-donate-box.php:18
-msgid "If you would like to make a small (or large) contribution towards future development please consider making a donation."
-msgstr "Якщо вам сподобався плаґін і ви хочете допомогти в розробці нових версій, будь ласка, зробіть пожертву."
+msgid ""
+"If you would like to make a small (or large) contribution towards future "
+"development please consider making a donation."
+msgstr ""
+"Якщо вам сподобався плаґін і ви хочете допомогти в розробці нових версій, "
+"будь ласка, зробіть пожертву."
 
 #: includes/settings-page/sp-donate-box.php:20
 msgid "Donate using Paypal"
@@ -440,11 +507,19 @@ msgstr "Опції плаґіну"
 #: includes/settings-page/sp-plugin-settings.php:20
 #, php-format
 msgid "Automate %1$s for all images in pages, posts and galleries"
-msgstr "Автоматично застосовувати %1$s для усіх зображень на сторінках, публікаціях і галереях"
+msgstr ""
+"Автоматично застосовувати %1$s для усіх зображень на сторінках, публікаціях "
+"і галереях"
 
 #: includes/settings-page/sp-plugin-settings.php:25
-msgid "Automatically add colorbox-class to images in posts and pages. Also adds colorbox-class to galleries. Images in one page or post are grouped automatically."
-msgstr "Автоматично застосовується стиль ColorBox до зображень в публікаціях та на сторінках. Також застосувати ColorBox до галерей. Зображення на сторінці або у публікації групуються автоматично."
+msgid ""
+"Automatically add colorbox-class to images in posts and pages. Also adds "
+"colorbox-class to galleries. Images in one page or post are grouped "
+"automatically."
+msgstr ""
+"Автоматично застосовується стиль ColorBox до зображень в публікаціях та на "
+"сторінках. Також застосувати ColorBox до галерей. Зображення на сторінці або "
+"у публікації групуються автоматично."
 
 #: includes/settings-page/sp-plugin-settings.php:30
 #, php-format
@@ -452,8 +527,12 @@ msgid "Automate %1$s for images in WordPress galleries only"
 msgstr "Автоматично застосовувати %1$s лише для зображень у галереях Wordpress"
 
 #: includes/settings-page/sp-plugin-settings.php:35
-msgid "Automatically add colorbox-class to images in WordPress galleries, but nowhere else. Images in one page or post are grouped automatically."
-msgstr "Автоматично застосовується ColorBox до зображень всередині галерей, але ніде більше. Зображення на сторінці або в публікації групуються автоматично."
+msgid ""
+"Automatically add colorbox-class to images in WordPress galleries, but "
+"nowhere else. Images in one page or post are grouped automatically."
+msgstr ""
+"Автоматично застосовується ColorBox до зображень всередині галерей, але ніде "
+"більше. Зображення на сторінці або в публікації групуються автоматично."
 
 #: includes/settings-page/sp-plugin-settings.php:40
 #, php-format
@@ -461,17 +540,23 @@ msgid "Automate %1$s for all other images"
 msgstr "Автоматично застосовувати %1$s для всіх інших зображень"
 
 #: includes/settings-page/sp-plugin-settings.php:45
-msgid "Automatically add colorbox-class to all images that are not in posts and pages (e.g. the sidebar)."
+msgid ""
+"Automatically add colorbox-class to all images that are not in posts and "
+"pages (e.g. the sidebar)."
 msgstr ""
 
 #: includes/settings-page/sp-plugin-settings.php:50
 #, php-format
 msgid "Automate %1$s for all text links to images"
-msgstr "Автоматично застосовувати %1$s для всіх текстових посилань на зображення"
+msgstr ""
+"Автоматично застосовувати %1$s для всіх текстових посилань на зображення"
 
 #: includes/settings-page/sp-plugin-settings.php:54
-msgid "Automatically add colorbox-link-class to all links that point to images."
-msgstr "Автоматично додати css-клас «colorbox-link-class» до всіх посилань, які ведуть на зображення"
+msgid ""
+"Automatically add colorbox-link-class to all links that point to images."
+msgstr ""
+"Автоматично додати css-клас «colorbox-link-class» до всіх посилань, які "
+"ведуть на зображення"
 
 #: includes/settings-page/sp-plugin-settings.php:59
 msgid "Automate hiding of flash objects"
@@ -479,7 +564,9 @@ msgstr "Автоматично ховати flash-об'єкти"
 
 #: includes/settings-page/sp-plugin-settings.php:64
 msgid "Automatically hide embeded flash objects behind the Colorbox layer."
-msgstr "Автоматично ховає flash-об'єкти за шаром ColorBox. Працює за допомогою перемикання параметру wmode в режим прозорості."
+msgstr ""
+"Автоматично ховає flash-об'єкти за шаром ColorBox. Працює за допомогою "
+"перемикання параметру wmode в режим прозорості."
 
 #: includes/settings-page/sp-plugin-settings.php:70
 msgid "Add Zoom overlay to pictures"
@@ -495,7 +582,9 @@ msgstr ""
 
 #: includes/settings-page/sp-plugin-settings.php:88
 #, php-format
-msgid "Use jQuery library version %1$s from Google instead of the one that comes with WordPress."
+msgid ""
+"Use jQuery library version %1$s from Google instead of the one that comes "
+"with WordPress."
 msgstr ""
 
 #: includes/settings-page/sp-plugin-settings.php:94
@@ -519,23 +608,33 @@ msgid "Activate debug mode"
 msgstr "Активувати режим відлагодження"
 
 #: includes/settings-page/sp-plugin-settings.php:118
-msgid "Adds debug information and non-minified JavaScript to the page. Useful for troubleshooting."
-msgstr "Додає технічну інформацію інформацію та не мінімізує JavaScript. Корисно для усунення неполадок"
+msgid ""
+"Adds debug information and non-minified JavaScript to the page. Useful for "
+"troubleshooting."
+msgstr ""
+"Додає технічну інформацію інформацію та не мінімізує JavaScript. Корисно для "
+"усунення неполадок"
 
 #: includes/settings-page/sp-plugin-settings.php:123
 msgid "Disable warning"
 msgstr "Відключити попередження"
 
 #: includes/settings-page/sp-plugin-settings.php:128
-msgid "Disables the warning that is displayed if the plugin is activated but the auto-colorbox feature for all images is turned off."
-msgstr "Відключає попередження, які показуються, коли ColorBox активований, але функція автоматичної заміни всіх зображень відключена."
+msgid ""
+"Disables the warning that is displayed if the plugin is activated but the "
+"auto-colorbox feature for all images is turned off."
+msgstr ""
+"Відключає попередження, які показуються, коли ColorBox активований, але "
+"функція автоматичної заміни всіх зображень відключена."
 
 #: includes/settings-page/sp-translation.php:14
 msgid "Translation"
 msgstr "Переклад"
 
 #: includes/settings-page/sp-translation.php:17
-msgid "The english translation was done by <a href=\"http://www.techotronic.de\">Arne Franken</a>."
+msgid ""
+"The english translation was done by <a href=\"http://www.techotronic.de"
+"\">Arne Franken</a>."
 msgstr "Українською мовою переклали Юрій Крижанівський та Юрко Червоний."
 
 #~ msgid "maxWidth"

@@ -4,7 +4,7 @@ Donate link: http://www.techotronic.de/donate/
 Tags: jquery, colorbox, lightbox, images, pictures, photos, gallery, javascript, overlay, nextgen gallery, nextgen-gallery, image, picture, photo, media, slideshow, ngg, mu  
 Requires at least: 2.8  
 Tested up to: 3.4
-Stable tag: 4.4.1
+Stable tag: 4.6
 
 Adds Colorbox/Lightbox functionality to images, grouped by post or page. Works for WordPress and NextGEN galleries. Comes with different themes.
 
@@ -33,6 +33,8 @@ If you have questions or problems, feel free to write an entry at [the jQuery Co
 * Arabic (`ar`) by [Modar Soos](http://www.photokeens.com)
 * Belorussian (`be_BY`) Marcis G.
 * Bosnian (`bs_BA`) by Vedran Jurincic
+* Bulgarian (`bg_BG`) by [Nikolay Zaynelov](http://nikolay.zaynelov.com)
+* Czech (`cs_CZ`) by David Weis
 * Simplified Chinese (`zh_CN`) by [Lucas Ho](http://tech.yiandya.com/)
 * Danish (`da_DK`) by Michael Bering Petersen
 * Dutch (`nl_NL`) by [Richard van Laak](http://nl.linkedin.com/pub/richard-laak/b/b21/672)
@@ -48,7 +50,7 @@ If you have questions or problems, feel free to write an entry at [the jQuery Co
 * Portuguese (`pt_BR`) by [Gervásio Antônio](http://twitter.com/gervasioantonio)
 * Romanian (`ro_RO`) by Luke Tyler
 * Russian (`ru_RU`) by Arkadiy Florinskiy
-* Slovak (`sk_SK`) by Stefan Stieranka
+* Slovak (`sk_SK`) by B. Radenovich
 * Spanish (`es_ES`) by Inma P.-Zubizarreta
 * Swedish (`sv_SE`) by [Christian](http://www.theindiaexperience.se/)
 * Turkish (`tr_TR`) by [Serhat Yolaçan](http://www.serhatyolacan.com/)
@@ -60,7 +62,7 @@ Translating the plugin is easy if you understand english and are fluent in anoth
 I described in the [FAQ](http://wordpress.org/extend/plugins/jquery-colorbox/faq/) how the translation works.
 
 **Credits**  
-Includes [ColorBox](http://jacklmoore.com/colorbox/) 1.3.19 jQuery plugin from Jack Moore.  
+Includes [ColorBox](http://jacklmoore.com/colorbox/) 1.3.20.1 jQuery plugin from Jack Moore.
 The picture I used for the screenshots was designed by [Davide Vicariotto](http://wallpapers.vintage.it/)
 
 == Installation ==
@@ -138,6 +140,19 @@ Do not forget to activate auto Colorbox if you want the Lightbox/Colorbox to wor
   I'll include new FAQs in newer versions.
 
 == Changelog ==
+### 4.6 (2012-01-21) ###
+* NEW: Czech translation by David Weis
+* CHANGE: Update of the Slovak translation by B. Radenovich
+* CHANGE: update Colorbox version to 1.3.21
+* CHANGE: update jQuery version to 1.9.0 (if selected on settings page)
+
+### 4.5 (2012-11-03) ###
+* NEW: Bulgarian translation by Nikolay Zaynelov
+* BUGFIX: Zoom overlay does not break floating images any more
+* BUGFIX: add CSS class to WP galleries if "add to all" is selected and the gallery is outside of the text area of a post and page
+* CHANGE: update Colorbox version to 1.3.20.1
+* CHANGE: update jQuery version to 1.8.2 (if selected on settings page)
+
 ### 4.4.1 (2012-07-19) ###
 * BUGFIX: using colorbox-link works again
 
