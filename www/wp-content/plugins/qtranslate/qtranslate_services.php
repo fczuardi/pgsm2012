@@ -261,7 +261,7 @@ function qs_cleanup($var, $action) {
 	}
 	if(isset($var['error']) && $var['error'] == QS_DEBUG) {
 		echo "<pre>Debug message received from Server: \n";
-    // var_dump($var['message']);
+		var_dump($var['message']);
 		echo "</pre>";
 	}
 	return $var;

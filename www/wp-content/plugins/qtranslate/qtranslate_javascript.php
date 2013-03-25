@@ -214,15 +214,6 @@ function qtrans_initJS() {
 		}
 		";
 		
-	$q_config['js']['qtrans_disable_old_editor'] = "
-		var waitForTinyMCE = window.setInterval(function() {
-				if(typeof(tinyMCE) !== 'undefined' && typeof(tinyMCE.get2) == 'function' && tinyMCE.get2('content')!=undefined) {
-					tinyMCE.get2('content').remove();
-					window.clearInterval(waitForTinyMCE);
-				}
-			}, 250);
-		";
-		
 	$q_config['js']['qtrans_tinyMCEOverload'] = "
 		tinyMCE.get2 = tinyMCE.get;
 		tinyMCE.get = function(id) {
@@ -251,23 +242,10 @@ function qtrans_initJS() {
 			}
 			// remove hook so tinymce doesn't load for content
 			var hook = tinyMCEPreInit.mceInit['content']
-			hook.elements='qtrans_textarea_content';
+			hook.elements='hook-to-nothing';
 			delete tinyMCEPreInit.mceInit['content'];
 			tinyMCEPreInit.mceInit['qtrans_textarea_content'] = hook;
 			
-			// fix html for tinymce
-			if('html' != getUserSetting( 'editor' )) {
-				var ta = document.getElementById('content');
-				var texts = qtrans_split(ta.value);
-				var content = '';
-	";
-	foreach($q_config['enabled_languages'] as $language)
-		$q_config['js']['qtrans_wpOnload'].= "
-				content = qtrans_integrate('".$language."', switchEditors.wpautop(texts['".$language."']), content);
-			";
-	$q_config['js']['qtrans_wpOnload'].= "
-				ta.value = content;
-			}
 			if(typeof(wpOnload2)=='function') wpOnload2();
 		}
 		
@@ -283,16 +261,20 @@ function qtrans_initJS() {
 			jQuery('#qtrans_imsg').hide();
 			qtrans_editorInit3();
 			
-			var h = wpCookies.getHash('TinyMCE_content_size');
+			var h = getUserSetting( 'ed_size' );
+			if(h<300) h = 300;
 			
 			jQuery('#content').hide();
 			if ( getUserSetting( 'editor' ) == 'html' ) {
 				if ( h )
-					jQuery('#qtrans_textarea_content').css('height', h.ch - 20 + 'px');
+					jQuery('#qtrans_textarea_content').css('height', h - 20 + 'px');
 				jQuery('#qtrans_textarea_content').show();
 			} else {
 				// Activate TinyMCE if it's the user's default editor
 				jQuery('#qtrans_textarea_content').show();
+				// correct p for tinymce
+				jQuery('#qtrans_textarea_content').val(switchEditors.wpautop(jQuery('#qtrans_textarea_content').val()))
+				// let wp3.5 autohook take care of init
 				qtrans_hook_on_tinyMCE('qtrans_textarea_content');
 			}
 		}
@@ -302,7 +284,9 @@ function qtrans_initJS() {
 		qtrans_hook_on_tinyMCE = function(id) {
 			tinyMCEPreInit.mceInit[id].setup = function(ed) {
 				ed.onSaveContent.add(function(ed, o) {
-					qtrans_save(switchEditors.pre_wpautop(o.content));
+					if (!ed.isHidden())  {
+						qtrans_save(switchEditors.pre_wpautop(o.content));
+					}
 				});
 			};
 			ed = new tinymce.Editor(id, tinyMCEPreInit.mceInit[id]);
